@@ -3,3 +3,4 @@ main.spec
 tmp/
 src/py/
 node_modules/
+examples/
