@@ -1,0 +1,6 @@
+lib/
+node_modules/
+tmp/
+src/py/__pycache__/
+main.spec
+set.json

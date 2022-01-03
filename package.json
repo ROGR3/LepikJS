@@ -1,0 +1,27 @@
+{
+  "name": "lepikjs",
+  "version": "1.0.0",
+  "description": "Global Keyboard and Mouse Desktop Automation",
+  "main": "./index.js",
+  "scripts": {
+    "build:py": "pyinstaller --onefile ./src/py/main.py --distpath ./lib/py --workpath ./tmp -y"
+  },
+  "keywords": [
+    "mouse",
+    "keyboard",
+    "events",
+    "globalevents",
+    "desktop",
+    "lepikjs",
+    "autohotkey",
+    "python",
+    "automation"
+  ],
+  "author": "borecjeborec1",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "eventemitter2": "^6.4.5",
+    "lepikevents": "^1.0.8"
+  }
+}

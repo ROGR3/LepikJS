@@ -1,0 +1,101 @@
+const { execSync } = require("child_process");
+const lepikEvents = require("lepikevents");
+require("colors")
+class Lepik {
+    #pyCommand = "";
+    constructor({ _path }) {
+        this._pyPath = _path;
+    }
+    mouseMove(x, y, a = false, d = 0.2) {
+        this.#changeCurrent(`mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
+        this.#rfc();
+    }
+    mouseDoubleClick(key) {
+        this.mouseClick(key, 2)
+    }
+    mouseClick(key = "left", am = 1) {
+        key = key.toLowerCase();
+        am = Math.abs(am)
+        this.#changeCurrent(`mouseClick('${key}',${am})`);
+        return this.#rfc();
+    }
+    mouseDrag(fx = 0, fy = 0, tx = 10, ty = 10, a = false, d = 0.2) {
+        this.#changeCurrent(`mouseDrag(${fx},${fy},${tx},${ty},${a ? "True" : "False"},${d})`);
+        this.#rfc();
+    }
+    mouseScroll(am = 1) {
+        this.#changeCurrent(`mouseScroll(${am})`);
+        this.#rfc();
+    }
+    getMousePosition() {
+        let posBrack = this.#rfc(`getMousePosition()`);
+        let arr = JSON.parse(posBrack);
+        let pos = { x: arr[0], y: arr[1] };
+        return pos
+    }
+    // isPressed(key) {
+    //     let isPressed = this.#rfc(`isPressed('${key}')`).replace("\n", "");
+    //     return isPressed;
+    // }
+    log(msg = "Hello from LepikJS!") {
+        let arSending = msg.split(" ");
+        for (let i = 0; i < arSending.length; i++) {
+            arSending[i] = '\\"' + arSending[i] + '\\"';
+        }
+        let logpy = this.#rfc(`log([${arSending}])`);
+        console.log(logpy.replace("\n", ""));
+    }
+
+    keyTap(key) {
+        this.#changeCurrent(`keyTap('${key}')`);
+        this.#rfc();
+    }
+    write(msg, d = 0.1) {
+        let arSending = msg.split(" ");
+        for (let i = 0; i < arSending.length; i++) {
+            arSending[i] = '\\"' + arSending[i] + '\\"';
+        }
+        console.log(`write([${arSending}],${d})`)
+        this.#changeCurrent(`write([${arSending}],${d})`);
+        this.#rfc()
+    }
+
+    on(ev, cb) {
+        switch (ev) {
+            case "keyRelease":
+                lepikEvents.events.on("keyRelease", data => {
+                    cb(data)
+                })
+                break;
+            // case "keyPressed":
+            //     lepikEvents.events.on("key.press", data => {
+            //         cb(data.toString().replace(" ", ""))
+            //     })
+            //     break;
+            case "mouseClick":
+                lepikEvents.events.on("mouseClick", data => {
+                    cb({ x: data[0], y: data[1], button: data[2] })
+                })
+                break;
+        }
+    }
+
+    #tupleOf(tuple) {
+        return JSON.parse(tuple.toString().replace(" ", "").replace("(", "[").replace(")", "]"));
+    }
+    #rfc(args = this.#pyCommand) {
+        let res = execSync(`"${this._pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
+        return res
+    }
+    #rfcDebug(args = this.#pyCommand) {
+        console.log("Debug mode is ON".green)
+        let res = execSync(`python ${require("../../set.json").debugPath} ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
+        return res
+    }
+    #changeCurrent(cmd) {
+        this.#pyCommand = cmd;
+    }
+}
+
+
+exports.default = Lepik;
