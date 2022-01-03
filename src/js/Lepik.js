@@ -1,5 +1,4 @@
 const { execSync } = require("child_process");
-require("colors")
 class Lepik {
     #pyCommand = "";
     constructor({ _path }) {
@@ -85,7 +84,7 @@ class Lepik {
         return res
     }
     #rfcDebug(args = this.#pyCommand) {
-        console.log("Debug mode is ON".green)
+        console.log("Debug mode is ON")
         let res = execSync(`python ${require("../../set.json").debugPath} ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
         return res
     }
