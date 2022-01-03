@@ -75,4 +75,5 @@ PS: Currently having some problems with Linux/MacOS. It's not working for now.
 
 
 ## License
-The code is licensed under the MIT license (http://opensource.org/licenses/MIT). See LICENSE file.
+LepikJS is freely distributable under the terms of the [MIT license](http://opensource.org/licenses/MIT). 
+See LICENSE.md
