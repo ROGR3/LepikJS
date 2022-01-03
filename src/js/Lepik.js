@@ -6,7 +6,7 @@ class Lepik {
     constructor({ _path }) {
         this._pyPath = _path;
     }
-    mouseMove(x, y, a = false, d = 0.2) {
+    mouseMove(x = 0, y = 0, a = false, d = 0.2) {
         this.#changeCurrent(`mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
         this.#rfc();
     }
@@ -46,11 +46,11 @@ class Lepik {
         console.log(logpy.replace("\n", ""));
     }
 
-    keyTap(key) {
+    keyTap(key = "a") {
         this.#changeCurrent(`keyTap('${key}')`);
         this.#rfc();
     }
-    write(msg, d = 0.1) {
+    write(msg = "Hello From LepikJS", d = 0.1) {
         let arSending = msg.split(" ");
         for (let i = 0; i < arSending.length; i++) {
             arSending[i] = '\\"' + arSending[i] + '\\"';
@@ -80,9 +80,6 @@ class Lepik {
         }
     }
 
-    #tupleOf(tuple) {
-        return JSON.parse(tuple.toString().replace(" ", "").replace("(", "[").replace(")", "]"));
-    }
     #rfc(args = this.#pyCommand) {
         let res = execSync(`"${this._pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
         return res
