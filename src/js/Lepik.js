@@ -1,5 +1,4 @@
 const { execSync } = require("child_process");
-const lepikEvents = require("lepikevents");
 require("colors")
 class Lepik {
     #pyCommand = "";
@@ -61,6 +60,7 @@ class Lepik {
     }
 
     on(ev, cb) {
+        const lepikEvents = require("lepikevents");
         switch (ev) {
             case "keyRelease":
                 lepikEvents.events.on("keyRelease", data => {
