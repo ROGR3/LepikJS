@@ -1,5 +1,5 @@
 set.json
-main.spec
+*.spec
 tmp/
 src/py/
 node_modules/

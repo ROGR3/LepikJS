@@ -1,6 +1,7 @@
+build/
 lib/
 node_modules/
 tmp/
 src/py/__pycache__/
-main.spec
+*.spec
 set.json
