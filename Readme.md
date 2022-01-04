@@ -71,7 +71,6 @@ LepikJS uses [Python keyboard](https://github.com/boppreh/keyboard) and [Python 
 
 If your are on Windows, then you don't even have to have it installed, cause thanks to [Pyinstaller](https://github.com/pyinstaller/pyinstaller), the code is compiled into executable.
 
-PS: Currently having some problems with Linux/MacOS. It's not working for now.
 
 
 ## License

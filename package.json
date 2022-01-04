@@ -4,7 +4,7 @@
   "description": "Global Keyboard and Mouse Desktop Automation",
   "main": "./index.js",
   "scripts": {
-    "build:py": "pyinstaller --onefile ./src/py/main.py --distpath ./lib/py --workpath ./tmp -y"
+    "build:py": "pyinstaller --onefile ./src/py/main.py --distpath ./build --workpath ./tmp -y"
   },
   "keywords": [
     "mouse",

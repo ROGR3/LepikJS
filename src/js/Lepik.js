@@ -1,8 +1,9 @@
 const { execSync } = require("child_process");
 class Lepik {
     #pyCommand = "";
-    constructor({ _path }) {
+    constructor({ _path, isWin }) {
         this._pyPath = _path;
+        this._isWin = isWin;
     }
     mouseMove(x = 0, y = 0, a = false, d = 0.2) {
         this.#changeCurrent(`mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
@@ -80,7 +81,7 @@ class Lepik {
     }
 
     #rfc(args = this.#pyCommand) {
-        let res = execSync(`"${this._pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
+        let res = this._isWin ? execSync(`"${this._pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 }) : execSync(`python ${this._pyPath} ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
         return res
     }
     #rfcDebug(args = this.#pyCommand) {
