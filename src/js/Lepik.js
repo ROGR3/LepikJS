@@ -81,7 +81,7 @@ class Lepik {
     }
 
     #rfc(args = this.#pyCommand) {
-        let res = this._isWin ? execSync(`"${this._pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 }) : execSync(`python ${this._pyPath} ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
+        let res = this._isWin ? execSync(`"${this._pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 }) : execSync(`sudo python ${this._pyPath} "${args}"`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
         return res
     }
     #rfcDebug(args = this.#pyCommand) {
