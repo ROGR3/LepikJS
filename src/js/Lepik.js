@@ -62,8 +62,8 @@ class Lepik {
     on(ev, cb) {
         const lepikEvents = require("lepikevents");
         switch (ev) {
-            case "keyRelease":
-                lepikEvents.events.on("keyRelease", data => {
+            case "keyPress":
+                lepikEvents.events.on("keyPress", data => {
                     cb(data)
                 })
                 break;
