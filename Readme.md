@@ -55,8 +55,8 @@ lepik.write(string, duration)
 lepik.on("mouseClick",(data)=>{
   console.log(data) // { x: 753, y: 241, button: 1 }
 })
-lepik.on("keyRelease",(data)=>{
-  console.log(data) // Returns key released
+lepik.on("keyPress",(data)=>{
+  console.log(data) // Returns key pressed
 })
 
 // Test
