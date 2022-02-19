@@ -14,4 +14,5 @@ def stringilize(arr: tuple) -> str:
     return string
 
 
-eval(sys.argv[0])
+for i in range(len(sys.argv)):
+    eval(sys.argv[i])

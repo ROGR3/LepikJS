@@ -1,13 +1,15 @@
-const { execSync } = require("child_process");
+const { execSync, exec } = require("child_process");
+
 class Lepik {
     #pyCommand = "";
     constructor({ _path, isWin }) {
         this._pyPath = _path;
         this._isWin = isWin;
+        this.safeMode = true;
     }
     mouseMove(x = 0, y = 0, a = false, d = 0.2) {
         this.#changeCurrent(`mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
-        this.#rfc();
+        if (this.safeMode) this.#rfc()
     }
     mouseDoubleClick(key) {
         this.mouseClick(key, 2)
@@ -16,15 +18,15 @@ class Lepik {
         key = key.toLowerCase();
         am = Math.abs(am)
         this.#changeCurrent(`mouseClick('${key}',${am})`);
-        return this.#rfc();
+        if (this.safeMode) return this.#rfc()
     }
     mouseDrag(fx = 0, fy = 0, tx = 10, ty = 10, a = false, d = 0.2) {
         this.#changeCurrent(`mouseDrag(${fx},${fy},${tx},${ty},${a ? "True" : "False"},${d})`);
-        this.#rfc();
+        if (this.safeMode) this.#rfc()
     }
     mouseScroll(am = 1) {
         this.#changeCurrent(`mouseScroll(${am})`);
-        this.#rfc();
+        if (this.safeMode) this.#rfc()
     }
     getMousePosition() {
         let posBrack = this.#rfc(`getMousePosition()`);
@@ -47,7 +49,7 @@ class Lepik {
 
     keyTap(key = "a") {
         this.#changeCurrent(`keyTap('${key}')`);
-        this.#rfc();
+        if (this.safeMode) this.#rfc()
     }
     write(msg = "Hello From LepikJS", d = 0.1) {
         let arSending = msg.split(" ");
@@ -56,7 +58,7 @@ class Lepik {
         }
         console.log(`write([${arSending}],${d})`)
         this.#changeCurrent(`write([${arSending}],${d})`);
-        this.#rfc()
+        if (this.safeMode) this.#rfc()
     }
 
     on(ev, cb) {
@@ -85,7 +87,14 @@ class Lepik {
         return res
     }
     #changeCurrent(cmd) {
-        this.#pyCommand = cmd;
+        this.#pyCommand = this.safeMode ? cmd : this.#pyCommand += " " + cmd;
+    }
+
+    start() {
+        this.safeMode = false;
+    }
+    end() {
+        this.#rfc()
     }
 }
 
