@@ -67,11 +67,6 @@ class Lepik {
                     cb(data)
                 })
                 break;
-            // case "keyPressed":
-            //     lepikEvents.events.on("key.press", data => {
-            //         cb(data.toString().replace(" ", ""))
-            //     })
-            //     break;
             case "mouseClick":
                 lepikEvents.events.on("mouseClick", data => {
                     cb({ x: data[0], y: data[1], button: data[2] })
