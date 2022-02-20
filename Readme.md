@@ -3,6 +3,7 @@ A python based, Global Keyboard and Mouse event emmiter.
 
 [![NPM](https://nodei.co/npm-dl/lepikjs.png)](https://www.npmjs.com/package/lepikjs)
 
+Visit LepikJS's [website](https://lepikjs.netlify.app/).
 
 ## Installing
 
