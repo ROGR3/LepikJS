@@ -25,6 +25,6 @@
   "license": "MIT",
   "dependencies": {
     "eventemitter2": "^6.4.5",
-    "lepikevents": "^1.4.1"
+    "lepikevents": "^1.4.3"
   }
 }

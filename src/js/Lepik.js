@@ -38,14 +38,7 @@ class Lepik {
     //     let isPressed = this.#rfc(`isPressed('${key}')`).replace("\n", "");
     //     return isPressed;
     // }
-    log(msg = "Hello from LepikJS!") {
-        let arSending = msg.split(" ");
-        for (let i = 0; i < arSending.length; i++) {
-            arSending[i] = '\\"' + arSending[i] + '\\"';
-        }
-        let logpy = this.#rfc(`log([${arSending}])`);
-        console.log(logpy.replace("\n", ""));
-    }
+
 
     keyTap(key = "a") {
         this.#changeCurrent(`keyTap('${key}')`);
@@ -66,6 +59,11 @@ class Lepik {
         switch (ev) {
             case "keyPress":
                 lepikEvents.events.on("keyPress", data => {
+                    cb(data)
+                })
+                break;
+            case "keyRelease":
+                lepikEvents.events.on("keyRelease", data => {
                     cb(data)
                 })
                 break;
@@ -95,7 +93,18 @@ class Lepik {
     }
     end() {
         this.#rfc()
+        this.safeMode = true
     }
+
+    log(msg = "Hello from LepikJS!") {
+        let arSending = msg.split(" ");
+        for (let i = 0; i < arSending.length; i++) {
+            arSending[i] = '\\"' + arSending[i] + '\\"';
+        }
+        let logpy = this.#rfc(`log([${arSending}])`);
+        console.log(logpy.replace("\n", ""));
+    }
+
 }
 
 

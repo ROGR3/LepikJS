@@ -58,6 +58,9 @@ lepik.on("mouseClick",(data)=>{
 lepik.on("keyPress",(data)=>{
   console.log(data) // Returns key pressed
 })
+lepik.on("keyRelease",(data)=>{
+  console.log(data) // Returns key released
+})
 
 // Test
 lepik.log()
