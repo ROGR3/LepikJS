@@ -5,6 +5,26 @@ A python based, Global Keyboard and Mouse event emmiter.
 
 Visit LepikJS's [website](https://lepikjs.netlify.app/).
 
+> ### New 1.1.13 feature:
+> Because every lepikjs command create a seperate proccess, and await its execution to prevent errors and undesirable bugs, LepikJS events could be kinda slow. Here comes lepik.start and lepik.end methods. Code inside these methods will get executed as single proccess, that means more speed and comfort.
+> ```Javascript
+>  // Slow method
+>  for(let i = 0;i<10;++i){
+>    lepik.write("spam text", 0)
+>    lepik.keyTap("enter")
+>    lepik.keyTap("enter")
+>  }
+> // New faster method
+>  lepik.start()
+>  for(let i = 0;i<10;++i){
+>    lepik.write("spam text", 0)
+>    lepik.keyTap("enter")
+>    lepik.keyTap("enter")
+>  }
+>  lepik.end()
+>  ```
+
+
 ## Installing
 
     npm install lepikjs
@@ -62,6 +82,10 @@ lepik.on("keyPress",(data)=>{
 lepik.on("keyRelease",(data)=>{
   console.log(data) // Returns key released
 })
+
+// Controls
+lepik.start() // For more info visit new features 1.1.13 above.
+lepik.end() // For more info visit new features 1.1.13 above.
 
 // Test
 lepik.log()
