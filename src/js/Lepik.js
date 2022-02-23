@@ -2,10 +2,11 @@ const { execSync, exec } = require("child_process");
 
 class Lepik {
     #pyCommand = "";
-    constructor({ _path, isWin }) {
+    constructor({ _path, isWin, hasGoodVersion }) {
         this._pyPath = _path;
         this._isWin = isWin;
         this.safeMode = true;
+        this.hasGoodVersion = hasGoodVersion;
     }
     mouseMove(x = 0, y = 0, a = false, d = 0.2) {
         this.#changeCurrent(`mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
@@ -49,7 +50,6 @@ class Lepik {
         for (let i = 0; i < arSending.length; i++) {
             arSending[i] = '\\"' + arSending[i] + '\\"';
         }
-        console.log(`write([${arSending}],${d})`)
         this.#changeCurrent(`write([${arSending}],${d})`);
         if (this.safeMode) this.#rfc()
     }
@@ -76,6 +76,7 @@ class Lepik {
     }
 
     #rfc(args = this.#pyCommand) {
+        if (this.hasGoodVersion) return
         let res = this._isWin ? execSync(`"${this._pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 }) : execSync(`sudo python ${this._pyPath} "${args}"`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
         return res
     }
