@@ -1,15 +1,15 @@
 {
   "name": "lepikjs",
-  "version": "1.1.20",
+  "version": "1.1.21",
   "description": "Global Keyboard and Mouse Desktop Automation",
   "main": "./index.js",
   "scripts": {
-    "build:ts": "cd ./src/ts && tsc",
-    "dev": "cd ./src/ts && tsc -w",
-    "build:py:win": "pyinstaller --onefile ./src/py/main.py --distpath ./build --workpath ./tmp -y",
-    "build:py:unix": "node src/js/lib/unix.js",
+    "build:ts": "cd ./ts && tsc",
+    "dev": "cd ./ts && tsc -w",
+    "build:py:win": "pyinstaller --onefile ./py/main.py --distpath ./build --workpath ./tmp -y",
+    "build:py:unix": "node js/lib/unix.js",
     "build:py": "npm run build:py:win && npm run build:py:unix",
-    "postinstall": "node src/js/lib/platform.js"
+    "postinstall": "node js/lib/platform.js"
   },
   "keywords": [
     "mouse",

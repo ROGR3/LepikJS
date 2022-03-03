@@ -1,5 +1,5 @@
 const { execSync } = require("child_process");
-const Lepik = require("./src/js/Lepik.js");
+const Lepik = require("./js/Lepik.js");
 
 
 const isWin = process.platform === "win32"
