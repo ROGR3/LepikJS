@@ -1,8 +1,8 @@
 set.json
 *.spec
 tmp/
-py/
+python/
 node_modules/
 examples/
-ts/
+typescript/
 backup/

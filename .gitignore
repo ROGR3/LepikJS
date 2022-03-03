@@ -2,8 +2,8 @@ build/
 lib/
 node_modules/
 tmp/
-py/__pycache__/
+python/__pycache__/
 *.spec
 set.json
 backup/
-js/
+javascript/
