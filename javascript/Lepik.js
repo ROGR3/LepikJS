@@ -4,7 +4,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _Lepik_instances, _Lepik_rfc, _Lepik_rfcDebug, _Lepik_changeCurrent;
+var _Lepik_instances, _Lepik_rfc, _Lepik_changeCurrent;
 const child_process_1 = require("child_process");
 class Lepik {
     constructor(obj) {
@@ -149,11 +149,6 @@ _Lepik_instances = new WeakSet(), _Lepik_rfc = function _Lepik_rfc(args = this.p
     if (this.hasGoodVersion)
         return;
     let res = this.isWin ? child_process_1.execSync(`"${this.pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 }) : child_process_1.execSync(`sudo python ${this.pyPath} "${args}"`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
-    return res;
-}, _Lepik_rfcDebug = function _Lepik_rfcDebug(args = this.pyCommand) {
-    console.log("Debug mode is ON");
-    // @ts-ignore
-    let res = child_process_1.execSync(`python ${require("../../set.json").debugPath} ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
     return res;
 }, _Lepik_changeCurrent = function _Lepik_changeCurrent(cmd) {
     this.pyCommand = this.safeMode ? cmd : this.pyCommand += " " + cmd;

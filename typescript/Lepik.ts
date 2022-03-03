@@ -13,7 +13,7 @@ class Lepik {
     this.safeMode = true;
     this.hasGoodVersion = obj._hasGoodVersion;
   }
-  mouseMove(x = 0, y = 0, a = false, d = 0.2) {
+  mouseMove(x = 0, y = 0, a = false, d = 0.2): void {
     if (typeof x !== "number") return console.log("x parameter must be a number")
     if (typeof y !== "number") return console.log("y parameter must be a number")
     if (typeof a !== "boolean") return console.log("absolute parameter must be a boolean")
@@ -21,10 +21,10 @@ class Lepik {
     this.#changeCurrent(`mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
     if (this.safeMode) this.#rfc()
   }
-  mouseDoubleClick(key: string | number) {
+  mouseDoubleClick(key: string | number): void {
     this.mouseClick(key, 2)
   }
-  mouseClick(key: string | number = "left", am = 1) {
+  mouseClick(key: string | number = "left", am = 1): void {
     if (typeof key === "number") {
       if (key == 0) key = "left";
       if (key == 1) key = "right";
@@ -36,7 +36,7 @@ class Lepik {
     this.#changeCurrent(`mouseClick('${key}',${am})`);
     if (this.safeMode) return this.#rfc()
   }
-  mouseDrag(fx = 0, fy = 0, tx = 10, ty = 10, a = false, d = 0.2) {
+  mouseDrag(fx = 0, fy = 0, tx = 10, ty = 10, a = false, d = 0.2): void {
     if (typeof fx !== "number") return console.log("fromX parameter must be a number")
     if (typeof fy !== "number") return console.log("fromY parameter must be a number")
     if (typeof tx !== "number") return console.log("toX parameter must be a number")
@@ -46,7 +46,7 @@ class Lepik {
     this.#changeCurrent(`mouseDrag(${fx},${fy},${tx},${ty},${a ? "True" : "False"},${d})`);
     if (this.safeMode) this.#rfc()
   }
-  mouseScroll(am = 1) {
+  mouseScroll(am = 1): void {
     if (typeof am !== "number") {
       console.log("am parameter should be a number, using default value 1")
       am = 1
@@ -54,7 +54,7 @@ class Lepik {
     this.#changeCurrent(`mouseScroll(${am})`);
     if (this.safeMode) this.#rfc()
   }
-  getMousePosition() {
+  getMousePosition(): { x: number, y: number } {
     let posBrack = this.#rfc(`getMousePosition()`);
     let arr = JSON.parse(posBrack);
     let pos = { x: arr[0], y: arr[1] };
@@ -66,13 +66,13 @@ class Lepik {
   // }
 
 
-  keyTap(key = "a") {
+  keyTap(key = "a"): void {
     if (typeof key !== "string") return console.log("Key parameter must be a string, use lepik.write() to write numbers")
     if (key.length > 1) return console.log("Key parameter must be a single character")
     this.#changeCurrent(`keyTap('${key}')`);
     if (this.safeMode) this.#rfc()
   }
-  write(msg = "Hello From LepikJS", d = 0.1) {
+  write(msg = "Hello From LepikJS", d = 0.1): void {
     if (typeof d !== "number") d = 0.1
     msg = msg.toString();
 
@@ -84,9 +84,10 @@ class Lepik {
     if (this.safeMode) this.#rfc()
   }
 
-  on(ev: string, cb: Function) {
+  on(ev: string, cb: Function): void {
     // @ts-ignore
     const lepikEvents = require("lepikevents");
+
     switch (ev) {
       case "keyPress":
         lepikEvents.events.on("keyPress", (data: string) => {
@@ -114,25 +115,20 @@ class Lepik {
     let res = this.isWin ? execSync(`"${this.pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 }) : execSync(`sudo python ${this.pyPath} "${args}"`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
     return res
   }
-  #rfcDebug(args = this.pyCommand) {
-    console.log("Debug mode is ON")
-    // @ts-ignore
-    let res = execSync(`python ${require("../../set.json").debugPath} ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
-    return res
-  }
-  #changeCurrent(cmd: string) {
+
+  #changeCurrent(cmd: string): void {
     this.pyCommand = this.safeMode ? cmd : this.pyCommand += " " + cmd;
   }
 
-  start() {
+  start(): void {
     this.safeMode = false;
   }
-  end() {
+  end(): void {
     this.#rfc()
     this.safeMode = true
   }
 
-  log(msg = "Hello from LepikJS!") {
+  log(msg = "Hello from LepikJS!"): void {
     let arSending = msg.split(" ");
     for (let i = 0; i < arSending.length; i++) {
       arSending[i] = '\\"' + arSending[i] + '\\"';
