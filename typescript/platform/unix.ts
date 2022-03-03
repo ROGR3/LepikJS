@@ -2,9 +2,9 @@ import { readdirSync, copyFile } from 'fs';
 
 
 try {
-  readdirSync(__dirname + "/../../py").forEach((file: string) => {
+  readdirSync(__dirname + "/../../python").forEach((file: string) => {
     if (file.endsWith(".py")) {
-      copyFile("src/py/" + file, "lib/" + file, (err: any) => {
+      copyFile("src/python/" + file, "platform/" + file, (err: any) => {
         if (err) throw err;
       });
     }
