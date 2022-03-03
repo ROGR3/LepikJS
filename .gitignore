@@ -5,3 +5,5 @@ tmp/
 src/py/__pycache__/
 *.spec
 set.json
+backup/
+src/js/

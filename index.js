@@ -1,5 +1,5 @@
 const { execSync } = require("child_process");
-const Lepik = require("./src/js/Lepik.js").default;
+const Lepik = require("./src/js/Lepik.js");
 
 
 const isWin = process.platform === "win32"
@@ -11,12 +11,11 @@ const NODE_VERSION_MIN = 14;
 const PYTHON_VERSION_MIN = 3;
 
 
-
 if (pyVersion < PYTHON_VERSION_MIN) {
   console.log(`Python version is too old. Please update to ${PYTHON_VERSION_MIN}.x or higher.`)
 }
 if (nodeVersion < NODE_VERSION_MIN) {
   console.log(`NodeJS version is too low. Please update your NodeJS to version >= ${NODE_VERSION_MIN}.`)
 }
-let lepik = new Lepik({ _path: localPath, isWin, hasGoodVersion: pyVersion >= 3 && nodeVersion >= 20 });
+let lepik = new Lepik({ _path: localPath, _isWin: isWin, _hasGoodVersion: pyVersion >= 3 && nodeVersion >= 20 });
 module.exports = lepik;

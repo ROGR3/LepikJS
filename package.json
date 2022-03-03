@@ -4,9 +4,11 @@
   "description": "Global Keyboard and Mouse Desktop Automation",
   "main": "./index.js",
   "scripts": {
-    "build:win": "pyinstaller --onefile ./src/py/main.py --distpath ./build --workpath ./tmp -y",
-    "build:unix": "node src/js/dir/buildUnix.js",
-    "build": "npm run build:win && npm run build:unix",
+    "build:ts": "cd ./src/ts && tsc",
+    "dev": "cd ./src/ts && tsc -w",
+    "build:py:win": "pyinstaller --onefile ./src/py/main.py --distpath ./build --workpath ./tmp -y",
+    "build:py:unix": "node src/js/dir/buildUnix.js",
+    "build:py": "npm run build:win && npm run build:unix",
     "postinstall": "node src/js/dir/platform.js"
   },
   "keywords": [
