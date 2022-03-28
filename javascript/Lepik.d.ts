@@ -24,6 +24,6 @@ declare class Lepik {
     on(ev: string, cb: Function): void;
     start(): void;
     end(): void;
-    log(msg?: string): void;
+    error(msg?: string): void;
 }
 export = Lepik;
