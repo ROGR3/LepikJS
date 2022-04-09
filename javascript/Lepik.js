@@ -80,10 +80,6 @@ class Lepik {
         let pos = { x: arr[0], y: arr[1] };
         return pos;
     }
-    // isPressed(key) {
-    //     let isPressed = this.#rfc(`isPressed('${key}')`).replace("\n", "");
-    //     return isPressed;
-    // }
     keyTap(key = "a") {
         if (typeof key !== "string")
             return console.error("Key parameter must be a string, use lepik.write() to write numbers");
