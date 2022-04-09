@@ -1,4 +1,4 @@
-const lepik = require("../deploy")
+const lepik = require("../")
 // const lepik = require("lepikjs")
 lepik.mouseClick(2)
 // console.log(lepik.getMousePosition())
