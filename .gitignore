@@ -1,5 +1,6 @@
 build/
-lib/
+lib/*.py
+lib/*
 node_modules/
 tmp/
 python/__pycache__/
