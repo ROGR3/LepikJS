@@ -13,44 +13,29 @@ class Lepik {
     this.safeMode = true;
     this.hasGoodVersion = obj._hasGoodVersion;
   }
-  mouseMove(x = 0, y = 0, a = false, d = 0.2): void {
-    if (typeof x !== "number") return console.error("x parameter must be a number")
-    if (typeof y !== "number") return console.error("y parameter must be a number")
-    if (typeof a !== "boolean") return console.error("absolute parameter must be a boolean")
-    if (typeof d !== "number") return console.error("delay parameter must be a number")
+  mouseMove(x: number = 0, y: number = 0, a: boolean = false, d: number = 0.2): void {
     this.#changeCurrent(`mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
     if (this.safeMode) this.#rfc()
   }
   mouseDoubleClick(key: string | number): void {
     this.mouseClick(key, 2)
   }
-  mouseClick(key: string | number = "left", am = 1): void {
+  mouseClick(key: string | number = "left", am: number = 1): void {
     if (typeof key === "number") {
       if (key == 0) key = "left";
       if (key == 1) key = "right";
       if (key == 2) key = "middle";
     }
-    if (typeof key !== "string") return console.error("key parameter must be a string or a number")
-    key = key.toLowerCase();
+    key = key.toString().toLowerCase();
     am = Math.abs(am)
     this.#changeCurrent(`mouseClick('${key}',${am})`);
     if (this.safeMode) return this.#rfc()
   }
-  mouseDrag(fx = 0, fy = 0, tx = 10, ty = 10, a = false, d = 0.2): void {
-    if (typeof fx !== "number") return console.error("fromX parameter must be a number")
-    if (typeof fy !== "number") return console.error("fromY parameter must be a number")
-    if (typeof tx !== "number") return console.error("toX parameter must be a number")
-    if (typeof ty !== "number") return console.error("toY parameter must be a number")
-    if (typeof a !== "boolean") return console.error("absolute parameter must be a boolean")
-    if (typeof d !== "number") return console.error("delay parameter must be a number")
+  mouseDrag(fx: number = 0, fy: number = 0, tx: number = 10, ty: number = 10, a: boolean = false, d: number = 0.2): void {
     this.#changeCurrent(`mouseDrag(${fx},${fy},${tx},${ty},${a ? "True" : "False"},${d})`);
     if (this.safeMode) this.#rfc()
   }
-  mouseScroll(am = 1): void {
-    if (typeof am !== "number") {
-      console.error("am parameter should be a number, using default value 1")
-      am = 1
-    }
+  mouseScroll(am: number = 1): void {
     this.#changeCurrent(`mouseScroll(${am})`);
     if (this.safeMode) this.#rfc()
   }
@@ -60,17 +45,13 @@ class Lepik {
     let pos = { x: arr[0], y: arr[1] };
     return pos
   }
-  keyTap(key = "a"): void {
-    if (typeof key !== "string") return console.error("Key parameter must be a string, use lepik.write() to write numbers")
+  keyTap(key: string = "a"): void {
     if (key.length > 1) return console.error("Key parameter must be a single character")
     this.#changeCurrent(`keyTap('${key}')`);
     if (this.safeMode) this.#rfc()
   }
-  write(msg = "Hello From LepikJS", d = 0.1): void {
-    if (typeof d !== "number") d = 0.1
-    msg = msg.toString();
-
-    let arSending = msg.split(" ");
+  write(msg: string = "Hello From LepikJS", d: number = 0.1): void {
+    let arSending = msg.toString().split(" ");
     for (let i = 0; i < arSending.length; i++) {
       arSending[i] = '\\"' + arSending[i] + '\\"';
     }
@@ -104,7 +85,7 @@ class Lepik {
     }
   }
 
-  #rfc(args = this.pyCommand) {
+  #rfc(args: string = this.pyCommand) {
     if (this.hasGoodVersion) return
     let res = this.isWin ? execSync(`"${this.pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 }) : execSync(`sudo python ${this.pyPath} "${args}"`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
     return res
@@ -121,16 +102,6 @@ class Lepik {
     this.#rfc()
     this.safeMode = true
   }
-
-  error(msg = "Hello from LepikJS!"): void {
-    let arSending = msg.split(" ");
-    for (let i = 0; i < arSending.length; i++) {
-      arSending[i] = '\\"' + arSending[i] + '\\"';
-    }
-    let errorpy = this.#rfc(`error([${arSending}])`);
-    console.error(errorpy.replace("\n", ""));
-  }
-
 }
 
 

@@ -16,14 +16,6 @@ class Lepik {
         this.hasGoodVersion = obj._hasGoodVersion;
     }
     mouseMove(x = 0, y = 0, a = false, d = 0.2) {
-        if (typeof x !== "number")
-            return console.error("x parameter must be a number");
-        if (typeof y !== "number")
-            return console.error("y parameter must be a number");
-        if (typeof a !== "boolean")
-            return console.error("absolute parameter must be a boolean");
-        if (typeof d !== "number")
-            return console.error("delay parameter must be a number");
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
         if (this.safeMode)
             __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
@@ -40,36 +32,18 @@ class Lepik {
             if (key == 2)
                 key = "middle";
         }
-        if (typeof key !== "string")
-            return console.error("key parameter must be a string or a number");
-        key = key.toLowerCase();
+        key = key.toString().toLowerCase();
         am = Math.abs(am);
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `mouseClick('${key}',${am})`);
         if (this.safeMode)
             return __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
     }
     mouseDrag(fx = 0, fy = 0, tx = 10, ty = 10, a = false, d = 0.2) {
-        if (typeof fx !== "number")
-            return console.error("fromX parameter must be a number");
-        if (typeof fy !== "number")
-            return console.error("fromY parameter must be a number");
-        if (typeof tx !== "number")
-            return console.error("toX parameter must be a number");
-        if (typeof ty !== "number")
-            return console.error("toY parameter must be a number");
-        if (typeof a !== "boolean")
-            return console.error("absolute parameter must be a boolean");
-        if (typeof d !== "number")
-            return console.error("delay parameter must be a number");
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `mouseDrag(${fx},${fy},${tx},${ty},${a ? "True" : "False"},${d})`);
         if (this.safeMode)
             __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
     }
     mouseScroll(am = 1) {
-        if (typeof am !== "number") {
-            console.error("am parameter should be a number, using default value 1");
-            am = 1;
-        }
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `mouseScroll(${am})`);
         if (this.safeMode)
             __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
@@ -81,8 +55,6 @@ class Lepik {
         return pos;
     }
     keyTap(key = "a") {
-        if (typeof key !== "string")
-            return console.error("Key parameter must be a string, use lepik.write() to write numbers");
         if (key.length > 1)
             return console.error("Key parameter must be a single character");
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `keyTap('${key}')`);
@@ -90,10 +62,7 @@ class Lepik {
             __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
     }
     write(msg = "Hello From LepikJS", d = 0.1) {
-        if (typeof d !== "number")
-            d = 0.1;
-        msg = msg.toString();
-        let arSending = msg.split(" ");
+        let arSending = msg.toString().split(" ");
         for (let i = 0; i < arSending.length; i++) {
             arSending[i] = '\\"' + arSending[i] + '\\"';
         }
@@ -131,14 +100,6 @@ class Lepik {
     end() {
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
         this.safeMode = true;
-    }
-    error(msg = "Hello from LepikJS!") {
-        let arSending = msg.split(" ");
-        for (let i = 0; i < arSending.length; i++) {
-            arSending[i] = '\\"' + arSending[i] + '\\"';
-        }
-        let errorpy = __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this, `error([${arSending}])`);
-        console.error(errorpy.replace("\n", ""));
     }
 }
 _Lepik_instances = new WeakSet(), _Lepik_rfc = function _Lepik_rfc(args = this.pyCommand) {
