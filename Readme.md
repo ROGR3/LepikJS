@@ -66,9 +66,9 @@ lepik.on("keyRelease",(data)=>{
 })
 
 // Controls
-lepik.start() // For more info visit new features 1.1.13 above.
+lepik.start() 
 //  Code inside these methods will get executed as single proccess. Meaning faster results
-lepik.end() // For more info visit new features 1.1.13 above.
+lepik.end() 
 
 // Test
 lepik.log()
