@@ -7,11 +7,13 @@ class Lepik {
   private readonly isWin: boolean;
   private safeMode: boolean;
   private readonly hasGoodVersion: boolean;
+  private lastClick: Date;
   constructor(obj: { _path: string, _isWin: boolean, _hasGoodVersion: boolean }) {
     this.pyPath = obj._path;
     this.isWin = obj._isWin;
     this.safeMode = true;
     this.hasGoodVersion = obj._hasGoodVersion;
+    this.lastClick = new Date();
   }
   mouseMove(x: number = 0, y: number = 0, a: boolean = false, d: number = 0.2): void {
     this.#changeCurrent(`mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
@@ -76,6 +78,11 @@ class Lepik {
         break;
       case "mouseClick":
         lepikEvents.events.on("mouseClick", (data: any) => {
+          cb({ x: data[0], y: data[1], button: data[2] })
+        })
+        break;
+      case "mouseDoubleClick":
+        lepikEvents.events.on("mouseDoubleClick", (data: any) => {
           cb({ x: data[0], y: data[1], button: data[2] })
         })
         break;

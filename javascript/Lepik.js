@@ -14,6 +14,7 @@ class Lepik {
         this.isWin = obj._isWin;
         this.safeMode = true;
         this.hasGoodVersion = obj._hasGoodVersion;
+        this.lastClick = new Date();
     }
     mouseMove(x = 0, y = 0, a = false, d = 0.2) {
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `mouseMove(${x},${y},${a ? "True" : "False"},${d})`);
@@ -86,6 +87,11 @@ class Lepik {
                 break;
             case "mouseClick":
                 lepikEvents.events.on("mouseClick", (data) => {
+                    cb({ x: data[0], y: data[1], button: data[2] });
+                });
+                break;
+            case "mouseDoubleClick":
+                lepikEvents.events.on("mouseDoubleClick", (data) => {
                     cb({ x: data[0], y: data[1], button: data[2] });
                 });
                 break;

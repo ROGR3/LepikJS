@@ -5,6 +5,7 @@ declare class Lepik {
     private readonly isWin;
     private safeMode;
     private readonly hasGoodVersion;
+    private lastClick;
     constructor(obj: {
         _path: string;
         _isWin: boolean;

@@ -1,6 +1,6 @@
 const lepik = require("../")
 // const lepik = require("lepikjs")
-lepik.mouseClick(2)
+// lepik.mouseClick(2)
 // console.log(lepik.getMousePosition())
 // lepik.keyTap("d")
 // lepik.write("das", "0")
@@ -8,6 +8,9 @@ lepik.mouseClick(2)
 //   console.log(data)
 // })
 // lepik.on("mouseClick", data => {
+//   console.log(data)
+// })
+// lepik.on("mouseDoubleClick", data => {
 //   console.log(data)
 // })
 // lepik.log()
