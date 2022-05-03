@@ -75,7 +75,7 @@ lepik.end()
 
 // Test
 lepik.log()
-// Returns string "Hello from LepikJS!"
+// Returns string "Hello from LepikJS!" (passing string as argument is allowed)
 
 ```
 
