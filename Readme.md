@@ -89,4 +89,4 @@ If your are on Windows, then you don't even have to have it installed, cause tha
 
 ## License
 LepikJS is freely distributable under the terms of the [MIT license](http://opensource.org/licenses/MIT). 
-See [LICENSE.md](./LICENSE.md)
+See [LICENSE.md](./LICENSE.md).
