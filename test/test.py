@@ -45,11 +45,14 @@ import keyboard
 #         time.sleep(1)
 #         keyboard.on_press(handle_press)
 
-def handle_press(e):
-    print(e.name)
-    print(e.event_type)
+# def handle_press(e):
+#     print(e.name)
+#     print(e.event_type)
 
 
-keyboard.hook(handle_press)
+# keyboard.hook(handle_press)
 
-keyboard.wait()
+# keyboard.wait()
+
+
+keyboard.send("backspace")

@@ -2,11 +2,12 @@ const lepik = require("../")
 // const lepik = require("lepikjs")
 // lepik.mouseClick(2)
 // console.log(lepik.getMousePosition())
-// lepik.keyTap("d")
+lepik.keyTap("capslock")
 // lepik.write("das", "0")
 // lepik.on("keyRelease", data => {
 //   console.log(data)
 // })
+
 // lepik.on("mouseClick", data => {
 //   console.log(data)
 // })

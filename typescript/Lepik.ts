@@ -46,7 +46,6 @@ class Lepik {
     return pos
   }
   keyTap(key: string = "a"): void {
-    if (key.length > 1) return console.error("Key parameter must be a single character")
     this.#changeCurrent(`keyTap('${key}')`);
     if (this.safeMode) this.#rfc()
   }

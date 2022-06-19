@@ -55,8 +55,6 @@ class Lepik {
         return pos;
     }
     keyTap(key = "a") {
-        if (key.length > 1)
-            return console.error("Key parameter must be a single character");
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `keyTap('${key}')`);
         if (this.safeMode)
             __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
