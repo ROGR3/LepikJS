@@ -10,6 +10,7 @@ class Lepik {
     constructor(obj) {
         _Lepik_instances.add(this);
         this.pyCommand = "";
+        this.supportedChars = ["enter", "backspace", "capslock", "tab", "space", "left", "up", "right", "down", "insert", "delete", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10"];
         this.pyPath = obj._path;
         this.isWin = obj._isWin;
         this.safeMode = true;
@@ -55,6 +56,8 @@ class Lepik {
         return pos;
     }
     keyTap(key = "a") {
+        if (this.supportedChars.indexOf(key) === -1)
+            console.log("Key " + key + "  not supported");
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `keyTap('${key}')`);
         if (this.safeMode)
             __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
