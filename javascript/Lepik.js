@@ -10,7 +10,7 @@ class Lepik {
     constructor(obj) {
         _Lepik_instances.add(this);
         this.pyCommand = "";
-        this.supportedChars = ["enter", "backspace", "capslock", "tab", "space", "left", "up", "right", "down", "insert", "delete", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10"];
+        this.supportedChars = [`enter`, `backspace`, `capslock`, `tab`, `space`, `left`, `up`, `right`, `down`, `insert`, `delete`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`, `i`, `j`, `k`, `l`, `m`, `n`, `o`, `p`, `q`, `r`, `s`, `t`, `u`, `v`, `w`, `x`, `y`, `z`, `f1`, `f2`, `f3`, `f4`, `f5`, `f6`, `f7`, `f8`, `f9`, `f10`];
         this.pyPath = obj._path;
         this.isWin = obj._isWin;
         this.safeMode = true;
@@ -54,6 +54,9 @@ class Lepik {
         let arr = JSON.parse(posBrack);
         let pos = { x: arr[0], y: arr[1] };
         return pos;
+    }
+    getSupportedKeys() {
+        return this.supportedChars;
     }
     keyTap(key = "a") {
         if (this.supportedChars.indexOf(key) === -1)

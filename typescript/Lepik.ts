@@ -7,7 +7,7 @@ class Lepik {
   private readonly isWin: boolean;
   private safeMode: boolean;
   private readonly hasGoodVersion: boolean;
-  private readonly supportedChars: string[] = ["enter", "backspace", "capslock", "tab", "space", "left", "up", "right", "down", "insert", "delete", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10"];
+  private readonly supportedChars: string[] = [`enter`, `backspace`, `capslock`, `tab`, `space`, `left`, `up`, `right`, `down`, `insert`, `delete`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`, `i`, `j`, `k`, `l`, `m`, `n`, `o`, `p`, `q`, `r`, `s`, `t`, `u`, `v`, `w`, `x`, `y`, `z`, `f1`, `f2`, `f3`, `f4`, `f5`, `f6`, `f7`, `f8`, `f9`, `f10`];
   constructor(obj: { _path: string, _isWin: boolean, _hasGoodVersion: boolean }) {
     this.pyPath = obj._path;
     this.isWin = obj._isWin;
@@ -45,6 +45,9 @@ class Lepik {
     let arr = JSON.parse(posBrack);
     let pos = { x: arr[0], y: arr[1] };
     return pos
+  }
+  getSupportedKeys(): string[] {
+    return this.supportedChars
   }
   keyTap(key: string = "a"): void {
     if (this.supportedChars.indexOf(key) === -1) console.log("Key " + key + "  not supported")
