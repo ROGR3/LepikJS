@@ -5,7 +5,7 @@ A python based, Global Keyboard and Mouse event emmiter.
 
 [![NPM](https://nodei.co/npm-dl/lepikjs.png)](https://www.npmjs.com/package/lepikjs)
 
-
+LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try it out!
 
 ## Installing
 
