@@ -7,7 +7,7 @@ const lepik = require("../")
 // lepik.on("keyRelease", data => {
 //   console.log(data)
 // })
-console.log(lepik.getSupportedKeys())
+// console.log(lepik.getSupportedKeys())
 // lepik.on("mouseClick", data => {
 //   console.log(data)
 // })
