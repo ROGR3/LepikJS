@@ -23,7 +23,8 @@
     "automation",
     "lepikevents",
     "windows",
-    "linux"
+    "linux",
+    "macos"
   ],
   "author": "borecjeborec1",
   "license": "MIT",
