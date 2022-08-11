@@ -17,7 +17,7 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 // Require lepikEvents
 const lepik = require('lepikjs');
 
-// On every mouse click, move the cursor 100 pixels down.
+// On every mouse click, move the cursor 100 pixels down
 lepik.on("mouseClick", (data) => {
   console.log(data) // { x: 786, y: 171, button: 1 }
   lepik.mouseMove(0, 100)
