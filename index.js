@@ -15,7 +15,7 @@ if (pyVersion < PYTHON_VERSION_MIN) {
   console.log(`Python version is too low. Please update your Python to version ${PYTHON_VERSION_MIN}.x or higher.`)
 }
 if (nodeVersion < NODE_VERSION_MIN) {
-  console.log(`NodeJS version is too low. Please update your NodeJS to version >= ${NODE_VERSION_MIN}.`)
+  console.log(`NodeJS version is too low. Please update your NodeJS to version ${NODE_VERSION_MIN} or higher.`)
 }
 let lepik = new Lepik({ _path: localPath, _isWin: isWin, _hasGoodVersion: pyVersion >= 3 && nodeVersion >= 20 });
 module.exports = lepik;
