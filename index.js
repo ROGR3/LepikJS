@@ -12,7 +12,7 @@ const PYTHON_VERSION_MIN = 3;
 
 
 if (pyVersion < PYTHON_VERSION_MIN) {
-  console.log(`Python version is too low. Please update to ${PYTHON_VERSION_MIN}.x or higher.`)
+  console.log(`Python version is too low. Please update your Python to version ${PYTHON_VERSION_MIN}.x or higher.`)
 }
 if (nodeVersion < NODE_VERSION_MIN) {
   console.log(`NodeJS version is too low. Please update your NodeJS to version >= ${NODE_VERSION_MIN}.`)
