@@ -88,6 +88,11 @@ class Lepik {
           cb({ x: data[0], y: data[1], button: data[2] })
         })
         break;
+      case "mouseMove":
+        lepikEvents.on("mouseMove", (data: any) => {
+          cb({ x: data[0], y: data[1], time: data[2] });
+        });
+        break;
       default:
         console.error("Unknown event: " + ev)
         break;

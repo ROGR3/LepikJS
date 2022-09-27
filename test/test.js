@@ -1,6 +1,6 @@
 const lepik = require("../")
 // const lepik = require("lepikjs")
-// lepik.mouseClick(2)
+lepik.mouseClick(2)
 // console.log(lepik.getMousePosition())
 // lepik.keyTap("capslock")
 // lepik.write("das", "0")
