@@ -99,7 +99,7 @@ class Lepik {
                 });
                 break;
             case "mouseMove":
-                lepikEvents.on("mouseMove", (data) => {
+                lepikEvents.events.on("mouseMove", (data) => {
                     cb({ x: data[0], y: data[1], time: data[2] });
                 });
                 break;
