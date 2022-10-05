@@ -11,6 +11,19 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 
     npm install lepikjs
 
+> ㅤ
+> ## New Feature v1.4.0+
+>
+> **LepikJS now includes a method for capturing mouse move event!**
+>
+> > [lepik.on("mouseMove", cb)](#all-methods)
+> 
+> **Callback function takes a data argument.**
+> **Data is JS object with these values:** *x, y, time*
+> ㅤ
+>  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv1.4.0
+
+
 ## Coding
 
 ```javascript
@@ -24,6 +37,7 @@ lepik.on("mouseClick", (data) => {
 })
 
 ```
+
 
 ## All Methods
 
@@ -55,6 +69,9 @@ lepik.write(string, duration)
 // Coming soon
 
 // Global Listeners
+lepik.on("mouseMove",(data)=>{
+  console.log(data) // x: 753, y: 241, time: 1231231232
+})
 lepik.on("mouseClick",(data)=>{
   console.log(data) // { x: 753, y: 241, button: 1 }
 })
