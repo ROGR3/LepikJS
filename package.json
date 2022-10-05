@@ -30,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "eventemitter2": "^6.4.5",
-    "lepikevents": "^1.6.1"
+    "lepikevents": "^1.6.4"
   },
   "repository": {
     "type": "git",
