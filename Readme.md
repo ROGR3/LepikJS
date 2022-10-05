@@ -18,8 +18,7 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 >
 > > [lepik.on("mouseMove", cb)](#all-methods)
 > 
-> **Callback function takes a data argument.**
-> **Data is JS object with these values:** *x, y, time*
+> **JS object is passed to callback function. It contain these values:** *x, y, time*
 > ㅤ
 >  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv1.4.0
 
