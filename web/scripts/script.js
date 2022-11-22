@@ -45,7 +45,7 @@ setInterval(() => {
       inp.remove()
     }, 1000)
   }, 3 * 1000)
-}, 1000)
+}, 100)
 
 const paraps = document.querySelectorAll("p")
 paraps.forEach(el => {
