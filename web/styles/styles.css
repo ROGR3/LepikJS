@@ -258,6 +258,9 @@ body {
 #pageone .container p b {
   color: rgb(117, 112, 102);
 }
+#pageone .container #downloadCount {
+  color: wheat;
+}
 #pageone .container pre {
   background-color: rgb(65, 65, 65);
   border: 1px solid white;

@@ -68,6 +68,7 @@ body {
   }
 
 
+
   .logo {
     position: absolute;
     right: 3rem;
@@ -161,6 +162,10 @@ body {
       b {
         color: rgb(117, 112, 102);
       }
+    }
+
+    #downloadCount {
+      color: wheat;
     }
 
     pre {
