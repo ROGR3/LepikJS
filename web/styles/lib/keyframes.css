@@ -6,7 +6,6 @@
     width: 65rem;
   }
 }
-
 @keyframes animated-text {
   from {
     width: 0;
@@ -15,7 +14,6 @@
     width: 65rem;
   }
 }
-
 @-webkit-keyframes animated-cursor {
   from {
     border-right: solid 3px rgba(224, 224, 224, 0.75);
@@ -24,7 +22,6 @@
     border-right-color: transparent;
   }
 }
-
 @keyframes animated-cursor {
   from {
     border-right: solid 3px rgba(224, 224, 224, 0.75);
@@ -33,63 +30,48 @@
     border-right-color: transparent;
   }
 }
-
 @-webkit-keyframes pulse {
   0% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
   }
   50% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
   100% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
   }
 }
-
 @keyframes pulse {
   0% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
   }
   50% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
   }
   100% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
   }
 }
-
 @-webkit-keyframes slideIn {
   0% {
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
     opacity: 0;
   }
   100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
-
 @keyframes slideIn {
   0% {
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
     opacity: 0;
   }
   100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fadeOut {
   0% {
     opacity: 1;
@@ -98,7 +80,6 @@
     opacity: 0;
   }
 }
-
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -107,7 +88,6 @@
     opacity: 0;
   }
 }
-
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
@@ -116,7 +96,6 @@
     opacity: 1;
   }
 }
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -124,5 +103,4 @@
   100% {
     opacity: 1;
   }
-}
-/*# sourceMappingURL=keyframes.css.map */
+}/*# sourceMappingURL=keyframes.css.map */

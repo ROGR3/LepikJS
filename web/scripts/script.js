@@ -45,7 +45,7 @@ setInterval(() => {
       inp.remove()
     }, 1000)
   }, 3 * 1000)
-}, 100)
+}, 1000)
 
 const paraps = document.querySelectorAll("p")
 paraps.forEach(el => {
@@ -118,3 +118,19 @@ function isVisible(elem) {
   } while (pointContainer = pointContainer.parentNode);
   return false;
 }
+
+async function getDownloads() {
+  const TODAY = new Date().toISOString().split("T")[0]
+  const URL1 = `https://api.npmjs.org/downloads/point/2021-05-22:${TODAY}/lepikjs`
+  const URL2 = `https://api.npmjs.org/downloads/point/2021-05-22:${TODAY}/lepikevents`
+  let res1 = await fetch(URL1).then(res => res.json())
+  let res2 = await fetch(URL2).then(res => res.json())
+  return res1.downloads + res2.downloads
+}
+async function displayDownloads() {
+  let downloadStats = await getDownloads()
+  let span = document.getElementById("downloadCount")
+  span.innerText = downloadStats.toLocaleString()
+}
+
+displayDownloads()
