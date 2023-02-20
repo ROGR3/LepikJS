@@ -12,15 +12,15 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
     npm install lepikjs
 
 > ㅤ
-> ## New Feature v1.4.0+
+> ## New Feature v1.5.0+
 >
 > **LepikJS now includes a method for capturing mouse move event!**
 >
-> > [lepik.on("mouseMove", cb)](#all-methods)
+> > [lepik.keyTap("left-shift+b")](#all-methods)
 > 
 > **JS object is passed to callback function. It contain these values:** *x, y, time*
 > ㅤ
->  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv1.4.0
+>  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ   ㅤㅤㅤLepikJSv1.5.0
 
 
 ## Coding
@@ -60,7 +60,10 @@ lepik.getMousePosition()
 
 // Keyboard events
 lepik.keyTap(char)
-//Char need to be single letter
+// Alphabet char needs to be single letter
+// Char can be special key too (shift, windows, clear,...)
+// In case of multi-word words they are split with "-". (left-shift, right-shift,left-windows,...)
+// In case you want to join multiple keys use "+" ("left-shift+b", "left-shift+x")
 lepik.write(string, duration)
 //Duration is optional. Default is 0.1
 
@@ -92,6 +95,11 @@ lepik.end()
 // Test
 lepik.log()
 // Returns string "Hello from LepikJS!" (passing string as argument is allowed)
+
+// Supported keys:
+let supportedKeys = ['backspace', 'tab', 'clear', 'enter', 'shift', 'ctrl', 'alt', 'pause', 'caps-lock', 'esc', 'spacebar', 'page-up', 'page-down', 'end', 'home', 'left', 'up', 'right', 'down', 'select', 'print-screen', 'insert', 'delete', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'left-windows', 'right-windows', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '*', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12', 'f13', 'f14', 'f15', 'f16', 'f17', 'f18', 'f19', 'f20', 'f21', 'f22', 'f23', 'f24', 'num-lock', 'scroll-lock', 'left-shift', 'right-shift', 'left-ctrl', 'right-ctrl', 'left-menu', 'right-menu', 'volume-mute', 'volume-down', 'volume-up', 'next-track', 'previous-track', 'stop-media', ',', '-', '.', 'play', 'zoom', 'clear']
+// Built in LepikJS method
+let supportedKeys = lepik.getSupportedKeys()
 
 ```
 
