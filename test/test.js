@@ -2,7 +2,7 @@ const lepik = require("../")
 // const lepik = require("lepikjs")
 // lepik.mouseClick(2)
 // console.log(lepik.getMousePosition())
-lepik.keyTap("left-windows")
+lepik.keyTap("left-shift+b")
 // lepik.write("dasasdscbkjxsbckasdjhbckjsdhbfjhsdgfjshdfgsjdhc", "0")
 // lepik.on("keyRelease", data => {
 //   console.log(data)
