@@ -15,4 +15,4 @@ def stringilize(arr: tuple) -> str:
 
 
 for i in range(len(sys.argv)):
-    eval(sys.argv[i])
+    eval(sys.argv[i].replace("-", " "))

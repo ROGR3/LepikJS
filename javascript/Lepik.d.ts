@@ -1,9 +1,9 @@
 declare class Lepik {
     #private;
     private pyCommand;
+    private safeMode;
     private readonly pyPath;
     private readonly isWin;
-    private safeMode;
     private readonly hasGoodVersion;
     private readonly supportedChars;
     constructor(obj: {
