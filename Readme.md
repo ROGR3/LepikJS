@@ -14,12 +14,11 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 > ㅤ
 > ## New Feature v1.5.0+
 >
-> **LepikJS now includes a method for capturing mouse move event!**
+> **LepikJS's keytap now supports more 'special' keys! (left-shift, right-shift left-windows,...)**
 >
 > > [lepik.keyTap("left-shift+b")](#all-methods)
+>
 > 
-> **JS object is passed to callback function. It contain these values:** *x, y, time*
-> ㅤ
 >  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ   ㅤㅤㅤLepikJSv1.5.0
 
 
