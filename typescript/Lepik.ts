@@ -101,7 +101,6 @@ class Lepik {
   }
 
   #rfc(args: string = this.pyCommand) {
-    console.log("From rfc: " + args)
     if (this.hasGoodVersion) return
     let res = this.isWin ? execSync(`"${this.pyPath}" ${args}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 }) : execSync(`sudo python ${this.pyPath} "${args}"`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
     return res

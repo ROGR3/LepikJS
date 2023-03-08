@@ -1,9 +1,10 @@
 {
   "name": "lepikjs",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "description": "Global Keyboard and Mouse Desktop Automation",
   "main": "./index.js",
   "scripts": {
+    "test": "node ./test/test.js",
     "build:ts": "cd ./typescript && tsc",
     "dev": "cd ./typescript && tsc -w",
     "build:py:win": "pyinstaller --onefile ./python/main.py --distpath ./build --workpath ./tmp -y",
