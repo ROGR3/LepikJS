@@ -50,8 +50,8 @@ class Lepik {
   getSupportedKeys(): string[] {
     return this.supportedChars
   }
-  keyTap(key: string = "a"): void {
-    if (this.supportedChars.indexOf(key) === -1) console.log("Key " + key + "  not supported")
+  keyTap(key: string): void {
+    if (this.supportedChars.indexOf(key) === -1 && !key.includes("+")) console.log("Key " + key + "  not supported")
     this.#changeCurrent(`keyTap('${key}')`);
     if (this.safeMode) this.#rfc()
   }

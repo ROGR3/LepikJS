@@ -21,7 +21,7 @@ declare class Lepik {
         y: number;
     };
     getSupportedKeys(): string[];
-    keyTap(key?: string): void;
+    keyTap(key: string): void;
     write(msg?: string, d?: number): void;
     on(ev: string, cb: Function): void;
     start(): void;

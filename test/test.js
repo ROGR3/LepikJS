@@ -2,18 +2,22 @@ const lepik = require("../")
 // const lepik = require("lepikjs")
 // lepik.mouseClick(2)
 // console.log(lepik.getMousePosition())
+lepik.start()
+console.time("here")
 lepik.keyTap("left-shift+b")
+lepik.keyTap("b")
+lepik.end()
+console.timeEnd("here")
 // lepik.write("dasasdscbkjxsbckasdjhbckjsdhbfjhsdgfjshdfgsjdhc", "0")
 // lepik.on("keyRelease", data => {
-//   console.log(data)
+//   console.log(data)B
 // })
 // console.log(lepik.getSupportedKeys())
 // lepik.on("mouseClick", data => {
 //   console.log(data)
 // })
 // lepik.on("mouseDoubleClick", data => {
-//   console.log(data)
-// })
+//   console.log(data)B
 // lepik.log()
 // lepik.mouseDrag(0, 0, 10, 10, false, 0.2)
 // lepik.mouseScroll(1)
