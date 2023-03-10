@@ -1,13 +1,3 @@
-# LEPIKJS is being down \<v1.5.8;v1.5.11\>
-### To use it please install version <= 1.5.7 or >= 1.5.12
-
-
-
-
-
-
-
-
 # Visit LepikJS's [website](https://lepikjs.netlify.app/).
 
 # LepikJS
@@ -20,7 +10,6 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 ## Installing
 
     npm install lepikjs
-
 
 
 ## Coding
