@@ -11,13 +11,7 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 
     npm install lepikjs
 
-> ㅤ
-> ## New Feature v1.5.0+
->
-> **LepikJS's keytap now supports more 'special' keys! (left-shift, right-shift left-windows,...)**
->
-> > [lepik.keyTap("left-shift+b")](#all-methods)
->  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ   ㅤㅤㅤLepikJSv1.5.0
+> ## LEPIKJS is temporary down v1.5.8+
 
 ## Coding
 
