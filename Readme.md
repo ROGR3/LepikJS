@@ -1,5 +1,5 @@
-# LEPIKJS is temporary down v1.5.8+
-### To use it please install version <= 1.5.7
+# LEPIKJS is being down \<v1.5.8;v1.5.11\>
+### To use it please install version <= 1.5.7 or >= 1.5.12
 
 
 
