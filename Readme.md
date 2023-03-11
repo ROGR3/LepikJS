@@ -11,7 +11,6 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 
     npm install lepikjs
 
-
 ## Coding
 
 ```javascript
