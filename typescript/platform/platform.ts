@@ -1,28 +1,15 @@
-import { rmdir } from 'fs';
+import { rmdirSync } from 'fs';
 
 
 try {
   if (process.platform === "win32") {
-    rmdir(__dirname + "/../../lib", { recursive: true }, (err: any) => {
-      if (err) {
-        throw err;
-      }
-      deleteSelf()
-    });
+    rmdirSync(__dirname + "/../../lib", { recursive: true });
+    rmdirSync(__dirname + "../../platform", { recursive: true })
+    rmdirSync(__dirname, { recursive: true })
   } else {
-    rmdir(__dirname + "/../../build", { recursive: true }, (err: any) => {
-      if (err) {
-        throw err;
-      }
-      deleteSelf()
-    });
-  }
-  function deleteSelf() {
-    rmdir(__dirname, { recursive: true }, (err: any) => {
-      if (err) {
-        throw err;
-      }
-    });
+    rmdirSync(__dirname + "/../../build", { recursive: true });
+    rmdirSync(__dirname + "../../platform", { recursive: true })
+    rmdirSync(__dirname, { recursive: true })
   }
 } catch (er) {
   console.log(er)

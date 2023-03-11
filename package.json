@@ -10,7 +10,7 @@
     "build:py:win": "pyinstaller --onefile ./python/main.py --distpath ./build --workpath ./tmp -y",
     "build:py:unix": "node javascript/platform/unix.js",
     "build:py": "npm run build:py:win && npm run build:py:unix",
-    "postinstall": "handleNodeInstalled.bat",
+    "postinstall": "bash ./platform/handleNodeInstalled.bat",
     "deleteLib": "node javascript/platform/platform.js"
   },
   "keywords": [
