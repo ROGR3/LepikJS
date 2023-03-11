@@ -1,6 +1,6 @@
 {
   "name": "lepikjs",
-  "version": "1.5.14",
+  "version": "1.5.16",
   "description": "Global Keyboard and Mouse Desktop Automation",
   "main": "./index.js",
   "scripts": {
@@ -10,8 +10,7 @@
     "build:py:win": "pyinstaller --onefile ./python/main.py --distpath ./build --workpath ./tmp -y",
     "build:py:unix": "node javascript/platform/unix.js",
     "build:py": "npm run build:py:win && npm run build:py:unix",
-    "postinstall": "bash ./platform/handleNodeInstalled.bat",
-    "deleteLib": "node javascript/platform/platform.js"
+    "postinstall": "node javascript/platform/platform.js ||  echo couldnt find the nodejs"
   },
   "keywords": [
     "mouse",
