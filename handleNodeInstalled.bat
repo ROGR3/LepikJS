@@ -1,0 +1,1 @@
+node -v >nul 2>&1 && (npm run deleteLib) || ( echo Did not find the node! )
