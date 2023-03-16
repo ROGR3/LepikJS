@@ -1,28 +1,32 @@
-# Visit LepikJS's [website](https://lepikjs.netlify.app/).
-
 # LepikJS
-A python based, Global Keyboard and Mouse event emmiter.
+LepikJS is a Python-based global keyboard and mouse event emitter. It allows you to listen to and emit events related to keyboard and mouse actions. You can use it for automation, testing, or any other application that requires control over user input.
 
-[![NPM](https://nodei.co/npm-dl/lepikjs.png)](https://www.npmjs.com/package/lepikjs)
+You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more information.
 
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
 
 ## Installing
+You can install LepikJS using npm:
+```bash
+npm install lepikjs
+```
 
-    npm install lepikjs
+## Usage
 
-## Coding
+To use LepikJS, you need to require it in your code:
 
 ```javascript
-// Require lepikEvents
 const lepik = require('lepikjs');
+```
 
+Then, you can start listening to events and emit new events:
+
+```javascript
 // On every mouse click, move the cursor 100 pixels down
 lepik.on("mouseClick", (data) => {
   console.log(data) // { x: 786, y: 171, button: 1 }
   lepik.mouseMove(0, 100)
 })
-
 ```
 
 ## All Methods
@@ -84,11 +88,9 @@ lepik.log()
 // Returns string "Hello from LepikJS!" (passing string as argument is allowed)
 
 // Supported keys:
-let supportedKeys = ['backspace', 'tab', 'clear', 'enter', 'shift', 'ctrl', 'alt', 'pause', 'caps-lock', 'esc', 'spacebar', 'page-up', 'page-down', 'end', 'home', 'left', 'up', 'right', 'down', 'select', 'print-screen', 'insert', 'delete', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'left-windows', 'right-windows', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '*', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12', 'f13', 'f14', 'f15', 'f16', 'f17', 'f18', 'f19', 'f20', 'f21', 'f22', 'f23', 'f24', 'num-lock', 'scroll-lock', 'left-shift', 'right-shift', 'left-ctrl', 'right-ctrl', 'left-menu', 'right-menu', 'volume-mute', 'volume-down', 'volume-up', 'next-track', 'previous-track', 'stop-media', ',', '.', 'play', 'zoom', 'clear']
-// Built in LepikJS method to recieve all supported keys
 let supportedKeys = lepik.getSupportedKeys()
-
 ```
+You can find more information about each method in the source code.
 
 ## Requirements
 
