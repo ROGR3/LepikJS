@@ -92,6 +92,12 @@ let supportedKeys = lepik.getSupportedKeys()
 ```
 You can find more information about each method in the source code.
 
+#### User performance
+I have conducted tests on different machines to measure the execution time of the scripts. 
+On Linux/MacOS machines, the execution time of the non-binary scripts was around **80-100ms**.
+On Windows machines, however, the execution time of the binary script was around **260-300ms**.
+These tests were performed on a desktop PC, virtual machines, and an older notebook, and the results were averaged to provide a general estimate of the execution time.
+
 ## Requirements
 
 LepikJS uses [Python keyboard](https://github.com/boppreh/keyboard) and [Python mouse](https://github.com/boppreh/mouse) which runs on Python. 
