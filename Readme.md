@@ -79,6 +79,12 @@ lepik.on("mouseMove",(data)=>{
 lepik.on("mouseClick",(data)=>{
   console.log(data) // { x: 753, y: 241, button: 1 }
 })
+lepik.on("mouseUp",(data)=>{
+  console.log(data) // { x: 753, y: 241}
+})
+lepik.on("mouseDown",(data)=>{
+  console.log(data) // { x: 753, y: 241}
+})
 lepik.on("mouseDoubleClick",(data)=>{
   console.log(data) // { x: 753, y: 241, button: 1 }
 })
