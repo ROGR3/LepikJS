@@ -5,6 +5,17 @@ You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more informa
 
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
 
+> ㅤ
+> ## New Feature v1.6.0+
+>
+> **LepikJS now includes a method for capturing mouseUp and mouseDown events!**
+>
+> > [lepik.on("mouseDown", cb)](#all-events)
+> 
+> **Array is passed to the callback function, containing x and y positons**
+> ㅤ
+>  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv1.6.0
+
 ## Installing
 You can install LepikJS using npm:
 ```bash
