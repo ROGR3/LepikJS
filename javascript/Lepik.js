@@ -103,6 +103,16 @@ class Lepik {
                     cb({ x: data[0], y: data[1], time: data[2] });
                 });
                 break;
+            case "mouseDown":
+                lepikEvents.events.on("mouseDown", (data) => {
+                    cb({ x: data[0], y: data[1] });
+                });
+                break;
+            case "mouseUp":
+                lepikEvents.events.on("mouseUp", (data) => {
+                    cb({ x: data[0], y: data[1] });
+                });
+                break;
             default:
                 console.error("Unknown event: " + ev);
                 break;
