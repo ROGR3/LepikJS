@@ -14,7 +14,7 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 > 
 > **Array is passed to the callback function, containing x and y positons**
 > ㅤ
->  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv1.6.0
+>  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv1.6.0
 
 ## Installing
 You can install LepikJS using npm:

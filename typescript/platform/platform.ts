@@ -1,17 +1,22 @@
 import { rmdirSync } from 'fs';
 
-
-try {
-  if (process.platform === "win32") {
-    rmdirSync(__dirname + "/../../lib", { recursive: true });
-    rmdirSync(__dirname + "../../platform", { recursive: true })
-    rmdirSync(__dirname, { recursive: true })
+const removeDirectories = (platform: string) => {
+  const directoriesToRemove = [
+    `${__dirname}/../../${platform}`,
+    __dirname,
+  ];
+  if (process.platform === 'win32') {
+    directoriesToRemove.unshift(`${__dirname}/../../lib`);
   } else {
-    rmdirSync(__dirname + "/../../build", { recursive: true });
-    rmdirSync(__dirname + "../../platform", { recursive: true })
-    rmdirSync(__dirname, { recursive: true })
+    directoriesToRemove.unshift(`${__dirname}/../../build`);
   }
-} catch (er) {
-  console.log(er)
-}
+  for (const dir of directoriesToRemove) {
+    try {
+      rmdirSync(dir, { recursive: true });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+};
 
+removeDirectories('platform');
