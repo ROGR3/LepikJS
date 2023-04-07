@@ -63,7 +63,14 @@ class Lepik {
     this.#changeCurrent(`write([${arSending}],${d})`);
     if (this.safeMode) this.#rfc()
   }
-
+  copy() {
+    this.#changeCurrent(`copy()`);
+    if (this.safeMode) this.#rfc()
+  }
+  paste() {
+    this.#changeCurrent(`paste()`);
+    if (this.safeMode) this.#rfc()
+  }
   on(ev: string, cb: Function): void {
     // @ts-ignore
     const lepikEvents = require("lepikevents");

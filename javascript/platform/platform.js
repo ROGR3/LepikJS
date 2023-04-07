@@ -1,18 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
-try {
-    if (process.platform === "win32") {
-        fs_1.rmdirSync(__dirname + "/../../lib", { recursive: true });
-        fs_1.rmdirSync(__dirname + "../../platform", { recursive: true });
-        fs_1.rmdirSync(__dirname, { recursive: true });
+const removeDirectories = (platform) => {
+    const directoriesToRemove = [
+        `${__dirname}/../../${platform}`,
+        __dirname,
+    ];
+    if (process.platform === 'win32') {
+        directoriesToRemove.unshift(`${__dirname}/../../lib`);
     }
     else {
-        fs_1.rmdirSync(__dirname + "/../../build", { recursive: true });
-        fs_1.rmdirSync(__dirname + "../../platform", { recursive: true });
-        fs_1.rmdirSync(__dirname, { recursive: true });
+        directoriesToRemove.unshift(`${__dirname}/../../build`);
     }
-}
-catch (er) {
-    console.log(er);
-}
+    for (const dir of directoriesToRemove) {
+        try {
+            fs_1.rmdirSync(dir, { recursive: true });
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+};
+removeDirectories('platform');

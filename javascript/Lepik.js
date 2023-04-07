@@ -74,6 +74,16 @@ class Lepik {
         if (this.safeMode)
             __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
     }
+    copy() {
+        __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `copy()`);
+        if (this.safeMode)
+            __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
+    }
+    paste() {
+        __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrent).call(this, `paste()`);
+        if (this.safeMode)
+            __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_rfc).call(this);
+    }
     on(ev, cb) {
         // @ts-ignore
         const lepikEvents = require("lepikevents");

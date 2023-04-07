@@ -23,6 +23,8 @@ declare class Lepik {
     getSupportedKeys(): string[];
     keyTap(key: string): void;
     write(msg?: string, d?: number): void;
+    copy(): void;
+    paste(): void;
     on(ev: string, cb: Function): void;
     start(): void;
     end(): void;
