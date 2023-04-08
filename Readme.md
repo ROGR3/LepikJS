@@ -6,15 +6,16 @@ You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more informa
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
 
 > ㅤ
-> ## New Feature v1.7.0+
+> ## New Info for v2.0.0+
 >
-> **LepikJS now includes methods for copying and pasting!**
+> **LepikJS execution speed is now brutally reduced!**
 >
-> > [lepik.copy()](#all-methods)
+> For that reason, the getMousePosition() method is now asynchronous
 >
-> > [lepik.paste()](#all-methods)
-> 
->  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv1.7.0
+> ```javascript
+>  let {x, y} = await lepik.getMousePosition()
+> ```
+>  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.0.0
 
 ## Installing
 You can install LepikJS using npm:
@@ -110,13 +111,8 @@ let supportedKeys = lepik.getSupportedKeys()
 You can find more information about each method in the source code.
 
 #### User performance
-I have conducted tests on different machines to measure the execution time of the scripts. 
-
-On Linux/MacOS machines, the execution time of the non-binary scripts was around **80-100ms**.
-
-On Windows machines, however, the execution time of the binary script was around **260-300ms**.
-
-These tests were performed on a desktop PC, virtual machines, and an older notebook, and the results were averaged to provide a general estimate of the execution time.
+From v2.0.0+ you do not have to care about user perfomance!
+All code execution is almost instant and you have nothin to worry about! 
 
 ## Requirements
 

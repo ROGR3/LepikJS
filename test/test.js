@@ -1,18 +1,20 @@
-const lepik = require("../")
+const lepik = require("../index.js")
 // const lepik = require("lepikjs")
 // lepik.mouseClick(2)
-// console.log(lepik.getMousePosition())
-// lepik.start()
+// lepik.getMousePosition().then(console.log)
 // console.time("here")
 // lepik.keyTap("left-shift+b")
-// lepik.keyTap("b")
-// lepik.end()
+for (let i = 0; i < 10; ++i) {
+  lepik.keyTap("b")
+  console.log("test here")
+}
+// lepik.end()bbbbbbbbbb
 // console.timeEnd("here")
 // lepik.copy()
-lepik.paste()
+// lepik.paste()
 // lepik.write("dasasdscbkjxsbckasdjhbckjsdhbfjhsdgfjshdfgsjdhc", "0")
 // lepik.on("keyRelease", data => {
-//   console.log(data)B
+//   console.log(data)
 // })
 // console.log(lepik.getSupportedKeys())
 // lepik.on("mouseClick", data => {
