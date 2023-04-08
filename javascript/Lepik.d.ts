@@ -21,5 +21,6 @@ declare class Lepik {
     copy(): void;
     paste(): void;
     on(ev: string, cb: Function): void;
+    close(): void;
 }
 export = Lepik;

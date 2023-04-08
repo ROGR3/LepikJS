@@ -6,24 +6,23 @@ class Lepik {
   private readonly pyPath: string;
   private readonly hasGoodVersion: boolean;
   private readonly supportedChars: string[] = ['backspace', 'tab', 'clear', 'enter', 'shift', 'ctrl', 'alt', 'pause', 'caps-lock', 'esc', 'spacebar', 'page-up', 'page-down', 'end', 'home', 'left', 'up', 'right', 'down', 'select', 'print-screen', 'insert', 'delete', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'left-windows', 'right-windows', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '*', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12', 'f13', 'f14', 'f15', 'f16', 'f17', 'f18', 'f19', 'f20', 'f21', 'f22', 'f23', 'f24', 'num-lock', 'scroll-lock', 'left-shift', 'right-shift', 'left-ctrl', 'right-ctrl', 'left-menu', 'right-menu', 'volume-mute', 'volume-down', 'volume-up', 'next-track', 'previous-track', 'stop-media', ',', '.', 'play', 'zoom', 'clear'];
-
   constructor(_path: string, _isWin: boolean, _hasGoodVersion: boolean) {
     this.pyPath = _path;
     this.hasGoodVersion = _hasGoodVersion;
 
-    this.pyProcess = _isWin ? spawn(this.pyPath) : spawn(`sudo python`, [`${this.pyPath}`]);
-
+    if (_isWin) {
+      this.pyProcess = spawn(`${this.pyPath}`);
+    } else {
+      this.pyProcess = spawn("sudo", ["python", `${this.pyPath}`]);
+    }
     process.on('exit', () => {
       console.log("ended")
       this.pyProcess.kill();
     });
 
-    this.pyProcess.on("exit", (code: number) => {
-      console.log(`LepikJS Python process exited with code ${code}`);
-      console.log(`Existing LepikJS too.`);
-      process.exit()
+    this.pyProcess.on('exit', () => {
+      console.log("Python process exited")
     });
-
 
   }
   mouseMove(x: number = 0, y: number = 0, a: boolean = false, d: number = 0.2): void {
@@ -134,7 +133,10 @@ class Lepik {
         break;
     }
   }
-
+  close() {
+    this.#changeCurrentCommand("exit")
+    this.#writeCommandToPy()
+  }
   #writeCommandToPy() {
     if (this.hasGoodVersion) return
     this.pyProcess.stdin.write(`${this.pyCommand}\n`);
