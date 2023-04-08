@@ -15,16 +15,9 @@ class Lepik {
     } else {
       this.pyProcess = spawn("sudo", ["python", `${this.pyPath}`]);
     }
-    // process.on('exit', () => {
-    //   console.log("ended")
-    //   this.pyProcess.kill();
-    // });
-    process.on('beforeExit', () => {
-      console.log("ending");
+    process.on('exit', () => {
       this.pyProcess.kill();
     });
-
-    this.pyProcess.unref();
   }
   mouseMove(x: number = 0, y: number = 0, a: boolean = false, d: number = 0.2): void {
     this.#changeCurrentCommand(`mouseMove(${x},${y},${a === true ? "True" : "False"},${d})`);
@@ -81,11 +74,11 @@ class Lepik {
     this.#changeCurrentCommand(`write([${arSending}],${d})`);
     this.#writeCommandToPy()
   }
-  copy() {
+  copy(): void {
     this.#changeCurrentCommand(`copy()`);
     this.#writeCommandToPy()
   }
-  paste() {
+  paste(): void {
     this.#changeCurrentCommand(`paste()`);
     this.#writeCommandToPy()
   }
@@ -134,15 +127,14 @@ class Lepik {
         break;
     }
   }
-  close() {
+  close(): void {
     this.#changeCurrentCommand("exit")
     this.#writeCommandToPy()
   }
-  #writeCommandToPy() {
+  #writeCommandToPy(): void {
     if (this.hasGoodVersion) return
     this.pyProcess.stdin.write(`${this.pyCommand}\n`);
     this.pyCommand = "";
-    return this.pyProcess
   }
 
   #changeCurrentCommand(cmd: string): void {

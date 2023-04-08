@@ -19,15 +19,9 @@ class Lepik {
         else {
             this.pyProcess = child_process_1.spawn("sudo", ["python", `${this.pyPath}`]);
         }
-        // process.on('exit', () => {
-        //   console.log("ended")
-        //   this.pyProcess.kill();
-        // });
-        process.on('beforeExit', () => {
-            console.log("ending");
+        process.on('exit', () => {
             this.pyProcess.kill();
         });
-        this.pyProcess.unref();
     }
     mouseMove(x = 0, y = 0, a = false, d = 0.2) {
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrentCommand).call(this, `mouseMove(${x},${y},${a === true ? "True" : "False"},${d})`);
@@ -150,7 +144,6 @@ _Lepik_instances = new WeakSet(), _Lepik_writeCommandToPy = function _Lepik_writ
         return;
     this.pyProcess.stdin.write(`${this.pyCommand}\n`);
     this.pyCommand = "";
-    return this.pyProcess;
 }, _Lepik_changeCurrentCommand = function _Lepik_changeCurrentCommand(cmd) {
     this.pyCommand = cmd;
 };
