@@ -8,11 +8,11 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 > ㅤ
 > ## New Feature v1.7.0+
 >
-> **LepikJS now includes a method for copying and pasting!**
+> **LepikJS now includes methods for copying and pasting!**
 >
-> > [lepik.copy()](#all-events)
+> > [lepik.copy()](#all-methods)
 >
-> > [lepik.paste()](#all-events)
+> > [lepik.paste()](#all-methods)
 > 
 >  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv1.7.0
 
