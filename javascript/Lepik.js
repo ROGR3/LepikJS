@@ -19,13 +19,15 @@ class Lepik {
         else {
             this.pyProcess = child_process_1.spawn("sudo", ["python", `${this.pyPath}`]);
         }
-        process.on('exit', () => {
-            console.log("ended");
+        // process.on('exit', () => {
+        //   console.log("ended")
+        //   this.pyProcess.kill();
+        // });
+        process.on('beforeExit', () => {
+            console.log("ending");
             this.pyProcess.kill();
         });
-        this.pyProcess.on('exit', () => {
-            console.log("Python process exited");
-        });
+        this.pyProcess.unref();
     }
     mouseMove(x = 0, y = 0, a = false, d = 0.2) {
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrentCommand).call(this, `mouseMove(${x},${y},${a === true ? "True" : "False"},${d})`);
