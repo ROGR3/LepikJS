@@ -61,7 +61,7 @@ lepik.mouseDrag(fromX,fromY,toX,toY,absolute,duration)
 //Absolute and duration are optional. Default false and 0.2
 lepik.mouseScroll(amount)
 //Positive amount scrolls up, negative down. Default is 1
-lepik.getMousePosition()
+await lepik.getMousePosition()
 //Returns object { x: 719, y: 461 }
 
 
@@ -70,9 +70,13 @@ lepik.keyTap(char)
 // Alphabet char needs to be single letter
 // Char can be special key too (shift, windows, clear,...)
 // In case of multi-word words they are split with "-". (left-shift, right-shift,left-windows,...)
-// In case you want to join multiple keys use "+" ("left-shift+b", "left-shift+x")
+// If you want to join multiple keys use "+" ("left-shift+b", "left-shift+x")
 lepik.write(string, duration)
 //Duration is optional. Default is 0.1
+lepik.copy() // Copies currently selected object
+lepik.paste() // Pastes currently coppied object
+
+
 
 // Screen events
 // Coming soon
@@ -103,10 +107,6 @@ lepik.on("keyRelease",(data)=>{
 // Controls
 // When reached this line, the process can exit.
 lepik.close() 
-
-// Test
-lepik.log()
-// Returns string "Hello from LepikJS!" (passing string as argument is allowed)
 
 // Supported keys:
 let supportedKeys = lepik.getSupportedKeys()
