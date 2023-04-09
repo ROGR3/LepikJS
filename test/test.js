@@ -8,6 +8,7 @@ for (let i = 0; i < 10; ++i) {
   lepik.keyTap("b")
   console.log("test here")
 }
+lepik.close()
 // lepik.close()
 // lepik.end()bbbbbbbbbb
 // console.timeEnd("here")

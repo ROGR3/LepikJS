@@ -10,8 +10,12 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 >
 > **LepikJS execution speed is now brutally reduced!**
 >
-> For that reason, the getMousePosition() method is now asynchronous
+> For that reason, the application will run forever, even if there are no listeners.
 >
+> ```javascript
+>  lepik.close() // Put this on the end of the file, so the process can exit
+> ```
+> Also, the getMousePosition is now asynchronous.
 > ```javascript
 >  let {x, y} = await lepik.getMousePosition()
 > ```
