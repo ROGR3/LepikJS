@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/agate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/bash.min.js"></script>
+  <script>hljs.highlightAll();</script>
   <script src="https://kit.fontawesome.com/c9687a7a14.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/styles.css">
   <script defer src="scripts/script.js"></script>
@@ -54,10 +59,10 @@
         </p>
         <p>
           npm:
-        <pre>npm install lepikjs</pre>
+        <pre> <code class="language-javascript"> npm install lepikjs</code></pre>
         <br>
         yarn:
-        <pre>yarn add lepikjs</pre>
+        <pre><code class="language-javascript">yarn add lepikjs</code></pre>
         Nothin' else.
         </p>
       </div>
@@ -85,7 +90,7 @@
           To use the library, you need to import it.
         </p>
         <p>
-        <pre>const lepik = require("lepikjs")</pre>
+        <pre><code class="language-javascript">const lepik = require("lepikjs")</code></pre>
         </p>
         <p>
           Then you can use it.
@@ -103,12 +108,11 @@
         </p>
         <p>
           <b> Listening to mouse click:</b>
-        <pre>
-lepik.on("mouseClick", (event) => {
+        <pre><code class="language-javascript">lepik.on("mouseClick", (event) => {
   console.log("Position x: " + event.x );
   console.log("Position y: " + event.y); 
   console.log("Button: " + event.button); 
-})
+})</code>
 </pre>
         The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouse click. <br>
         The <b>event.button</b> parameter is a number that represents the button that was clicked. <br>
@@ -117,18 +121,17 @@ lepik.on("mouseClick", (event) => {
         <p>
           <b> Listening to key press:</b>
         <pre>
-lepik.on("keyPress", (key) => {
+<code class="language-javascript theme-agate"> lepik.on("keyPress", (key) => {
   console.log(key + " pressed")
-})
+})</code>
 </pre>
         The <b>key</b> parameter is the key that was released.
         </p>
         <p>
           <b> Listening to key release:</b>
-        <pre>
-lepik.on("keyRelease", (key) => {
+        <pre><code class="language-javascript">lepik.on("keyRelease", (key) => {
   console.log(key + " released")
-})
+})</code>
 </pre>
         The <b>key</b> parameter is the key that was released.
         </p>
@@ -145,34 +148,26 @@ lepik.on("keyRelease", (key) => {
         </p>
         <p>
           <b> Current mouse position: </b>
-        <pre>
-let pos = await lepik.getMousePosition()
+        <pre><code class="language-javascript">let pos = await lepik.getMousePosition()
 console.log("Position x: " + pos.x );
-console.log("Position y: " + pos.y);
-</pre>
+console.log("Position y: " + pos.y);</code></pre>
         Returns the current mouse position as object with x and y attributes.
         </p>
         <p>
           <b> Emiting mouse click:</b>
-        <pre>
-lepik.mouseClick(key,amount)
-</pre>
+        <pre><code class="language-javascript">lepik.mouseClick(key,amount)</code></pre>
         The <b>key</b> parameter can be 0 for left, 1 for right and 2 for middle.
         Strings "left", "right" and "middle" are also accepted.
         The <b>amount</b> parameter is the amount of clicks. (default: 1)
         </p>
         <p>
           <b> Emiting mouse double-click:</b>
-        <pre>
-lepik.mouseDoubleClick(key)
-</pre>
+        <pre><code class="language-javascript">lepik.mouseDoubleClick(key)</code></pre>
         Same rules as above, but the <b>amount</b> parameter cannot be changed. (default: 2)
         </p>
         <p>
           <b> Emiting mouse mouseMove:</b>
-        <pre>
-lepik.mouseMove(x, y, absolute, duration)
-</pre>
+        <pre><code class="language-javascript">lepik.mouseMove(x, y, absolute, duration)</code></pre>
         The <b>x</b> and <b>y</b> parameters are the new position of the mouse. <br>
         The <b>absolute</b> parameter is a boolean that determines if the movement is absolute or relative. <br>
         The <b>duration</b> parameter is the time in milliseconds the mouse should move.
@@ -180,9 +175,7 @@ lepik.mouseMove(x, y, absolute, duration)
         </p>
         <p>
           <b> Emiting mouse drag:</b>
-        <pre>
-lepik.mouseDrag(fromX,fromY,toX,toY,absolute,duration)
-</pre>
+        <pre><code class="language-javascript">lepik.mouseDrag(fromX,fromY,toX,toY,absolute,duration)</code></pre>
         The <b>fromX</b> and <b>fromY</b> parameters are the starting position of the mouse. <br>
         The <b>toX</b> and <b>toY</b> parameters are the ending position of the mouse. <br>
         The <b>absolute</b> parameter is a boolean that determines if the movement is absolute or relative. <br>
@@ -191,26 +184,20 @@ lepik.mouseDrag(fromX,fromY,toX,toY,absolute,duration)
         </p>
         <p>
           <b> Emiting mouse scroll:</b>
-        <pre>
-lepik.mouseScroll(amount)
-</pre>
+        <pre><code class="language-javascript">lepik.mouseScroll(amount)</code></pre>
         The <b>amount</b> parameter is the amount of scroll. (default: 1)
         Negative values scroll down, positive values scroll up.
         </p>
         <p>
           <b> Emiting key tap:</b>
-        <pre>
-lepik.keyTap(key)
-</pre>
+        <pre><code class="language-javascript">lepik.keyTap(key)</code></pre>
         The <b>key</b> parameter is the key that will be tapped.
         If needed to press more keys and once concencate them with + .
         Ex. "ctrl+alt+delete"
         </p>
         <p>
           <b> Emiting keyboard write string:</b>
-        <pre>
-lepik.write(text,duration)
-</pre>
+        <pre><code class="language-javascript">lepik.write(text,duration)</code></pre>
         The <b>text</b> parameter is the text that will be written.
         The <b>duration</b> parameter is the time in milliseconds the text should be written. (default: .1)
         Duration is optional.

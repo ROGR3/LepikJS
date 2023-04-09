@@ -101,9 +101,8 @@ lepik.on("keyRelease",(data)=>{
 })
 
 // Controls
-lepik.start() 
-//  Code inside these methods will get executed as single proccess. Meaning faster results
-lepik.end() 
+// When reached this line, the process can exit.
+lepik.close() 
 
 // Test
 lepik.log()

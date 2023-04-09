@@ -6,15 +6,6 @@
   box-sizing: border-box;
 }
 
-@-webkit-keyframes animated-text {
-  from {
-    width: 0;
-  }
-  to {
-    width: 65rem;
-  }
-}
-
 @keyframes animated-text {
   from {
     width: 0;
@@ -23,31 +14,12 @@
     width: 65rem;
   }
 }
-@-webkit-keyframes animated-cursor {
-  from {
-    border-right: solid 3px rgba(224, 224, 224, 0.75);
-  }
-  to {
-    border-right-color: transparent;
-  }
-}
 @keyframes animated-cursor {
   from {
     border-right: solid 3px rgba(224, 224, 224, 0.75);
   }
   to {
     border-right-color: transparent;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1.1);
   }
 }
 @keyframes pulse {
@@ -61,16 +33,6 @@
     transform: scale(1.1);
   }
 }
-@-webkit-keyframes slideIn {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 @keyframes slideIn {
   0% {
     transform: translateY(100%);
@@ -81,28 +43,12 @@
     opacity: 1;
   }
 }
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 @keyframes fadeOut {
   0% {
     opacity: 1;
   }
   100% {
     opacity: 0;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 @keyframes fadeIn {
@@ -150,8 +96,7 @@ body {
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
-  -webkit-animation: animated-text 2s steps(18, end) 0s 1 normal both, animated-cursor 0.7s steps(18, end) 10;
-          animation: animated-text 2s steps(18, end) 0s 1 normal both, animated-cursor 0.7s steps(18, end) 10;
+  animation: animated-text 2s steps(18, end) 0s 1 normal both, animated-cursor 0.7s steps(18, end) 10;
   z-index: 1;
 }
 #top h3 {
@@ -163,8 +108,7 @@ body {
   margin-left: 0.2rem;
   color: rgba(255, 255, 255, 0.7);
   opacity: 0;
-  -webkit-animation: slideIn 1s 0.5s forwards;
-          animation: slideIn 1s 0.5s forwards;
+  animation: slideIn 1s 0.5s forwards;
   z-index: 1;
 }
 #top .logo {
@@ -202,8 +146,7 @@ body {
   bottom: 10%;
   text-align: center;
   border-radius: 50%;
-  -webkit-animation: pulse 1s 3s infinite;
-          animation: pulse 1s 3s infinite;
+  animation: pulse 1s 3s infinite;
   border: 1px solid white;
   z-index: 1;
 }
@@ -220,7 +163,6 @@ body {
 }
 
 #pageone {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 100vw;
@@ -230,7 +172,6 @@ body {
 #pageone .container {
   padding: 5rem 1rem;
   width: 50%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin: auto;
@@ -262,20 +203,14 @@ body {
   color: wheat;
 }
 #pageone .container pre {
-  background-color: rgb(65, 65, 65);
-  border: 1px solid white;
-  border-radius: 0.3rem;
-  display: inline-block;
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding: 0.5rem;
   margin: 0.5rem 0;
-  overflow-x: auto;
 }
 #pageone .container pre ::-webkit-scrollbar-thumb {
   background: red;
+}
+#pageone .container pre code {
+  border-radius: 0.3rem;
 }
 #pageone ul {
   position: fixed;
@@ -300,13 +235,11 @@ body {
 }
 
 .fadeOut {
-  -webkit-animation: fadeOut 1s forwards;
-          animation: fadeOut 1s forwards;
+  animation: fadeOut 1s forwards;
 }
 
 .fadeIn {
-  -webkit-animation: fadeIn 1s forwards;
-          animation: fadeIn 1s forwards;
+  animation: fadeIn 1s forwards;
 }
 
 .active {

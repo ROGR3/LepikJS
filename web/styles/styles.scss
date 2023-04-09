@@ -169,18 +169,17 @@ body {
     }
 
     pre {
-      background-color: rgb(65, 65, 65);
-      border: 1px solid white;
-      border-radius: .3rem;
-      display: inline-block;
-      width: 100%;
-      height: fit-content;
-      padding: .5rem;
-      margin: .5rem 0;
-      overflow-x: auto;
 
+      width: 100%;
+      margin: .5rem 0;
+
+      // overflow-x: auto;
       ::-webkit-scrollbar-thumb {
         background: red;
+      }
+
+      code {
+        border-radius: .3rem;
       }
     }
   }
@@ -223,7 +222,7 @@ body {
   background-color: #9fabb11a;
 }
 
-@media only screen and(max-width: 1350px) {
+@media only screen and (max-width: 1350px) {
 
   #pageone {
     .container {
@@ -238,7 +237,7 @@ body {
   }
 }
 
-@media only screen and(max-width: 1020px) {
+@media only screen and (max-width: 1020px) {
 
   #pageone {
     .container {
@@ -250,7 +249,7 @@ body {
 
 }
 
-@media only screen and(max-width: 920px) {
+@media only screen and (max-width: 920px) {
 
   #pageone {
     .container {
@@ -268,7 +267,7 @@ body {
 
 }
 
-@media only screen and(max-width: 750px) {
+@media only screen and (max-width: 750px) {
 
   #top {
     h1 {
@@ -285,7 +284,7 @@ body {
 }
 
 
-@media only screen and(max-width: 500px) {
+@media only screen and (max-width: 500px) {
   #top {
     padding-top: 5rem;
     height: 80vh;
@@ -312,7 +311,7 @@ body {
 }
 
 
-@media only screen and(min-width: 650px) {
+@media only screen and (min-width: 650px) {
   #top {
     h1 {
       br {
