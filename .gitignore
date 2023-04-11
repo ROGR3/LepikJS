@@ -1,11 +1,9 @@
 build/
-lib/*.py
-lib/*
+lib/
 node_modules/
 tmp/
 python/__pycache__/
 *.spec
-set.json
 backup/
 googled.md
 tempCodeRunnerFile.*
