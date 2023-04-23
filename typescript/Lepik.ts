@@ -66,6 +66,16 @@ class Lepik {
     this.#changeCurrentCommand(`keyTap('${key}')`);
     this.#writeCommandToPy()
   }
+  keyUp(key: string): void {
+    if (this.supportedChars.indexOf(key) === -1 && !key.includes("+")) console.log("Key " + key + "  not supported")
+    this.#changeCurrentCommand(`keyUp('${key}')`);
+    this.#writeCommandToPy()
+  }
+  keyDown(key: string): void {
+    if (this.supportedChars.indexOf(key) === -1 && !key.includes("+")) console.log("Key " + key + "  not supported")
+    this.#changeCurrentCommand(`keyDown('${key}')`);
+    this.#writeCommandToPy()
+  }
   write(msg: string = "Hello From LepikJS", d: number = 0.1): void {
     let arSending = msg.toString().split(" ");
     for (let i = 0; i < arSending.length; i++) {

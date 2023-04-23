@@ -1,4 +1,14 @@
 import mouse
+import sys
+from threading import Lock
+
+print_lock = Lock()
+
+
+def safe_print(*a, **b):
+    with print_lock:
+        print(*a, **b)
+        sys.stdout.flush()
 
 
 def mouseMove(x: int, y: int, a: bool = False, d: float = 0.2) -> None:
@@ -15,12 +25,8 @@ def mouseClick(key: str, am: int) -> None:
 
 
 def getMousePosition() -> tuple:
-    print(list(mouse.get_position()))
+    safe_print(list(mouse.get_position()))
 
 
 def mouseScroll(x: int) -> None:
     mouse.wheel(x)
-
-
-# def isPressed(key: str) -> bool:
-#     print(mouse.is_pressed(key))

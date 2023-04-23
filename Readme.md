@@ -66,7 +66,9 @@ await lepik.getMousePosition()
 
 
 // Keyboard events
-lepik.keyTap(char)
+lepik.keyTap(char) // Press the key once
+lepik.keyUp(char) // Hold the key pressed
+lepik.keyDown(char) // Releases the key
 // Alphabet char needs to be single letter
 // Char can be special key too (shift, windows, clear,...)
 // In case of multi-word words they are split with "-". (left-shift, right-shift,left-windows,...)

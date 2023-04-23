@@ -17,6 +17,8 @@ declare class Lepik {
     }>;
     getSupportedKeys(): string[];
     keyTap(key: string): void;
+    keyUp(key: string): void;
+    keyDown(key: string): void;
     write(msg?: string, d?: number): void;
     copy(): void;
     paste(): void;

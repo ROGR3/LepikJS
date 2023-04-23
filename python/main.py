@@ -15,4 +15,4 @@ while True:
     try:
         eval(command.replace("-", " "))
     except:
-        print("Invalid command:", command)
+        safe_print("Invalid command:", command)

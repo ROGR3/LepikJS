@@ -4,13 +4,12 @@ const lepik = require("../index.js")
 // lepik.getMousePosition().then(console.log)
 // console.time("here")
 // lepik.keyTap("left-shift+b")
-for (let i = 0; i < 10; ++i) {
-  lepik.keyTap("b")
-  console.log("test here")
-}
+// for (let i = 0; i < 10; ++i) {
+//   lepik.keyTap("b")
+//   console.log("test here")
+// }DSDSDSA
 // lepik.close()
-// lepik.end()bbbbbbbbbb
-// console.timeEnd("here")
+// lepik.end()
 // lepik.copy()
 // lepik.paste()
 // lepik.write("dasasdscbkjxsbckasdjhbckjsdhbfjhsdgfjshdfgsjdhc", "0")

@@ -74,6 +74,18 @@ class Lepik {
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrentCommand).call(this, `keyTap('${key}')`);
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_writeCommandToPy).call(this);
     }
+    keyUp(key) {
+        if (this.supportedChars.indexOf(key) === -1 && !key.includes("+"))
+            console.log("Key " + key + "  not supported");
+        __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrentCommand).call(this, `keyUp('${key}')`);
+        __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_writeCommandToPy).call(this);
+    }
+    keyDown(key) {
+        if (this.supportedChars.indexOf(key) === -1 && !key.includes("+"))
+            console.log("Key " + key + "  not supported");
+        __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_changeCurrentCommand).call(this, `keyDown('${key}')`);
+        __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_writeCommandToPy).call(this);
+    }
     write(msg = "Hello From LepikJS", d = 0.1) {
         let arSending = msg.toString().split(" ");
         for (let i = 0; i < arSending.length; i++) {
