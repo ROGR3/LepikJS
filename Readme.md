@@ -6,20 +6,16 @@ You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more informa
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
 
 > ㅤ
-> ## New Info for v2.0.0+
+> ## New Info for v2.0.7+
 >
-> **LepikJS execution speed is now brutally reduced!**
->
-> For that reason, the application will run forever, even if there are no listeners.
+> **LepikJS now supports keyDown and keyUp methods!**
 >
 > ```javascript
->  lepik.close() // Put this on the end of the file, so the process can exit
+>  lepik.keyDown("shift")
+>  lepik.keyTap("b") //Writes B
+>  lepik.keyUp("shift")
 > ```
-> Also, the getMousePosition is now asynchronous.
-> ```javascript
->  let {x, y} = await lepik.getMousePosition()
-> ```
->  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.0.0
+>  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.0.7
 
 ## Installing
 You can install LepikJS using npm:
