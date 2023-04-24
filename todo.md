@@ -1,1 +1,1 @@
-Todo
+Delay function
