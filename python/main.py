@@ -3,11 +3,6 @@ from lepik_mouse import *
 from lepik_keyboard import *
 
 
-def stringilize(arr: tuple) -> str:
-    string = ' '.join(str(x) for x in arr)
-    return string
-
-
 while True:
     command = input().strip()
     if command == "exit":
@@ -15,4 +10,4 @@ while True:
     try:
         eval(command.replace("-", " "))
     except:
-        safe_print("Invalid command:", command)
+        print("Invalid command:", command)

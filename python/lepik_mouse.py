@@ -1,32 +1,38 @@
 import mouse
 import sys
-from threading import Lock
-
-print_lock = Lock()
-
-
-def safe_print(*a, **b):
-    with print_lock:
-        print(*a, **b)
-        sys.stdout.flush()
 
 
 def mouseMove(x: int, y: int, a: bool = False, d: float = 0.2) -> None:
-    mouse.move(x, y, absolute=a, duration=d)
+    try:
+        mouse.move(x, y, absolute=a, duration=d)
+    except Exception as e:
+        print("Error in LepikJS mouseMove:", e)
 
 
 def mouseDrag(fx: int, fy: int, tx: int, ty: int, a: bool = False, d: float = 0.2) -> None:
-    mouse.drag(fx, fy, tx, ty, absolute=a, duration=d)
+    try:
+        mouse.drag(fx, fy, tx, ty, absolute=a, duration=d)
+    except Exception as e:
+        print("Error in LepikJS mouseDrag:", e)
 
 
 def mouseClick(key: str, am: int) -> None:
-    for i in range(am):
-        mouse.click(key)
+    try:
+        for i in range(am):
+            mouse.click(key)
+    except Exception as e:
+        print("Error in LepikJS mouseClick:", e)
 
 
-def getMousePosition() -> tuple:
-    safe_print(list(mouse.get_position()))
+def getMousePosition() -> None:
+    try:
+        print(list(mouse.get_position()))
+    except Exception as e:
+        print("Error in LepikJS getMousePosition:", e)
 
 
 def mouseScroll(x: int) -> None:
-    mouse.wheel(x)
+    try:
+        mouse.wheel(x)
+    except Exception as e:
+        print("Error in LepikJS mouseScroll:", e)

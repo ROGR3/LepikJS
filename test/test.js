@@ -1,13 +1,15 @@
 const lepik = require("../index.js")
 // const lepik = require("lepikjs")
 // lepik.mouseClick(2)
-// lepik.getMousePosition().then(console.log)
+setInterval(() => {
+  lepik.getMousePosition().then(console.log)
+}, 500)
 // console.time("here")
 // lepik.keyTap("left-shift+b")
 // for (let i = 0; i < 10; ++i) {
 //   lepik.keyTap("b")
 //   console.log("test here")
-// }DSDSDSA
+// }
 // lepik.close()
 // lepik.end()
 // lepik.copy()
