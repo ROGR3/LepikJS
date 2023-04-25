@@ -1,1 +1,44 @@
-{"name":"lepikjs","version":"2.0.13","description":"Global Keyboard and Mouse Desktop Automation","main":"./index.js","scripts":{"test":"node ./test/test.js","build:ts":"cd ./typescript && tsc","dev":"cd ./typescript && tsc -w","build:py:win":"pyinstaller --onefile ./python/main.py --distpath ./build --workpath ./tmp -y","build:py:unix":"node javascript/platform/unix.js","build:py":"npm run build:py:win && npm run build:py:unix","postinstall":"node javascript/platform/platform.js ||  echo couldnt find the nodejs"},"keywords":["mouse","keyboard","events","globalevents","desktop","lepikjs","autohotkey","python","automation","lepikevents","windows","linux","macos"],"author":"borecjeborec1","license":"MIT","dependencies":{"eventemitter2":"^6.4.5","lepikevents":"^1.7.2"},"repository":{"type":"git","url":"git+https://github.com/borecjeborec1/LepikJS.git"},"bugs":{"url":"https://github.com/borecjeborec1/LepikJS/issues"},"homepage":"https://github.com/borecjeborec1/LepikJS#readme"}
+{
+  "name": "lepikjs",
+  "version": "2.0.15",
+  "description": "Global Keyboard and Mouse Desktop Automation",
+  "main": "./index.js",
+  "scripts": {
+    "test": "node ./test/test.js",
+    "build:ts": "cd ./typescript && tsc",
+    "dev": "cd ./typescript && tsc -w",
+    "build:py:win": "pyinstaller --onefile ./python/main.py --distpath ./build --workpath ./tmp -y",
+    "build:py:unix": "node javascript/helpers/unix.js",
+    "build:py": "npm run build:py:win && npm run build:py:unix",
+    "postinstall": "node javascript/postinstall/postinstall.js ||  echo couldnt find the nodejs"
+  },
+  "keywords": [
+    "mouse",
+    "keyboard",
+    "events",
+    "globalevents",
+    "desktop",
+    "lepikjs",
+    "autohotkey",
+    "python",
+    "automation",
+    "lepikevents",
+    "windows",
+    "linux",
+    "macos"
+  ],
+  "author": "borecjeborec1",
+  "license": "MIT",
+  "dependencies": {
+    "eventemitter2": "^6.4.5",
+    "lepikevents": "^1.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borecjeborec1/LepikJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/borecjeborec1/LepikJS/issues"
+  },
+  "homepage": "https://github.com/borecjeborec1/LepikJS#readme"
+}
