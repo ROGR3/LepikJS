@@ -179,6 +179,19 @@ class Lepik {
   }
 
   /**
+  * Async delay method.
+  * @param {number} [time] - Number of miliseconds to block the thread.
+  * @returns {Promise<void>}
+  */
+  delay(time: number): Promise<void> {
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, time);
+    });
+  }
+
+  /**
    * Registers a callback function for the given event.
    *
    * @param {string} ev - The name of the event to listen for. Supported events are "keyPress", "keyRelease", "mouseClick", "mouseDoubleClick", "mouseMove", "mouseDown", and "mouseUp".

@@ -163,6 +163,18 @@ class Lepik {
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_executePyCommand).call(this, `paste()`);
     }
     /**
+    * Async delay method.
+    * @param {number} [time] - Number of miliseconds to block the thread.
+    * @returns {Promise<void>}
+    */
+    delay(time) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, time);
+        });
+    }
+    /**
      * Registers a callback function for the given event.
      *
      * @param {string} ev - The name of the event to listen for. Supported events are "keyPress", "keyRelease", "mouseClick", "mouseDoubleClick", "mouseMove", "mouseDown", and "mouseUp".

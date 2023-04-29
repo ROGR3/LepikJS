@@ -6,16 +6,20 @@ You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more informa
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
 
 > ㅤ
-> ## New Info for v2.0.7+
+> ## New Info for v2.0.18+
 >
-> **LepikJS now supports keyDown and keyUp methods!**
+> **LepikJS now supports Delay method!**
 >
 > ```javascript
->  lepik.keyDown("shift")
->  lepik.keyTap("b") //Writes B
->  lepik.keyUp("shift")
+>   async function test() {
+>     for (let i = 0; i < 10; ++i) {
+>       await lepik.delay(1000)
+>       lepik.getMousePosition().then(console.log)
+>     }
+>   }
+>   test()
 > ```
->  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.0.7
+>  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.0.18
 
 ## Installing
 You can install LepikJS using npm:
@@ -103,6 +107,8 @@ lepik.on("keyRelease",(data)=>{
 })
 
 // Controls
+// Number of miliseconds to delay the code execution
+lepik.delay(ms) 
 // When reached this line, the process can exit.
 lepik.close() 
 
