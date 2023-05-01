@@ -6,20 +6,27 @@ You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more informa
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
 
 > ㅤ
-> ## New Info for v2.0.18+
+> ## New Info for v2.0.20+
 >
-> **LepikJS now supports Delay method!**
+> **LepikJS now supports Delay and DelaySync method!**
 >
 > ```javascript
->   async function test() {
+>   async function main() {
 >     for (let i = 0; i < 10; ++i) {
->       await lepik.delay(1000)
+>       await lepik.delaySync(1000)
 >       lepik.getMousePosition().then(console.log)
 >     }
 >   }
->   test()
+>   main()
 > ```
->  ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.0.18
+>
+> ```javascript
+>   for (let i = 0; i < 10; ++i) {
+>     lepik.delay(1000)
+>     console.log("After 1000ms")
+>   }
+> ```
+> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.0.20
 
 ## Installing
 You can install LepikJS using npm:
@@ -107,8 +114,12 @@ lepik.on("keyRelease",(data)=>{
 })
 
 // Controls
+// Uses while loop to block the whole thread
 // Number of miliseconds to delay the code execution
 lepik.delay(ms) 
+// Uses promises to wait until promise is resolved
+// Number of miliseconds to delay the code execution
+lepik.delaySync(ms) 
 // When reached this line, the process can exit.
 lepik.close() 
 
