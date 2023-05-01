@@ -4,13 +4,10 @@ const lepik = require("../index.js")
 // setInterval(() => {
 //   lepik.getMousePosition().then(console.log)
 // }, 500)
-async function test() {
-  for (let i = 0; i < 10; ++i) {
-    await lepik.delay(1000)
-    lepik.getMousePosition().then(console.log)
-  }
+for (let i = 0; i < 10; ++i) {
+  lepik.delay(1000)
+  console.log("here")
 }
-test()
 // console.time("here")
 // lepik.keyTap("left-shift+b")
 // for (let i = 0; i < 10; ++i) {

@@ -97,11 +97,17 @@ declare class Lepik {
      */
     paste(): void;
     /**
-    * Async delay method.
-    * @param {number} [time] - Number of miliseconds to block the thread.
+    * Async delay method. This method needs the await keyword
+    * @param {number} - Number of miliseconds to block the thread.
     * @returns {Promise<void>}
     */
-    delay(time: number): Promise<void>;
+    delaySync(ms: number): Promise<void>;
+    /**
+    * Delay method.
+    * @param {number} - Number of miliseconds to block the thread.
+    * @returns {Promise<void>}
+    */
+    delay(ms: number): void;
     /**
      * Registers a callback function for the given event.
      *

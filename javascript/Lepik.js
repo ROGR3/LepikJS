@@ -163,16 +163,26 @@ class Lepik {
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_executePyCommand).call(this, `paste()`);
     }
     /**
-    * Async delay method.
-    * @param {number} [time] - Number of miliseconds to block the thread.
+    * Async delay method. This method needs the await keyword
+    * @param {number} - Number of miliseconds to block the thread.
     * @returns {Promise<void>}
     */
-    delay(time) {
+    delaySync(ms) {
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve();
-            }, time);
+            }, ms);
         });
+    }
+    /**
+    * Delay method.
+    * @param {number} - Number of miliseconds to block the thread.
+    * @returns {Promise<void>}
+    */
+    delay(ms) {
+        const start = Date.now();
+        while (Date.now() - start < ms) {
+        }
     }
     /**
      * Registers a callback function for the given event.
