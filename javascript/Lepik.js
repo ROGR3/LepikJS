@@ -243,7 +243,7 @@ class Lepik {
     }
 }
 _Lepik_instances = new WeakSet(), _Lepik_executePyCommand = function _Lepik_executePyCommand(command) {
-    if (this.hasGoodVersion)
+    if (!this.hasGoodVersion)
         return;
     this.pyProcess.stdin.write(`${command}\n`);
 };

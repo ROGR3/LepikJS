@@ -12,4 +12,5 @@ test/
 todo.md
 tempCodeRunnerFile.*
 __pycache__/
+*/__pycache__/
 helpers/

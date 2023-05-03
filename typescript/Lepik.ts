@@ -21,7 +21,7 @@ class Lepik {
 
     // spawn a new process for the python script
     if (isWin) {
-      // if on windows, just spawn the python script
+      // if on windows, just spawn the python executable
       this.pyProcess = spawn(`${this.pyPath}`);
     } else {
       // if on linux or mac, use sudo to execute the python script
@@ -42,7 +42,7 @@ class Lepik {
   * @param {number} [d=0.2] - The duration of the move in seconds
   */
   mouseMove(x: number = 0, y: number = 0, a: boolean = false, d: number = 0.2): void {
-    this.#executePyCommand(`mouseMove(${x},${y},${a === true ? "True" : "False"},${d})`);
+    this.#executePyCommand(`mouseMove(${x},${y},${a === true ? "True" : "False"},${d})`)
   }
 
   /**
@@ -269,7 +269,7 @@ class Lepik {
    * @private
    */
   #executePyCommand(command: string): void {
-    if (this.hasGoodVersion) return
+    if (!this.hasGoodVersion) return
     this.pyProcess.stdin.write(`${command}\n`);
   }
 }

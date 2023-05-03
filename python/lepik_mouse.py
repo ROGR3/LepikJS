@@ -1,5 +1,4 @@
 import mouse
-import sys
 
 
 def mouseMove(x: int, y: int, a: bool = False, d: float = 0.2) -> None:
