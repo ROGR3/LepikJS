@@ -6,27 +6,13 @@ You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more informa
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
 
 > ㅤ
-> ## New Info for v2.0.20+
+> #### New Info for v2.1.0+
 >
-> **LepikJS now supports Delay and DelaySync method!**
+> LepikJS now uses [xdotool](https://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) on Linux machines instead of the mouse and keyboard Python modules.
 >
-> ```javascript
->   async function main() {
->     for (let i = 0; i < 10; ++i) {
->       await lepik.delaySync(1000)
->       lepik.getMousePosition().then(console.log)
->     }
->   }
->   main()
-> ```
+> This change was made to address compatibility issues with certain Linux distributions and to improve the overall performance and stability of the package on Linux machines.
 >
-> ```javascript
->   for (let i = 0; i < 10; ++i) {
->     lepik.delay(1000)
->     console.log("After 1000ms")
->   }
-> ```
-> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.0.20
+> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.1.0
 
 ## Installing
 You can install LepikJS using npm:

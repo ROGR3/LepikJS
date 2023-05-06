@@ -14,13 +14,19 @@ class Lepik {
         this.hasGoodVersion = hasGoodVersion;
         // spawn a new process for the python script
         if (isWin) {
-            // if on windows, just spawn the python script
+            // if on windows, just spawn the python executable
             this.pyProcess = child_process_1.spawn(`${this.pyPath}`);
         }
         else {
             // if on linux or mac, use sudo to execute the python script
             this.pyProcess = child_process_1.spawn("sudo", ["python", `${this.pyPath}`]);
         }
+        // this.pyProcess.stdout.on("data", (data: BufferSource) => {
+        //   console.log("Error in python script: " + data.toString());
+        // });
+        this.pyProcess.stderr.on("data", (data) => {
+            console.log("Error in python script: " + data.toString());
+        });
         // cleanup the python process on exit
         process.on('exit', () => {
             this.pyProcess.kill();
@@ -144,7 +150,7 @@ class Lepik {
     write(msg = "Hello From LepikJS", d = 0.1) {
         let arSending = msg.toString().split(" ");
         for (let i = 0; i < arSending.length; i++) {
-            arSending[i] = '\\"' + arSending[i] + '\\"';
+            arSending[i] = '"' + arSending[i] + '"';
         }
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_executePyCommand).call(this, `write([${arSending}],${d})`);
     }

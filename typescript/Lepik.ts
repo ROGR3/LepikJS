@@ -27,7 +27,12 @@ class Lepik {
       // if on linux or mac, use sudo to execute the python script
       this.pyProcess = spawn("sudo", ["python", `${this.pyPath}`]);
     }
-
+    // this.pyProcess.stdout.on("data", (data: BufferSource) => {
+    //   console.log("Error in python script: " + data.toString());
+    // });
+    this.pyProcess.stderr.on("data", (data: BufferSource) => {
+      console.log("Error in python script: " + data.toString());
+    });
     // cleanup the python process on exit
     process.on('exit', () => {
       this.pyProcess.kill();
@@ -157,7 +162,7 @@ class Lepik {
   write(msg: string = "Hello From LepikJS", d: number = 0.1): void {
     let arSending = msg.toString().split(" ");
     for (let i = 0; i < arSending.length; i++) {
-      arSending[i] = '\\"' + arSending[i] + '\\"';
+      arSending[i] = '"' + arSending[i] + '"';
     }
     this.#executePyCommand(`write([${arSending}],${d})`);
   }

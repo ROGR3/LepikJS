@@ -12,20 +12,19 @@ const lepik = require("../index.js")
 // lepik.keyTap("left-shift+b")
 // for (let i = 0; i < 10; ++i) {
 //   lepik.keyTap("b")
-//   console.log("test here")
 // }
 // lepik.close()
 // lepik.end()
 // lepik.copy()
 // lepik.paste()
-// lepik.write("dasasdscbkjxsbckasdjhbckjsdhbfjhsdgfjshdfgsjdhc", "0")
-lepik.on("keyRelease", data => {
-  console.log(data)
-})
-// console.log(lepik.getSupportedKeys())
-// lepik.on("mouseClick", data => {
+// lepik.write("dasasdscbkjxsbckasdjhbckjsdhbfjhsdgfjshdfgsjdhc", 0)
+// lepik.on("keyRelease", data => {
 //   console.log(data)
 // })
+// console.log(lepik.getSupportedKeys())
+lepik.on("mouseMove", data => {
+  console.log(data)
+})
 // lepik.on("mouseDoubleClick", data => {
 //   console.log(data)B
 // lepik.log()

@@ -1,9 +1,9 @@
 import { rmdirSync } from 'fs';
 
 if (process.platform === 'win32') {
-  removeDir(`${__dirname}/../../lib`);
+  removeDir(`${__dirname}/../../python/`);
 } else {
-  removeDir(`${__dirname}/../../build`);
+  removeDir(`${__dirname}/../../build/`);
 }
 
 function removeDir(dir: string) {
