@@ -58,14 +58,10 @@ class Lepik {
         if (typeof key === "number") {
             if (key == 0)
                 key = "left";
-            if (key == 1)
+            else if (key == 1)
                 key = "right";
-            if (key == 2)
+            else if (key == 2)
                 key = "middle";
-            else {
-                console.log("Wrong key in mouseClick. Used " + key + ". Expected 0 or 1 or 2.");
-                return;
-            }
         }
         key = key.toString().toLowerCase();
         __classPrivateFieldGet(this, _Lepik_instances, "m", _Lepik_executePyCommand).call(this, `mouseClick('${key}',${Math.abs(am)})`);

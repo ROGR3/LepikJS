@@ -66,12 +66,8 @@ class Lepik {
   mouseClick(key: string | number = "left", am: number = 1): void {
     if (typeof key === "number") {
       if (key == 0) key = "left";
-      if (key == 1) key = "right";
-      if (key == 2) key = "middle";
-      else {
-        console.log("Wrong key in mouseClick. Used " + key + ". Expected 0 or 1 or 2.")
-        return
-      }
+      else if (key == 1) key = "right";
+      else if (key == 2) key = "middle";
     }
     key = key.toString().toLowerCase();
     this.#executePyCommand(`mouseClick('${key}',${Math.abs(am)})`);
