@@ -10,9 +10,9 @@ const lepik = require("../index.js")
 // }
 // console.time("here")
 // lepik.keyTap("left-shift+b")
-// for (let i = 0; i < 10; ++i) {
-//   lepik.keyTap("b")
-// }
+for (let i = 0; i < 10; ++i) {
+  lepik.keyTap("b")
+}
 // lepik.close()
 // lepik.end()
 // lepik.copy()
@@ -22,9 +22,9 @@ const lepik = require("../index.js")
 //   console.log(data)
 // })
 // console.log(lepik.getSupportedKeys())
-lepik.on("mouseMove", data => {
-  console.log(data)
-})
+// lepik.on("mouseMove", data => {
+//   console.log(data)
+// })
 // lepik.on("mouseDoubleClick", data => {
 //   console.log(data)B
 // lepik.log()
