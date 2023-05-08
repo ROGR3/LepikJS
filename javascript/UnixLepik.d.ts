@@ -10,5 +10,6 @@ declare class UnixLepik {
     mouseDrag(fromX: number, fromY: number, toX: number, toY: number, absolute?: boolean): void;
     mouseMove(toX: number, toY: number, absolute?: boolean): void;
     keyTap(key: string): void;
+    write(key: string): void;
 }
 export = UnixLepik;

@@ -37,10 +37,28 @@ class UnixLepik {
   }
 
   //Keyboard methods
-  keyTap(key: string) {
-    const command = `xdotool key ${key}`
+  keyTap(key: string | number) {
+    // Any valid X Keysym string will work. Multiple keys are separated by '+'. Aliases exist for "alt", "ctrl", "shift", "super", and "meta" which all map to Foo_L, such as Alt_L and Control_L, etc.
+
+    const command = `xdotool key ${key.toString()[0]}`
+    this.#executeXDoTool(command)
   }
 
+  write(text: string | number, delay: number) {
+    // Types as if you had typed it. Supports newlines and tabs (ASCII newline and tab).
+    const command = `xdotool type ${text} --delay ${delay}`
+    this.#executeXDoTool(command)
+  }
+
+  keyDown(key: string) {
+    const command = `xdotool keydown ${key}`
+    this.#executeXDoTool(command)
+  }
+
+  keyUp(key: string) {
+    const command = `xdotool keyup ${key}`
+    this.#executeXDoTool(command)
+  }
 
   #executeXDoTool(command: string) {
     return execSync(command).toString();

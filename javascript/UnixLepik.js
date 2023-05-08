@@ -38,7 +38,13 @@ class UnixLepik {
     }
     //Keyboard methods
     keyTap(key) {
+        console.log("keyTap supports tapping only a single key or key combinations. For strings/words use write method.");
+        const command = `xdotool key ${key[0]}`;
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+    }
+    write(key) {
         const command = `xdotool key ${key}`;
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
     }
 }
 _UnixLepik_instances = new WeakSet(), _UnixLepik_executeXDoTool = function _UnixLepik_executeXDoTool(command) {
