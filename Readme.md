@@ -112,7 +112,7 @@ lepik.close()
 // Supported keys:
 let supportedKeys = lepik.getSupportedKeys()
 ```
-You can find more information about each method in the source code.
+You can find more information about each method in the [source code](https://github.com/Borecjeborec1/LepikJS/blob/main/typescript/Lepik.ts).
 
 #### User performance
 From v2.0.0+ you do not have to care about user perfomance!

@@ -16,8 +16,11 @@ lepik.getMousePosition()
 
 // Keyboard events
 lepik.keyTap("b")
-//Char need to be single letter
 lepik.keyTap("left-shift+b")
+//Char need to be single letter or combination of keys
+lepik.keyDown("b")
+//Char need to be single letter
+lepik.keyUp("b")
 //Char need to be single letter
 lepik.write("Hello from LepikJS")
 //Duration is optional. Default is 0.1
