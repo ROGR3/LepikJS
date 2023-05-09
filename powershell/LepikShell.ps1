@@ -1,10 +1,8 @@
-$signature = @"
-[DllImport("user32.dll", SetLastError=true)]
-public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, UIntPtr dwExtraInfo);
-"@
-
-Add-Type -MemberDefinition $signature -Name Win32Functions -Namespace User32
 Add-Type -AssemblyName System.Windows.Forms
+
+Add-Type -MemberDefinition '[DllImport("user32.dll")] public static extern void mouse_event(int flags, int dx, int dy, int cButtons, int info);' -Name U32 -Namespace W;
+#left mouse click
+
 
 function MouseClick {
     param(
@@ -14,24 +12,18 @@ function MouseClick {
     Write-host "Hey"
     switch ($button) {
         'left' {
-            $flags = [User32.MouseFlags]::LEFTDOWN
-            [User32]::mouse_event($flags, 0, 0, 0, [System.IntPtr]::Zero)
-            $flags = [User32.MouseFlags]::LEFTUP
-            [User32]::mouse_event($flags, 0, 0, 0, [System.IntPtr]::Zero)
+            [W.U32]::mouse_event(2, 0, 0, 0, 0); # Left mouse button down
+            [W.U32]::mouse_event(4, 0, 0, 0, 0); # Left mouse button up
             break
         }
         'right' {
-            $flags = [User32.MouseFlags]::RIGHTDOWN
-            [User32]::mouse_event($flags, 0, 0, 0, [System.IntPtr]::Zero)
-            $flags = [User32.MouseFlags]::RIGHTUP
-            [User32]::mouse_event($flags, 0, 0, 0, [System.IntPtr]::Zero)
+            [W.U32]::mouse_event(8, 0, 0, 0, 0); # Right mouse button down
+            [W.U32]::mouse_event(16, 0, 0, 0, 0); # Right mouse button up
             break
         }
         'middle' {
-            $flags = [User32.MouseFlags]::MIDDLEDOWN
-            [User32]::mouse_event($flags, 0, 0, 0, [System.IntPtr]::Zero)
-            $flags = [User32.MouseFlags]::MIDDLEUP
-            [User32]::mouse_event($flags, 0, 0, 0, [System.IntPtr]::Zero)
+            [W.U32]::mouse_event(32, 0, 0, 0, 0); # Middle mouse button down
+            [W.U32]::mouse_event(64, 0, 0, 0, 0); # Middle mouse button up
             break
         }
         default {
@@ -59,11 +51,26 @@ function MouseMove {
 
 function MouseScroll {
     param(
-        [int]$amount
+        [Parameter(Mandatory=$true)]
+        [ValidateSet('up', 'down')]
+        [string]$direction,
+        [Parameter(Mandatory=$true)]
+        [int]$scrollAmount
     )
-
-    $flags = [User32.MouseFlags]::WHEEL
-    [User32]::mouse_event($flags, 0, 0, $amount, [System.IntPtr]::Zero)
+    $scrollAmount = [System.Math]::Abs($scrollAmount) * 120
+    switch ($direction) {
+        'up' {
+            [W.U32]::mouse_event(0x0800, 0, 0, $scrollAmount, 0)
+            break
+        }
+        'down' {
+            [W.U32]::mouse_event(0x0800, 0, 0, -$scrollAmount, 0)
+            break
+        }
+        default {
+            throw "Unknown direction: $direction"
+        }
+    }
 }
 
 function MouseDrag {
@@ -78,15 +85,12 @@ function MouseDrag {
     [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point($fromX, $fromY)
 
     # Send a mouse down event
-    $flags = [User32.MouseFlags]::LEFTDOWN
-    [User32]::mouse_event($flags, 0, 0, 0, [System.IntPtr]::Zero)
-
+    [W.U32]::mouse_event(2, 0, 0, 0, 0); 
     # Move the mouse to the ending position
     [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point($toX, $toY)
 
     # Send a mouse up event
-    $flags = [User32.MouseFlags]::LEFTUP
-    [User32]::mouse_event($flags, 0, 0, 0, [System.IntPtr]::Zero)
+    [W.U32]::mouse_event(4, 0, 0, 0, 0); 
 }
 
 function GetMousePosition {
@@ -122,7 +126,7 @@ while ($true) {
             MouseDrag -fromX $js_args[1] -fromY $js_args[2] -toX $js_args[3] -toY $js_args[4]
         }
         'MouseScroll'{
-            MouseScroll -amount $js_args[1]
+            MouseScroll -direction $js_args[1] -scrollAmount $js_args[2]
         }
         'GetMousePosition'{
             GetMousePosition 

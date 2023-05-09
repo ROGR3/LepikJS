@@ -10,9 +10,11 @@ const lepik = require("../index.js")
 // }
 // console.time("here")
 // lepik.keyTap("left-shift+b")
-for (let i = 0; i < 10; ++i) {
-  lepik.keyTap("b")
-}
+// for (let i = 0; i < 10; ++i) {
+//   lepik.keyTap("b")
+// }
+// lepik.keyDown("a")
+lepik.mouseMove(100, 100)
 // lepik.close()
 // lepik.end()
 // lepik.copy()

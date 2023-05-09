@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/borecjeborec1/LepikJS/issues"
   },
-  "homepage": "https://github.com/borecjeborec1/LepikJS#readme"
+  "homepage": "https://github.com/borecjeborec1/LepikJS#readme",
+  "devDependencies": {
+    "typedoc-theme-oxide": "^0.1.6"
+  }
 }

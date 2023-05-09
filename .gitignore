@@ -1,9 +1,5 @@
-build/
 lib/
 node_modules/
-tmp/
-__pycache__/
-*.spec
-backup/
 googled.md
 tempCodeRunnerFile.*
+docs/
