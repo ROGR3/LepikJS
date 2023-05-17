@@ -3,3 +3,5 @@ node_modules/
 googled.md
 tempCodeRunnerFile.*
 docs/
+tmp/
+build/
