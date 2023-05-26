@@ -15,11 +15,11 @@ class Lepik {
         // spawn a new process for the python script
         if (isWin) {
             // if on windows, just spawn the python executable
-            this.pyProcess = child_process_1.spawn(`${this.pyPath}`);
+            this.pyProcess = (0, child_process_1.spawn)(`${this.pyPath}`);
         }
         else {
             // if on linux or mac, use sudo to execute the python script
-            this.pyProcess = child_process_1.spawn("sudo", ["python", `${this.pyPath}`]);
+            this.pyProcess = (0, child_process_1.spawn)("sudo", ["python", `${this.pyPath}`]);
         }
         // this.pyProcess.stdout.on("data", (data: BufferSource) => {
         //   console.log("Error in python script: " + data.toString());

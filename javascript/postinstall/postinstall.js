@@ -9,7 +9,7 @@ else {
 }
 function removeDir(dir) {
     try {
-        fs_1.rmdirSync(dir, { recursive: true });
+        (0, fs_1.rmdirSync)(dir, { recursive: true });
     }
     catch (err) {
         console.log(err);
