@@ -9,15 +9,8 @@ const child_process_1 = require("child_process");
 class WindowsLepik {
     constructor(psPath) {
         _WindowsLepik_instances.add(this);
-        this.ps = child_process_1.spawn('powershell.exe', ['-ExecutionPolicy', 'Bypass', '-File', psPath], {
+        this.ps = (0, child_process_1.spawn)('powershell.exe', ['-ExecutionPolicy', 'Bypass', '-File', psPath], {
             stdio: ['pipe', 'pipe', 'inherit']
-        });
-        this.ps.stdout.on("data", (data) => {
-            if (data.toString().trim().length)
-                console.log("data: " + data.toString().trim());
-        });
-        this.ps.on('close', () => {
-            console.log(`PowerShell process exited`);
         });
         process.on('exit', () => {
             this.ps.kill();

@@ -1,57 +1,38 @@
 const lepik = require("../index.js")
-// const lepik = require("lepikjs")
-// lepik.mouseClick(2)
-// setInterval(() => {
-//   lepik.getMousePosition().then(console.log)
-// }, 500)
-// for (let i = 0; i < 10; ++i) {
-//   lepik.delay(1000)
-//   console.log("here")
-// }
-// console.time("here")
-// lepik.keyTap("left-shift+b")
-// for (let i = 0; i < 10; ++i) {
-//   lepik.keyTap("b")
-// }
-// lepik.keyDown("a")
-lepik.mouseMove(100, 100)
-// lepik.close()
-// lepik.end()
-// lepik.copy()
-// lepik.paste()
-// lepik.write("dasasdscbkjxsbckasdjhbckjsdhbfjhsdgfjshdfgsjdhc", 0)
-// lepik.on("keyRelease", data => {
-//   console.log(data)
-// })
-// console.log(lepik.getSupportedKeys())
-// lepik.on("mouseMove", data => {
-//   console.log(data)
-// })
-// lepik.on("mouseDoubleClick", data => {
-//   console.log(data)B
-// lepik.log()
-// lepik.mouseDrag(0, 0, 10, 10, false, 0.2)
-// lepik.mouseScroll(1)
-// console.log("here")
-// lepik.mouseMove(200, 100)
-// console.log("her2")
-// lepik.start()
-// for (let i = 0; i < 10; ++i) {
-//   lepik.write("spam text", 0)
-//   lepik.keyTap("enter")
-//   lepik.keyTap("enter")
-// }
-// lepik.end()
 
-
-// const lepikEvents = require("lepikevents")
-
-// lepikEvents.events.on("mouseClick", data => {
-//   console.log(data)
-// })
-// lepikEvents.events.on("keyRelease", data => {
-//   console.log(data)
-// })
-
-
-
+async function main() {
+  lepik.getMousePosition().then(e => console.log(`Should print mousePosition: x:${e.x} y:${e.y}`))
+  await sleep(1000)
+  console.log("Should click the left mouse")
+  lepik.mouseClick("left")
+  await sleep(100)
+  console.log("Should click the right mouse")
+  lepik.mouseClick("right")
+  await sleep(100)
+  console.log("Should click the middle mouse")
+  lepik.mouseClick("middle")
+  await sleep(1000)
+  console.log("Should do mouseScroll up")
+  lepik.mouseScroll(10)
+  await sleep(100)
+  console.log("Should do mouseScroll down")
+  lepik.mouseScroll(-10)
+  await sleep(1000)
+  console.log("Should drag mouse")
+  lepik.mouseDrag(0, 0, 100, 100)
+  await sleep(1000)
+  console.log("Should move mouse")
+  lepik.mouseMove(100, 100)
+  await sleep(1000)
+  console.log("Should press a")
+  lepik.keyTap("a")
+  await sleep(1000)
+  console.log("Should write abcdefg")
+  lepik.write("abcdefg")
+  await sleep(1000)
+  lepik.close()
+}
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+main()

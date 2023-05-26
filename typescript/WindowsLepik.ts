@@ -7,14 +7,8 @@ class WindowsLepik {
     this.ps = spawn('powershell.exe', ['-ExecutionPolicy', 'Bypass', '-File', psPath], {
       stdio: ['pipe', 'pipe', 'inherit']
     });
-    this.ps.stdout.on("data", (data: SourceBuffer) => {
-      if (data.toString().trim().length)
-        console.log("data: " + data.toString().trim())
-    });
 
-    this.ps.on('close', () => {
-      console.log(`PowerShell process exited`);
-    });
+
     process.on('exit', () => {
       this.ps.kill();
     });

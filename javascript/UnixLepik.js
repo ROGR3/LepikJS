@@ -116,6 +116,6 @@ class UnixLepik {
     }
 }
 _UnixLepik_instances = new WeakSet(), _UnixLepik_executeXDoTool = function _UnixLepik_executeXDoTool(command) {
-    return child_process_1.execSync(command).toString();
+    return (0, child_process_1.execSync)(command).toString();
 };
 module.exports = UnixLepik;
