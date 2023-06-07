@@ -1,8 +1,18 @@
 Add-Type -AssemblyName System.Windows.Forms
 
 Add-Type -MemberDefinition '[DllImport("user32.dll")] public static extern void mouse_event(int flags, int dx, int dy, int cButtons, int info);' -Name U32 -Namespace W;
-#left mouse click
 
+
+
+function GetScreenSize {
+    $screen = [System.Windows.Forms.Screen]::PrimaryScreen
+    $width = $screen.Bounds.Width
+    $height = $screen.Bounds.Height
+    [PSCustomObject]@{
+        Width = $width
+        Height = $height
+    } | ConvertTo-Json
+}
 
 function MouseClick {
     param(
@@ -124,13 +134,21 @@ while ($true) {
         }
         'MouseDrag'{
             MouseDrag -fromX $js_args[1] -fromY $js_args[2] -toX $js_args[3] -toY $js_args[4]
+            break
         }
         'MouseScroll'{
             MouseScroll -direction $js_args[1] -scrollAmount $js_args[2]
+            break
         }
         'GetMousePosition'{
             GetMousePosition 
+            break
         }
+        'GetScreenSize'{
+            GetScreenSize 
+            break
+        }
+        
         default {
             Write-Error "Unknown command: $cmd"
             break

@@ -1,6 +1,8 @@
 const lepik = require("../index.js")
 
 async function main() {
+  lepik.getScreenSize().then(e => console.log(`Should print screenSize: width:${e.width} height:${e.height}`))
+  await sleep(1000)
   lepik.getMousePosition().then(e => console.log(`Should print mousePosition: x:${e.x} y:${e.y}`))
   await sleep(1000)
   console.log("Should click the left mouse")
@@ -22,7 +24,7 @@ async function main() {
   lepik.mouseDrag(0, 0, 100, 100)
   await sleep(1000)
   console.log("Should move mouse")
-  lepik.mouseMove(100, 100)
+  lepik.mouseMove(1000, 1000)
   await sleep(1000)
   console.log("Should press a")
   lepik.keyTap("a")

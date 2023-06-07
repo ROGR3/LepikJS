@@ -4,7 +4,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _UnixLepik_instances, _UnixLepik_executeXDoTool;
+var _UnixLepik_instances, _UnixLepik_executeShellCommand;
 const child_process_1 = require("child_process");
 class UnixLepik {
     constructor() {
@@ -17,7 +17,7 @@ class UnixLepik {
      */
     getMousePosition() {
         const command = "xdotool getmouselocation --shell | awk '{sub(/:/,\"=\"); print}'";
-        let positions = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command).trim().split('\n').filter((s) => s.startsWith('X=') || s.startsWith('Y=')).map((s) => parseInt(s.split('=')[1]));
+        let positions = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim().split('\n').filter((s) => s.startsWith('X=') || s.startsWith('Y=')).map((s) => parseInt(s.split('=')[1]));
         return { x: +positions[0], y: +positions[1] };
     }
     /**
@@ -27,7 +27,7 @@ class UnixLepik {
      */
     mouseClick(button, amount) {
         const command = `xdotool click --repeat ${amount} ${button}`;
-        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     /**
     * Performs a double-click with the specified mouse button
@@ -35,7 +35,7 @@ class UnixLepik {
     */
     mouseDoubleClick(button) {
         const command = `xdotool click --repeat ${2} ${button}`;
-        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     /**
      * Scrolls the mouse wheel up or down by the given amount.
@@ -44,7 +44,7 @@ class UnixLepik {
     mouseScroll(amount) {
         let direction = amount < 0 ? 5 : 4;
         const command = `xdotool click --repeat ${Math.abs(amount)} ${direction}`;
-        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     /**
       * Drag the mouse from the first coordinates to the second coordinates
@@ -58,7 +58,7 @@ class UnixLepik {
         const command = absolute ?
             `xdotool mousemove ${fromX} ${fromY} mousedown 1 mousemove ${toX} ${toY} mouseup 1`
             : `xdotool mousedown 1 mousemove_relative ${toX} ${toY} mouseup 1`;
-        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     /**
       * Move the mouse to the specified coordinates
@@ -69,7 +69,7 @@ class UnixLepik {
     mouseMove(toX, toY, absolute = true) {
         let movement = absolute ? "mousemove" : "mousemove_relative";
         const command = `xdotool ${movement} ${toX} ${toY}`;
-        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     //Keyboard methods
     /**
@@ -80,7 +80,7 @@ class UnixLepik {
     keyTap(key) {
         // Any valid X Keysym string will work. Multiple keys are separated by '+'. Aliases exist for "alt", "ctrl", "shift", "super", and "meta" which all map to Foo_L, such as Alt_L and Control_L, etc.
         const command = `xdotool key ${key.toString()[0]}`;
-        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     /**
      * Sends a string of text to the active window by simulating individual key presses for each character.
@@ -91,7 +91,7 @@ class UnixLepik {
     write(text, delay) {
         // Types as if you had typed it. Supports newlines and tabs (ASCII newline and tab).
         const command = `xdotool type ${text} --delay ${delay}`;
-        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     /**
     * Sends a key down event for the given key.
@@ -100,7 +100,7 @@ class UnixLepik {
     */
     keyDown(key) {
         const command = `xdotool keydown ${key}`;
-        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     /**
      * Sends a key up event for the given key.
@@ -109,13 +109,19 @@ class UnixLepik {
      */
     keyUp(key) {
         const command = `xdotool keyup ${key}`;
-        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeXDoTool).call(this, command);
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
+    }
+    getScreenSize() {
+        const command = "xrandr --current | grep ' connected' | awk '{print $4}'";
+        const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
+        const resolutions = output.split("+")[0].split("x").map(Number);
+        return { width: resolutions[0], height: resolutions[1] };
     }
     close() {
         console.log("You can remove the `lepik.close()` from your code. Lepik.close() has no effect on OS other than windows");
     }
 }
-_UnixLepik_instances = new WeakSet(), _UnixLepik_executeXDoTool = function _UnixLepik_executeXDoTool(command) {
+_UnixLepik_instances = new WeakSet(), _UnixLepik_executeShellCommand = function _UnixLepik_executeShellCommand(command) {
     return (0, child_process_1.execSync)(command).toString();
 };
 module.exports = UnixLepik;

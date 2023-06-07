@@ -1,18 +1,21 @@
 # LepikJS
-LepikJS is a Python-based global keyboard and mouse event emitter. It allows you to listen to and emit events related to keyboard and mouse actions. You can use it for automation, testing, or any other application that requires control over user input.
+LepikJS is a global keyboard and mouse event emitter. It allows you to listen to and emit events related to keyboard and mouse actions. You can use it for automation, testing, or any other application that requires control over user input.
 
 You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more information.
 
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
 
 > ㅤ
-> #### New Info for v2.1.0+
+> #### New Info for v3.0.0+
 >
 > LepikJS now uses [xdotool](https://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) on Linux machines instead of the mouse and keyboard Python modules.
+> *This change was made to address compatibility issues with certain  Linux distributions and to improve the overall performance and stability of the package on Linux machines.*
 >
-> This change was made to address compatibility issues with certain Linux distributions and to improve the overall performance and stability of the package on Linux machines.
 >
-> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv2.1.0
+> On windows machines instead of the mouse and keyboard Python modules LepikJS uses native powershell scripts.
+> *This change was made to reduce the package size drasticaly. From 8.3MB to 2kB.*
+>
+> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv3.0.0
 
 ## Installing
 You can install LepikJS using npm:
@@ -108,9 +111,6 @@ lepik.delay(ms)
 lepik.delaySync(ms) 
 // When reached this line, the process can exit.
 lepik.close() 
-
-// Supported keys:
-let supportedKeys = lepik.getSupportedKeys()
 ```
 You can find more information about each method in the [source code](https://github.com/Borecjeborec1/LepikJS/blob/main/typescript/Lepik.ts).
 
@@ -119,9 +119,10 @@ From v2.0.0+ you do not have to care about user perfomance!
 All code execution is almost instant and you have nothing to worry about! 
 
 ## Requirements
-LepikJS uses [Python keyboard](https://github.com/boppreh/keyboard) and [Python mouse](https://github.com/boppreh/mouse) which runs on Python. 
+LepikJS uses native powershell scripting which should not require any aditional setup on windows.
 
-If your are on Windows, then you **don't** need to have it installed, cause thanks to [Pyinstaller](https://github.com/pyinstaller/pyinstaller), the code is compiled into executable.
+On Unix machines LepikJS uses xdotool, which will get automaticly installed with the first application run. *Note: 1st run must be run with sudo permissions and all other runs should be run with it too.*
+
 
 ## License
 LepikJS is freely distributable under the terms of the [MIT license](http://opensource.org/licenses/MIT). 

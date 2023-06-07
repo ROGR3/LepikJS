@@ -13,7 +13,7 @@ class UnixLepik {
   getMousePosition(): { x: number, y: number } {
     const command = "xdotool getmouselocation --shell | awk '{sub(/:/,\"=\"); print}'"
 
-    let positions = this.#executeXDoTool(command).trim().split('\n').filter((s: string) => s.startsWith('X=') || s.startsWith('Y=')).map((s: string) => parseInt(s.split('=')[1]))
+    let positions = this.#executeShellCommand(command).trim().split('\n').filter((s: string) => s.startsWith('X=') || s.startsWith('Y=')).map((s: string) => parseInt(s.split('=')[1]))
     return { x: +positions[0], y: +positions[1] }
 
   }
@@ -25,7 +25,7 @@ class UnixLepik {
    */
   mouseClick(button: string, amount: number): void {
     const command = `xdotool click --repeat ${amount} ${button}`
-    this.#executeXDoTool(command)
+    this.#executeShellCommand(command)
   }
 
   /**
@@ -34,7 +34,7 @@ class UnixLepik {
   */
   mouseDoubleClick(button: string): void {
     const command = `xdotool click --repeat ${2} ${button}`
-    this.#executeXDoTool(command)
+    this.#executeShellCommand(command)
   }
 
   /**
@@ -44,7 +44,7 @@ class UnixLepik {
   mouseScroll(amount: number): void {
     let direction = amount < 0 ? 5 : 4
     const command = `xdotool click --repeat ${Math.abs(amount)} ${direction}`
-    this.#executeXDoTool(command)
+    this.#executeShellCommand(command)
   }
 
   /**
@@ -60,7 +60,7 @@ class UnixLepik {
       `xdotool mousemove ${fromX} ${fromY} mousedown 1 mousemove ${toX} ${toY} mouseup 1`
       : `xdotool mousedown 1 mousemove_relative ${toX} ${toY} mouseup 1`
 
-    this.#executeXDoTool(command)
+    this.#executeShellCommand(command)
   }
 
   /**
@@ -72,7 +72,7 @@ class UnixLepik {
   mouseMove(toX: number, toY: number, absolute: boolean = true) {
     let movement = absolute ? "mousemove" : "mousemove_relative"
     const command = `xdotool ${movement} ${toX} ${toY}`
-    this.#executeXDoTool(command)
+    this.#executeShellCommand(command)
   }
 
   //Keyboard methods
@@ -85,7 +85,7 @@ class UnixLepik {
   keyTap(key: string | number) {
     // Any valid X Keysym string will work. Multiple keys are separated by '+'. Aliases exist for "alt", "ctrl", "shift", "super", and "meta" which all map to Foo_L, such as Alt_L and Control_L, etc.
     const command = `xdotool key ${key.toString()[0]}`
-    this.#executeXDoTool(command)
+    this.#executeShellCommand(command)
   }
 
   /**
@@ -97,7 +97,7 @@ class UnixLepik {
   write(text: string | number, delay: number) {
     // Types as if you had typed it. Supports newlines and tabs (ASCII newline and tab).
     const command = `xdotool type ${text} --delay ${delay}`
-    this.#executeXDoTool(command)
+    this.#executeShellCommand(command)
   }
 
   /**
@@ -107,7 +107,7 @@ class UnixLepik {
   */
   keyDown(key: string) {
     const command = `xdotool keydown ${key}`
-    this.#executeXDoTool(command)
+    this.#executeShellCommand(command)
   }
 
   /**
@@ -117,10 +117,20 @@ class UnixLepik {
    */
   keyUp(key: string) {
     const command = `xdotool keyup ${key}`
-    this.#executeXDoTool(command)
+    this.#executeShellCommand(command)
   }
 
-  #executeXDoTool(command: string) {
+
+  getScreenSize(): { width: number, height: number } {
+    const command = "xrandr --current | grep ' connected' | awk '{print $4}'";
+
+    const output = this.#executeShellCommand(command).trim();
+    const [resolution] = output.split("+")[0].split("x").map(Number);
+
+    return { width: resolution, height: resolution };
+  }
+
+  #executeShellCommand(command: string) {
     return execSync(command).toString();
   }
   close() {

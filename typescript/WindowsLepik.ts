@@ -132,6 +132,22 @@ class WindowsLepik {
     this.#executePowerShell(command)
   }
 
+
+
+  getScreenSize(): Promise<{ width: number, height: number }> {
+    return new Promise((resolve, reject) => {
+      this.#executePowerShell("GetScreenSize");
+
+      this.ps.stdout.once("data", (data: string) => {
+        console.log(data.toString())
+        const dataArr = JSON.parse(data.toString());
+        console.log(dataArr.Width)
+        resolve({ width: dataArr.Width, height: dataArr.Height });
+      });
+    });
+  }
+
+
   #executePowerShell(command: string) {
     this.ps.stdin.write(command + "\n");
   }

@@ -121,6 +121,17 @@ class WindowsLepik {
         const command = `KeyUp ${key}`;
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, command);
     }
+    getScreenSize() {
+        return new Promise((resolve, reject) => {
+            __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "GetScreenSize");
+            this.ps.stdout.once("data", (data) => {
+                console.log(data.toString());
+                const dataArr = JSON.parse(data.toString());
+                console.log(dataArr.Width);
+                resolve({ width: dataArr.Width, height: dataArr.Height });
+            });
+        });
+    }
     close() {
         this.ps.stdin.write("exit\n");
     }

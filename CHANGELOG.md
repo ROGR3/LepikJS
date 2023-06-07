@@ -1,10 +1,20 @@
 # Changelog
+#### [3.0.1] - 2023-06-07
+
+[Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
+
+##### Implemented enhancements:
+-  getScreenSize implementation ([#2f5bc79](https://github.com/borecjeborec1/LepikJS/commit/2f5bc792a34e867b964b486e2314e2010b0b007d)) 
+
+##### Fixed bugs:
+
 #### [3.0.0] - 2023-06-07
 
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
--  v3.0.0 Does not rely on python anymore ([#3d5dc97](https://github.com/borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
+-  v3.0.0 Does not rely on python anymore ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
+-  v3.0.0 Uses powershell scripts on windows and xdotool on linux machines ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
 
 ##### Fixed bugs:
 
