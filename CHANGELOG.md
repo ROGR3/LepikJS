@@ -1,4 +1,13 @@
 # Changelog
+#### [3.0.4] - 2023-06-07
+
+[Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
+
+##### Implemented enhancements:
+-  getActiveWindowId function implementation UNIX/WINDOWS ([#c47930c](https://github.com/borecjeborec1/LepikJS/commit/c47930c164bc1afc0089f6215f1c4d81c6009e37)) 
+
+##### Fixed bugs:
+
 #### [3.0.1] - 2023-06-07
 
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)

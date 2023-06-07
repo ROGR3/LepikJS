@@ -70,6 +70,7 @@ declare class UnixLepik {
         width: number;
         height: number;
     };
+    getActiveWindowId(): number;
     close(): void;
 }
 export = UnixLepik;

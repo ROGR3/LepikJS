@@ -132,6 +132,14 @@ class WindowsLepik {
             });
         });
     }
+    getActiveWindowId() {
+        return new Promise((resolve, reject) => {
+            __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "GetActiveWindowId");
+            this.ps.stdout.once("data", (data) => {
+                resolve(+data.toString().trim());
+            });
+        });
+    }
     close() {
         this.ps.stdin.write("exit\n");
     }

@@ -71,6 +71,7 @@ declare class WindowsLepik {
         width: number;
         height: number;
     }>;
+    getActiveWindowId(): Promise<number>;
     close(): void;
 }
 export = WindowsLepik;

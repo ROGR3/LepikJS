@@ -130,6 +130,13 @@ class UnixLepik {
     return { width: resolution, height: resolution };
   }
 
+  getActiveWindowId(): number {
+    const command = "xdotool getactivewindow";
+    const output = this.#executeShellCommand(command).trim();
+    return +output;
+  }
+
+
   #executeShellCommand(command: string) {
     return execSync(command).toString();
   }

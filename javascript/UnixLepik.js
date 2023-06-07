@@ -114,8 +114,13 @@ class UnixLepik {
     getScreenSize() {
         const command = "xrandr --current | grep ' connected' | awk '{print $4}'";
         const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
-        const resolutions = output.split("+")[0].split("x").map(Number);
-        return { width: resolutions[0], height: resolutions[1] };
+        const [resolution] = output.split("+")[0].split("x").map(Number);
+        return { width: resolution, height: resolution };
+    }
+    getActiveWindowId() {
+        const command = "xdotool getactivewindow";
+        const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
+        return +output;
     }
     close() {
         console.log("You can remove the `lepik.close()` from your code. Lepik.close() has no effect on OS other than windows");

@@ -14,6 +14,12 @@ function GetScreenSize {
     } | ConvertTo-Json
 }
 
+function GetActiveWindowId {
+    $windowHandle = (Get-Process -Name explorer | ForEach-Object { $_.MainWindowHandle })[0]
+    Write-Output $windowHandle.ToString()
+}
+
+
 function MouseClick {
     param(
         [ValidateSet('left', 'right', 'middle')]
@@ -148,7 +154,10 @@ while ($true) {
             GetScreenSize 
             break
         }
-        
+        'GetActiveWindowId'{
+            GetActiveWindowId 
+            break
+        }
         default {
             Write-Error "Unknown command: $cmd"
             break
