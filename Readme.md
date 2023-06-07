@@ -13,7 +13,7 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 >
 >
 > On windows machines instead of the mouse and keyboard Python modules LepikJS uses native powershell scripts.
-> *This change was made to reduce the package size drasticaly. From 8.3MB to 2kB.*
+> *This change was made to reduce the package size drasticaly. From 8.3MB to 33kB.*
 >
 > ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv3.0.0
 
