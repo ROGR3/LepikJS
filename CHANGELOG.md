@@ -11,12 +11,12 @@
 
 #### [2.1.1] - 2015-10-06
 
-[Full Changelog](https://github.com/Borecjeborec1/LepikJS/commits/main)
+*[Full Changelog](https://github.com/Borecjeborec1/LepikJS/commits/main)*
 
 ##### Implemented enhancements:
 
 - Added Compatibility for more linux package managers.
-- Added [CHANGELOG.md](CHANGELOG.md).
+- Added *[CHANGELOG.md](CHANGELOG.md)*.
 
 ##### Fixed bugs:
 
