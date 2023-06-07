@@ -13,7 +13,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
--  getScreenSize implementation ([#2f5bc79](https://github.com/borecjeborec1/LepikJS/commit/2f5bc792a34e867b964b486e2314e2010b0b007d)) 
+-  getScreenSize function implementation UNIX/WINDOWS ([#2f5bc79](https://github.com/borecjeborec1/LepikJS/commit/2f5bc792a34e867b964b486e2314e2010b0b007d)) 
 
 ##### Fixed bugs:
 
@@ -26,6 +26,8 @@
 -  v3.0.0 Uses powershell scripts on windows and xdotool on linux machines ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
 
 ##### Fixed bugs:
+-  Fixed bug where some mouse controlling methods didn't work on certain linux distribuitions. [Issue #10](https://github.com/Borecjeborec1/LepikJS/issues/10). Because of xdotool all methods rely on the X11 . ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
+-  Fixed bug where bundled applications didn't work because they required python's bundled exe.  ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
 
 #### [2.1.10] - 2023-05-26
 
