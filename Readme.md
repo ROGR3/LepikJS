@@ -116,16 +116,21 @@ lepik.delaySync(ms)
 // When reached this line, the process can exit.
 lepik.close() 
 ```
-You can find more information about each method in the [source code](https://github.com/Borecjeborec1/LepikJS/blob/main/typescript/Lepik.ts).
+You can find more information about each method in the [source code](https://github.com/Borecjeborec1/LepikJS/tree/main/typescript).
+1. [Windows](https://github.com/Borecjeborec1/LepikJS/blob/main/typescript/WindowsLepik.ts) code
+2. [Unix/Linux](https://github.com/Borecjeborec1/LepikJS/blob/main/typescript/UnixLepik.ts) code
+
 
 #### User performance
 From v2.0.0+ you do not have to care about user perfomance!
 All code execution is almost instant and you have nothing to worry about! 
 
 ## Requirements
-LepikJS uses native powershell scripting which should not require any aditional setup on windows.
+From v3.0.0+ LepikJS uses native powershell scripting which should not require any aditional setup on windows.
 
 On Unix machines LepikJS uses xdotool, which will get automaticly installed with the first application run. *Note: 1st run must be run with sudo permissions and all other runs should be run with it too.*
+
+For older versions of LepikJS python was needed on non-windows machines. Now it's not the case
 
 
 ## License
