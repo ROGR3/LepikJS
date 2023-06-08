@@ -3,6 +3,7 @@ LepikJS is a global keyboard and mouse event emitter. It allows you to listen to
 
 You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more information.
 
+LepikJS is available on NPM [LepikJS  ](https://www.npmjs.com/package/lepikjs).
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
 
 > ㅤ
@@ -13,7 +14,7 @@ LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitel
 >
 >
 > On windows machines instead of the mouse and keyboard Python modules LepikJS uses native powershell scripts.
-> *This change was made to reduce the package size drasticaly. From 8.3MB to 33kB.*
+> *This change was made to reduce the package size drasticaly. From 8.3MB to **8.6kB**.*
 >
 > ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv3.0.0
 
@@ -57,7 +58,7 @@ lepik.mouseDrag(fromX,fromY,toX,toY,absolute,duration)
 //Absolute and duration are optional. Default false and 0.2
 lepik.mouseScroll(amount)
 //Positive amount scrolls up, negative down. Default is 1
-await lepik.getMousePosition()
+await lepik.getMousePosition() // Async function on windows!
 //Returns object { x: 719, y: 461 }
 
 
@@ -77,7 +78,10 @@ lepik.paste() // Pastes currently coppied object
 
 
 // Screen events
-// Coming soon
+await lepik.getScreenSize() // Async function on windows!
+//Returns object { width: 719, height: 461 }
+await lepik.getActiveWindowId() // Async function on windows!
+//Returns integer ID of the currently active window
 
 // Global Listeners
 lepik.on("mouseMove",(data)=>{

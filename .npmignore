@@ -1,16 +1,11 @@
 *.spec
-tmp/
 python/
 node_modules/
 examples/
 typescript/
 backup/
 googled.md
-website/
 web/
 tests/
 todo.md
 tempCodeRunnerFile.*
-__pycache__/
-*/__pycache__/
-helpers/
