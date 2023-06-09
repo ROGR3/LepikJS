@@ -1,6 +1,6 @@
 {
   "name": "lepikjs",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "Global Keyboard and Mouse Desktop Automation",
   "main": "./index.js",
   "scripts": {
@@ -41,8 +41,5 @@
   "bugs": {
     "url": "https://github.com/borecjeborec1/LepikJS/issues"
   },
-  "homepage": "https://github.com/borecjeborec1/LepikJS#readme",
-  "devDependencies": {
-    "typedoc-theme-oxide": "^0.1.6"
-  }
+  "homepage": "https://github.com/borecjeborec1/LepikJS#readme"
 }
