@@ -67,6 +67,8 @@ declare class WindowsLepik {
      * @returns {void}
      */
     keyUp(key: string): void;
+    copy(): void;
+    paste(): void;
     getScreenSize(): Promise<{
         width: number;
         height: number;

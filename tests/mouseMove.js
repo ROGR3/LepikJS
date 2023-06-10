@@ -1,7 +1,7 @@
 const lepik = require("../index.js")
 
 async function main() {
-  lepik.getActiveWindowId().then(console.log)
+  lepik.paste()
   lepik.close()
 }
 function sleep(ms) {

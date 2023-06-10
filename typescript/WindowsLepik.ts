@@ -131,7 +131,12 @@ class WindowsLepik {
     const command = `KeyUp ${key}`
     this.#executePowerShell(command)
   }
-
+  copy(): void {
+    this.#executePowerShell("CopyToClipboard");
+  }
+  paste(): void {
+    this.#executePowerShell("PasteFromClipboard");
+  }
 
 
   getScreenSize(): Promise<{ width: number, height: number }> {

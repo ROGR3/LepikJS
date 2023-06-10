@@ -9,7 +9,7 @@ const child_process_1 = require("child_process");
 class WindowsLepik {
     constructor(psPath) {
         _WindowsLepik_instances.add(this);
-        this.ps = (0, child_process_1.spawn)('powershell.exe', ['-ExecutionPolicy', 'Bypass', '-File', psPath], {
+        this.ps = child_process_1.spawn('powershell.exe', ['-ExecutionPolicy', 'Bypass', '-File', psPath], {
             stdio: ['pipe', 'pipe', 'inherit']
         });
         process.on('exit', () => {
@@ -120,6 +120,12 @@ class WindowsLepik {
     keyUp(key) {
         const command = `KeyUp ${key}`;
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, command);
+    }
+    copy() {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "CopyToClipboard");
+    }
+    paste() {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "PasteFromClipboard");
     }
     getScreenSize() {
         return new Promise((resolve, reject) => {

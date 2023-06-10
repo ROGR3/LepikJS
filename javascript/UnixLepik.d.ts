@@ -66,6 +66,8 @@ declare class UnixLepik {
      * @returns {void}
      */
     keyUp(key: string): void;
+    copy(): void;
+    paste(): void;
     getScreenSize(): {
         width: number;
         height: number;

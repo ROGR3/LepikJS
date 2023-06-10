@@ -55,6 +55,13 @@ function KeyTap {
 
     [System.Windows.Forms.SendKeys]::SendWait($text)
 }
+function CopyToClipboard {
+    [System.Windows.Forms.SendKeys]::SendWait("^c")
+}
+function PasteFromClipboard {
+    [System.Windows.Forms.SendKeys]::SendWait("^v")
+}
+
 
 function MouseMove {
     param(
@@ -156,6 +163,14 @@ while ($true) {
         }
         'GetActiveWindowId'{
             GetActiveWindowId 
+            break
+        }
+        'CopyToClipboard'{
+            CopyToClipboard 
+            break
+        }
+        'PasteFromClipboard'{
+            PasteFromClipboard 
             break
         }
         default {

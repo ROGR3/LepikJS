@@ -111,6 +111,14 @@ class UnixLepik {
         const command = `xdotool keyup ${key}`;
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
+    copy() {
+        const command = "xdotool key --clearmodifiers ctrl+c";
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
+    }
+    paste() {
+        const command = "xdotool key --clearmodifiers ctrl+v";
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
+    }
     getScreenSize() {
         const command = "xrandr --current | grep ' connected' | awk '{print $4}'";
         const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
@@ -127,6 +135,6 @@ class UnixLepik {
     }
 }
 _UnixLepik_instances = new WeakSet(), _UnixLepik_executeShellCommand = function _UnixLepik_executeShellCommand(command) {
-    return (0, child_process_1.execSync)(command).toString();
+    return child_process_1.execSync(command).toString();
 };
 module.exports = UnixLepik;

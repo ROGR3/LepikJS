@@ -120,6 +120,17 @@ class UnixLepik {
     this.#executeShellCommand(command)
   }
 
+  copy(): void {
+    const command = "xdotool key --clearmodifiers ctrl+c";
+    this.#executeShellCommand(command);
+  }
+  paste(): void {
+    const command = "xdotool key --clearmodifiers ctrl+v";
+    this.#executeShellCommand(command);
+  }
+
+
+
 
   getScreenSize(): { width: number, height: number } {
     const command = "xrandr --current | grep ' connected' | awk '{print $4}'";

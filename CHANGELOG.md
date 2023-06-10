@@ -1,4 +1,13 @@
 # Changelog
+#### [3.0.10] - 2023-06-10
+
+[Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
+
+##### Implemented enhancements:
+-  copy and paste methods implementation ([#8240475](https://github.com/borecjeborec1/LepikJS/commit/82404757db63d202bd617728ee1319b49c86fc6b)) 
+
+##### Fixed bugs:
+
 #### [3.0.4] - 2023-06-07
 
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
