@@ -146,6 +146,13 @@ class WindowsLepik {
             });
         });
     }
+    delay(ms) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, ms);
+        });
+    }
     close() {
         this.ps.stdin.write("exit\n");
     }

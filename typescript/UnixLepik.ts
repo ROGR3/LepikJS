@@ -147,7 +147,13 @@ class UnixLepik {
     return +output;
   }
 
-
+  delay(ms: number): Promise<void> {
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  }
   #executeShellCommand(command: string) {
     return execSync(command).toString();
   }

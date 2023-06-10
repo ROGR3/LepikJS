@@ -130,6 +130,13 @@ class UnixLepik {
         const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
         return +output;
     }
+    delay(ms) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, ms);
+        });
+    }
     close() {
         console.log("You can remove the `lepik.close()` from your code. Lepik.close() has no effect on OS other than windows");
     }

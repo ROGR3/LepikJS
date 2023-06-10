@@ -1,4 +1,13 @@
 # Changelog
+#### [3.0.11] - 2023-06-10
+
+[Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
+
+##### Implemented enhancements:
+-  delay functionality ([#c576ed3](https://github.com/borecjeborec1/LepikJS/commit/c576ed3e53bb839e3e2a85a7eb270178ce36f313)) 
+
+##### Fixed bugs:
+
 #### [3.0.10] - 2023-06-10
 
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)

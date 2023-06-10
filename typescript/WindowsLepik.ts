@@ -161,6 +161,15 @@ class WindowsLepik {
     });
   }
 
+  delay(ms: number): Promise<void> {
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  }
+
+
   #executePowerShell(command: string) {
     this.ps.stdin.write(command + "\n");
   }

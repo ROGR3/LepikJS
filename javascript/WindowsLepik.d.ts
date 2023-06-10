@@ -74,6 +74,7 @@ declare class WindowsLepik {
         height: number;
     }>;
     getActiveWindowId(): Promise<number>;
+    delay(ms: number): Promise<void>;
     close(): void;
 }
 export = WindowsLepik;

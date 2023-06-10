@@ -73,6 +73,7 @@ declare class UnixLepik {
         height: number;
     };
     getActiveWindowId(): number;
+    delay(ms: number): Promise<void>;
     close(): void;
 }
 export = UnixLepik;
