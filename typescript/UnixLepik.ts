@@ -120,10 +120,19 @@ class UnixLepik {
     this.#executeShellCommand(command)
   }
 
+  /**
+  * Copies the selected text or content.
+  * @returns {void}
+  */
   copy(): void {
     const command = "xdotool key --clearmodifiers ctrl+c";
     this.#executeShellCommand(command);
   }
+
+  /**
+   * Pastes the copied text or content.
+   * @returns {void}
+   */
   paste(): void {
     const command = "xdotool key --clearmodifiers ctrl+v";
     this.#executeShellCommand(command);
@@ -131,7 +140,10 @@ class UnixLepik {
 
 
 
-
+  /**
+   * Gets the screen size.
+   * @returns {{ width: number, height: number }} An object containing the width and height of the screen.
+   */
   getScreenSize(): { width: number, height: number } {
     const command = "xrandr --current | grep ' connected' | awk '{print $4}'";
 
@@ -141,12 +153,21 @@ class UnixLepik {
     return { width: resolution, height: resolution };
   }
 
+  /**
+   * Gets the ID of the active window.
+   * @returns {number} The ID of the active window.
+   */
   getActiveWindowId(): number {
     const command = "xdotool getactivewindow";
     const output = this.#executeShellCommand(command).trim();
     return +output;
   }
 
+  /**
+   * Delays the execution for the specified number of milliseconds.
+   * @param {number} ms - The number of milliseconds to delay.
+   * @returns {Promise<void>} A Promise that resolves after the delay.
+   */
   delay(ms: number): Promise<void> {
     return new Promise<void>((resolve) => {
       setTimeout(() => {

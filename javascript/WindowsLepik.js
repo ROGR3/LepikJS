@@ -121,12 +121,24 @@ class WindowsLepik {
         const command = `KeyUp ${key}`;
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, command);
     }
+    /**
+    * Copies the selected text or content.
+    * @returns {void}
+    */
     copy() {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "CopyToClipboard");
     }
+    /**
+   * Pastes the copied text or content.
+   * @returns {void}
+   */
     paste() {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "PasteFromClipboard");
     }
+    /**
+     * Gets the screen size.
+     * @returns {{ width: number, height: number }} An object containing the width and height of the screen.
+     */
     getScreenSize() {
         return new Promise((resolve, reject) => {
             __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "GetScreenSize");
@@ -138,6 +150,10 @@ class WindowsLepik {
             });
         });
     }
+    /**
+    * Gets the ID of the active window.
+    * @returns {number} The ID of the active window.
+    */
     getActiveWindowId() {
         return new Promise((resolve, reject) => {
             __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "GetActiveWindowId");
@@ -146,6 +162,11 @@ class WindowsLepik {
             });
         });
     }
+    /**
+     * Delays the execution for the specified number of milliseconds.
+     * @param {number} ms - The number of milliseconds to delay.
+     * @returns {Promise<void>} A Promise that resolves after the delay.
+     */
     delay(ms) {
         return new Promise((resolve) => {
             setTimeout(() => {

@@ -67,13 +67,34 @@ declare class WindowsLepik {
      * @returns {void}
      */
     keyUp(key: string): void;
+    /**
+    * Copies the selected text or content.
+    * @returns {void}
+    */
     copy(): void;
+    /**
+   * Pastes the copied text or content.
+   * @returns {void}
+   */
     paste(): void;
+    /**
+     * Gets the screen size.
+     * @returns {{ width: number, height: number }} An object containing the width and height of the screen.
+     */
     getScreenSize(): Promise<{
         width: number;
         height: number;
     }>;
+    /**
+    * Gets the ID of the active window.
+    * @returns {number} The ID of the active window.
+    */
     getActiveWindowId(): Promise<number>;
+    /**
+     * Delays the execution for the specified number of milliseconds.
+     * @param {number} ms - The number of milliseconds to delay.
+     * @returns {Promise<void>} A Promise that resolves after the delay.
+     */
     delay(ms: number): Promise<void>;
     close(): void;
 }

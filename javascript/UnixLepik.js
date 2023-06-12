@@ -111,25 +111,46 @@ class UnixLepik {
         const command = `xdotool keyup ${key}`;
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
+    /**
+    * Copies the selected text or content.
+    * @returns {void}
+    */
     copy() {
         const command = "xdotool key --clearmodifiers ctrl+c";
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
+    /**
+     * Pastes the copied text or content.
+     * @returns {void}
+     */
     paste() {
         const command = "xdotool key --clearmodifiers ctrl+v";
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
+    /**
+     * Gets the screen size.
+     * @returns {{ width: number, height: number }} An object containing the width and height of the screen.
+     */
     getScreenSize() {
         const command = "xrandr --current | grep ' connected' | awk '{print $4}'";
         const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
         const [resolution] = output.split("+")[0].split("x").map(Number);
         return { width: resolution, height: resolution };
     }
+    /**
+     * Gets the ID of the active window.
+     * @returns {number} The ID of the active window.
+     */
     getActiveWindowId() {
         const command = "xdotool getactivewindow";
         const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
         return +output;
     }
+    /**
+     * Delays the execution for the specified number of milliseconds.
+     * @param {number} ms - The number of milliseconds to delay.
+     * @returns {Promise<void>} A Promise that resolves after the delay.
+     */
     delay(ms) {
         return new Promise((resolve) => {
             setTimeout(() => {

@@ -131,14 +131,28 @@ class WindowsLepik {
     const command = `KeyUp ${key}`
     this.#executePowerShell(command)
   }
+
+  /**
+  * Copies the selected text or content.
+  * @returns {void}
+  */
   copy(): void {
     this.#executePowerShell("CopyToClipboard");
   }
+
+  /**
+ * Pastes the copied text or content.
+ * @returns {void}
+ */
   paste(): void {
     this.#executePowerShell("PasteFromClipboard");
   }
 
 
+  /**
+   * Gets the screen size.
+   * @returns {{ width: number, height: number }} An object containing the width and height of the screen.
+   */
   getScreenSize(): Promise<{ width: number, height: number }> {
     return new Promise((resolve, reject) => {
       this.#executePowerShell("GetScreenSize");
@@ -151,6 +165,11 @@ class WindowsLepik {
       });
     });
   }
+
+  /**
+  * Gets the ID of the active window.
+  * @returns {number} The ID of the active window.
+  */
   getActiveWindowId(): Promise<number> {
     return new Promise((resolve, reject) => {
       this.#executePowerShell("GetActiveWindowId");
@@ -161,6 +180,11 @@ class WindowsLepik {
     });
   }
 
+  /**
+   * Delays the execution for the specified number of milliseconds.
+   * @param {number} ms - The number of milliseconds to delay.
+   * @returns {Promise<void>} A Promise that resolves after the delay.
+   */
   delay(ms: number): Promise<void> {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
@@ -168,7 +192,6 @@ class WindowsLepik {
       }, ms);
     });
   }
-
 
   #executePowerShell(command: string) {
     this.ps.stdin.write(command + "\n");
