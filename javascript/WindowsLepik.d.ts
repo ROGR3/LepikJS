@@ -89,7 +89,7 @@ declare class WindowsLepik {
     * Gets the ID of the active window.
     * @returns {number} The ID of the active window.
     */
-    getActiveWindowId(): Promise<number>;
+    getActiveWindow(): Promise<number>;
     setActiveWindow(windowId: string): void;
     minimizeWindow(windowId: string): void;
     /**

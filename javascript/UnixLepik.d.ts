@@ -88,7 +88,7 @@ declare class UnixLepik {
      * Gets the ID of the active window.
      * @returns {number} The ID of the active window.
      */
-    getActiveWindowId(): number;
+    getActiveWindow(): number;
     setActiveWindow(windowId: string): void;
     minimizeWindow(windowId: string): void;
     /**

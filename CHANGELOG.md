@@ -14,6 +14,7 @@
 -  v3.0.0 Uses powershell scripts on windows and xdotool on linux machines ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
 
 ##### Fixed bugs:
+-  removed misconception of windowId and windowHandle ([#aaa3922](https://github.com/borecjeborec1/LepikJS/commit/aaa39226e56ea53a3ac5db9d1111e6cbd748042f))
 -  Fixed wrong content in changelog ([#fd468c0](https://github.com/borecjeborec1/LepikJS/commit/fd468c071040ab1a92eb2586bcd85594b9078cde))
 -  Fixed bug where some mouse controlling methods didn't work on certain linux distribuitions. [Issue #10](https://github.com/Borecjeborec1/LepikJS/issues/10). Because of xdotool all methods rely on the X11 . ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
 -  Fixed bug where bundled applications didn't work because they required python's bundled exe.  ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 

@@ -157,7 +157,7 @@ class UnixLepik {
    * Gets the ID of the active window.
    * @returns {number} The ID of the active window.
    */
-  getActiveWindowId(): number {
+  getActiveWindow(): number {
     const command = "xdotool getactivewindow";
     const output = this.#executeShellCommand(command).trim();
     return +output;

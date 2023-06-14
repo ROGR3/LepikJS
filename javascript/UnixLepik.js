@@ -141,7 +141,7 @@ class UnixLepik {
      * Gets the ID of the active window.
      * @returns {number} The ID of the active window.
      */
-    getActiveWindowId() {
+    getActiveWindow() {
         const command = "xdotool getactivewindow";
         const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
         return +output;

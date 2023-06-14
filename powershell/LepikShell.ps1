@@ -24,7 +24,7 @@ function GetScreenSize {
 
 
 
-function GetActiveWindowId {
+function GetActiveWindow {
     $windowHandle = [User32]::GetForegroundWindow()
     Write-Output $windowHandle.ToString()
 }

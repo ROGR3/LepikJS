@@ -172,9 +172,9 @@ class WindowsLepik {
   * Gets the ID of the active window.
   * @returns {number} The ID of the active window.
   */
-  getActiveWindowId(): Promise<number> {
+  getActiveWindow(): Promise<number> {
     return new Promise((resolve, reject) => {
-      this.#executePowerShell("GetActiveWindowId");
+      this.#executePowerShell("GetActiveWindow");
 
       this.ps.stdout.once("data", (data: string) => {
         resolve(+data.toString().trim());
