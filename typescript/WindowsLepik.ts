@@ -186,6 +186,10 @@ class WindowsLepik {
     this.#executePowerShell(`SetActiveWindow ${windowId}`);
   }
 
+  minimizeWindow(windowId: string): void {
+    this.#executePowerShell(`MinimizeWindow ${windowId}`);
+  }
+
   /**
    * Delays the execution for the specified number of milliseconds.
    * @param {number} ms - The number of milliseconds to delay.

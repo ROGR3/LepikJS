@@ -168,6 +168,9 @@ class WindowsLepik {
     setActiveWindow(windowId) {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `SetActiveWindow ${windowId}`);
     }
+    minimizeWindow(windowId) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `MinimizeWindow ${windowId}`);
+    }
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

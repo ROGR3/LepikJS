@@ -46,6 +46,41 @@ public static extern bool SetForegroundWindow(IntPtr hWnd);
     $type::SetForegroundWindow($hwnd)
 }
 
+function MinimizeWindow {
+     param (
+        [Parameter(Mandatory = $true)]
+        [IntPtr]$WindowHandle
+    )
+    $pinvokeCode = @"
+    using System;
+    using System.Diagnostics;
+    using System.Runtime.InteropServices;
+
+    public class WindowHelper
+    {
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
+        [DllImport("user32.dll")]
+        public static extern bool IsIconic(IntPtr hWnd);
+    }
+"@
+
+    Add-Type -TypeDefinition $pinvokeCode
+
+    if ($WindowHandle -ne [IntPtr]::Zero) {
+        if ([WindowHelper]::IsIconic($WindowHandle)) {
+            [WindowHelper]::ShowWindowAsync($WindowHandle, 9)  # Restore if minimized
+        } else {
+            [WindowHelper]::ShowWindowAsync($WindowHandle, 6)  # Minimize if not already minimized
+        }
+    } else {
+        Write-Host "No active window found."
+    }
+}
 
 function MouseClick {
     param(
@@ -202,6 +237,10 @@ while ($true) {
         }
         'SetActiveWindow'{
             SetActiveWindow -WindowId $js_args[1]
+            break
+        }
+        'MinimizeWindow'{
+            MinimizeWindow -WindowHandle ($js_args[1]/1)
             break
         }
         default {
