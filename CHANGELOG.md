@@ -1,5 +1,5 @@
 # Changelog
-#### [3.0] - 2023-06-10
+## [3.0] - 2023-06-10
 
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
@@ -19,7 +19,7 @@
 -  Fixed bug where some mouse controlling methods didn't work on certain linux distribuitions. [Issue #10](https://github.com/Borecjeborec1/LepikJS/issues/10). Because of xdotool all methods rely on the X11 . ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
 -  Fixed bug where bundled applications didn't work because they required python's bundled exe.  ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
 
-#### [2.1.10] - 2023-05-26
+## [2.1.10] - 2023-05-26
 
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
@@ -29,7 +29,7 @@
 ##### Fixed bugs:
 
 
-#### [2.1.1] - 2015-10-06
+## [2.1.1] - 2015-10-06
 
 *[Full Changelog](https://github.com/Borecjeborec1/LepikJS/commits/main)*
 
