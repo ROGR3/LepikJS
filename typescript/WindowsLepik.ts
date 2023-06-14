@@ -8,7 +8,9 @@ class WindowsLepik {
       stdio: ['pipe', 'pipe', 'inherit']
     });
 
-
+    this.ps.stdout.on("data", (data: string) => {
+      console.log("Data:" + data.toString())
+    });
     process.on('exit', () => {
       this.ps.kill();
     });
@@ -178,6 +180,10 @@ class WindowsLepik {
         resolve(+data.toString().trim());
       });
     });
+  }
+
+  setActiveWindow(windowId: string): void {
+    this.#executePowerShell(`SetActiveWindow ${windowId}`);
   }
 
   /**

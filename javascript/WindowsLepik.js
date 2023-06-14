@@ -12,6 +12,9 @@ class WindowsLepik {
         this.ps = child_process_1.spawn('powershell.exe', ['-ExecutionPolicy', 'Bypass', '-File', psPath], {
             stdio: ['pipe', 'pipe', 'inherit']
         });
+        this.ps.stdout.on("data", (data) => {
+            console.log("Data:" + data.toString());
+        });
         process.on('exit', () => {
             this.ps.kill();
         });
@@ -161,6 +164,9 @@ class WindowsLepik {
                 resolve(+data.toString().trim());
             });
         });
+    }
+    setActiveWindow(windowId) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `SetActiveWindow ${windowId}`);
     }
     /**
      * Delays the execution for the specified number of milliseconds.

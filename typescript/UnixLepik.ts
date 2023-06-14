@@ -163,6 +163,11 @@ class UnixLepik {
     return +output;
   }
 
+  setActiveWindow(windowId: string): void {
+    const command = `xdotool windowactivate ${windowId}`;
+    this.#executeShellCommand(command);
+  }
+
   /**
    * Delays the execution for the specified number of milliseconds.
    * @param {number} ms - The number of milliseconds to delay.

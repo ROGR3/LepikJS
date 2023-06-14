@@ -90,6 +90,7 @@ declare class WindowsLepik {
     * @returns {number} The ID of the active window.
     */
     getActiveWindowId(): Promise<number>;
+    setActiveWindow(windowId: string): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

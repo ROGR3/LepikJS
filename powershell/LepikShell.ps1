@@ -2,7 +2,15 @@ Add-Type -AssemblyName System.Windows.Forms
 
 Add-Type -MemberDefinition '[DllImport("user32.dll")] public static extern void mouse_event(int flags, int dx, int dy, int cButtons, int info);' -Name U32 -Namespace W;
 
+Add-Type -TypeDefinition @"
+using System;
+using System.Runtime.InteropServices;
 
+public static class User32 {
+    [DllImport("user32.dll")]
+    public static extern IntPtr GetForegroundWindow();
+}
+"@
 
 function GetScreenSize {
     $screen = [System.Windows.Forms.Screen]::PrimaryScreen
@@ -14,9 +22,28 @@ function GetScreenSize {
     } | ConvertTo-Json
 }
 
+
+
 function GetActiveWindowId {
-    $windowHandle = (Get-Process -Name explorer | ForEach-Object { $_.MainWindowHandle })[0]
+    $windowHandle = [User32]::GetForegroundWindow()
     Write-Output $windowHandle.ToString()
+}
+
+function SetActiveWindow {
+   param (
+        [string]$WindowId
+    )
+
+    $signature = @"
+[DllImport("user32.dll")]
+public static extern bool SetForegroundWindow(IntPtr hWnd);
+"@
+
+    $type = Add-Type -MemberDefinition $signature -Name User32 -PassThru
+
+    $hwnd = [IntPtr]::op_Explicit($WindowId)
+
+    $type::SetForegroundWindow($hwnd)
 }
 
 
@@ -171,6 +198,10 @@ while ($true) {
         }
         'PasteFromClipboard'{
             PasteFromClipboard 
+            break
+        }
+        'SetActiveWindow'{
+            SetActiveWindow -WindowId $js_args[1]
             break
         }
         default {

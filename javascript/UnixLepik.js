@@ -146,6 +146,10 @@ class UnixLepik {
         const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
         return +output;
     }
+    setActiveWindow(windowId) {
+        const command = `xdotool windowactivate ${windowId}`;
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
+    }
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.
