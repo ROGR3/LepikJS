@@ -1,11 +1,7 @@
-*.spec
-python/
 node_modules/
 examples/
 typescript/
-backup/
 googled.md
 web/
 tests/
-todo.md
 tempCodeRunnerFile.*
