@@ -15,6 +15,9 @@ lepik.on("mouseUp", (data) => {
 lepik.on("keyPress", (data) => {
   console.log(data) // Returns key pressed
 })
-lepik.on("keyRelease", (data) => {
+lepik.on("keyUp", (data) => {
   console.log(data) // Returns key release
+})
+lepik.on("keyDown", (data) => {
+  console.log(data) // Returns key helt
 })

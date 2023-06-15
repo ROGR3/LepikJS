@@ -10,7 +10,7 @@ class UnixLepik {
     constructor() {
         _UnixLepik_instances.add(this);
     }
-    //Mouse methods
+    // MOUSE METHODS
     /**
      * Gets the current position of the mouse cursor on the screen.
      * @returns {{ x: number, y: number }} A Promise that resolves with an object containing the X and Y coordinates of the mouse cursor.
@@ -25,15 +25,27 @@ class UnixLepik {
      * @param {string | number} [key='left'] - The key to use for the click (left, right, or middle mouse button)
      * @param {number} [am=1] - The number of clicks to perform. Default value is 1
      */
-    mouseClick(button, amount) {
-        const command = `xdotool click --repeat ${amount} ${button}`;
+    mouseClick(button = "left", amount = 1) {
+        let buttonNumber = 1;
+        switch (button) {
+            case "left":
+                buttonNumber = 1;
+                break;
+            case "middle":
+                buttonNumber = 2;
+                break;
+            case "right":
+                buttonNumber = 3;
+                break;
+        }
+        const command = `xdotool click --repeat ${amount} ${buttonNumber}`;
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     /**
     * Performs a double-click with the specified mouse button
     * @param {string | number} [key='left'] The key to use for the click (left, right, or middle mouse button)
     */
-    mouseDoubleClick(button) {
+    mouseDoubleClick(button = "left") {
         const command = `xdotool click --repeat ${2} ${button}`;
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
@@ -41,7 +53,7 @@ class UnixLepik {
      * Scrolls the mouse wheel up or down by the given amount.
      * @param {number} [amount=1] - The amount to scroll. A positive number scrolls up, a negative number scrolls down.
      */
-    mouseScroll(amount) {
+    mouseScroll(amount = 0) {
         let direction = amount < 0 ? 5 : 4;
         const command = `xdotool click --repeat ${Math.abs(amount)} ${direction}`;
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
@@ -120,7 +132,7 @@ class UnixLepik {
                 break;
         }
     }
-    //Keyboard methods
+    // KEYBOARD METHODS
     /**
      * Sends a key tap event for the given key.
      * @param {string} key - The key to tap. Must be a single character or a key name from the list returned by the `getSupportedKeys` method.
@@ -176,6 +188,7 @@ class UnixLepik {
         const command = "xdotool key --clearmodifiers ctrl+v";
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
+    // SCREEN METHODS
     /**
      * Gets the screen size.
      * @returns {{ width: number, height: number }} An object containing the width and height of the screen.

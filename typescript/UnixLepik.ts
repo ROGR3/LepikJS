@@ -1,11 +1,12 @@
 import { execSync } from "child_process"
 
+type MouseButtons = "left" | "right" | "middle"
+
 class UnixLepik {
   constructor() {
   }
 
-  //Mouse methods
-
+  // MOUSE METHODS
   /**
    * Gets the current position of the mouse cursor on the screen.
    * @returns {{ x: number, y: number }} A Promise that resolves with an object containing the X and Y coordinates of the mouse cursor.
@@ -23,8 +24,20 @@ class UnixLepik {
    * @param {string | number} [key='left'] - The key to use for the click (left, right, or middle mouse button)
    * @param {number} [am=1] - The number of clicks to perform. Default value is 1
    */
-  mouseClick(button: string, amount: number): void {
-    const command = `xdotool click --repeat ${amount} ${button}`
+  mouseClick(button: MouseButtons = "left", amount: number = 1): void {
+    let buttonNumber: number = 1
+    switch (button) {
+      case "left":
+        buttonNumber = 1
+        break
+      case "middle":
+        buttonNumber = 2
+        break
+      case "right":
+        buttonNumber = 3
+        break
+    }
+    const command = `xdotool click --repeat ${amount} ${buttonNumber}`
     this.#executeShellCommand(command)
   }
 
@@ -32,7 +45,7 @@ class UnixLepik {
   * Performs a double-click with the specified mouse button
   * @param {string | number} [key='left'] The key to use for the click (left, right, or middle mouse button)
   */
-  mouseDoubleClick(button: string): void {
+  mouseDoubleClick(button: MouseButtons = "left"): void {
     const command = `xdotool click --repeat ${2} ${button}`
     this.#executeShellCommand(command)
   }
@@ -41,7 +54,7 @@ class UnixLepik {
    * Scrolls the mouse wheel up or down by the given amount.
    * @param {number} [amount=1] - The amount to scroll. A positive number scrolls up, a negative number scrolls down.
    */
-  mouseScroll(amount: number): void {
+  mouseScroll(amount: number = 0): void {
     let direction = amount < 0 ? 5 : 4
     const command = `xdotool click --repeat ${Math.abs(amount)} ${direction}`
     this.#executeShellCommand(command)
@@ -125,7 +138,7 @@ class UnixLepik {
     }
   }
 
-  //Keyboard methods
+  // KEYBOARD METHODS
 
   /**
    * Sends a key tap event for the given key.
@@ -188,8 +201,7 @@ class UnixLepik {
     this.#executeShellCommand(command);
   }
 
-
-
+  // SCREEN METHODS
   /**
    * Gets the screen size.
    * @returns {{ width: number, height: number }} An object containing the width and height of the screen.
@@ -236,11 +248,15 @@ class UnixLepik {
       }, ms);
     });
   }
-  #executeShellCommand(command: string) {
-    return execSync(command).toString();
-  }
+
+
   close() {
     console.log("You can remove the `lepik.close()` from your code. Lepik.close() has no effect on OS other than windows")
+  }
+
+
+  #executeShellCommand(command: string) {
+    return execSync(command).toString();
   }
 
 }

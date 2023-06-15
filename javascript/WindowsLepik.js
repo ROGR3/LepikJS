@@ -19,7 +19,7 @@ class WindowsLepik {
             this.ps.kill();
         });
     }
-    //Mouse methods
+    //MOUSE METHODS
     /**
      * Gets the current position of the mouse cursor on the screen.
      * @returns {{ x: number, y: number }} A Promise that resolves with an object containing the X and Y coordinates of the mouse cursor.
@@ -60,7 +60,7 @@ class WindowsLepik {
      * Scrolls the mouse wheel up or down by the given amount.
      * @param {number} - The amount to scroll. A positive number scrolls up, a negative number scrolls down.
      */
-    mouseScroll(amount) {
+    mouseScroll(amount = 0) {
         let direction = amount > 0 ? "up" : "down";
         const command = `MouseScroll ${direction} ${Math.abs(amount)}`;
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, command);
@@ -136,7 +136,7 @@ class WindowsLepik {
                 break;
         }
     }
-    //Keyboard methods
+    // KEYBOARD METHODS
     /**
      * Sends a key tap event for the given key.
      * @param {string} key - The key to tap. Must be a single character or a key name from the list returned by the `getSupportedKeys` method.
@@ -187,9 +187,10 @@ class WindowsLepik {
     paste() {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "PasteFromClipboard");
     }
+    // SCREEN METHODS
     /**
      * Gets the screen size.
-     * @returns {{ width: number, height: number }} An object containing the width and height of the screen.
+     * @returns { Promise<{ width: number, height: number }>} An object containing the width and height of the screen.
      */
     getScreenSize() {
         return new Promise((resolve, reject) => {
@@ -204,7 +205,7 @@ class WindowsLepik {
     }
     /**
     * Gets the ID of the active window.
-    * @returns {number} The ID of the active window.
+    * @returns {Promise<number>} The ID of the active window.
     */
     getActiveWindow() {
         return new Promise((resolve, reject) => {
@@ -220,6 +221,7 @@ class WindowsLepik {
     minimizeWindow(windowId) {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `MinimizeWindow ${windowId}`);
     }
+    // CONTROL METHODS
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

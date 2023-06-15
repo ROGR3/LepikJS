@@ -1,3 +1,4 @@
+declare type MouseButtons = "left" | "right" | "middle";
 declare class UnixLepik {
     #private;
     constructor();
@@ -14,17 +15,17 @@ declare class UnixLepik {
      * @param {string | number} [key='left'] - The key to use for the click (left, right, or middle mouse button)
      * @param {number} [am=1] - The number of clicks to perform. Default value is 1
      */
-    mouseClick(button: string, amount: number): void;
+    mouseClick(button?: MouseButtons, amount?: number): void;
     /**
     * Performs a double-click with the specified mouse button
     * @param {string | number} [key='left'] The key to use for the click (left, right, or middle mouse button)
     */
-    mouseDoubleClick(button: string): void;
+    mouseDoubleClick(button?: MouseButtons): void;
     /**
      * Scrolls the mouse wheel up or down by the given amount.
      * @param {number} [amount=1] - The amount to scroll. A positive number scrolls up, a negative number scrolls down.
      */
-    mouseScroll(amount: number): void;
+    mouseScroll(amount?: number): void;
     /**
       * Drag the mouse from the first coordinates to the second coordinates
       * @param {number} [fromX=0] - The X-coordinate to start dragging from

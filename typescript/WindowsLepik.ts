@@ -1,6 +1,8 @@
 import { spawn } from "child_process"
 
 type MouseButtons = "left" | "right" | "middle"
+
+
 class WindowsLepik {
   ps;
   constructor(psPath: string) {
@@ -17,8 +19,7 @@ class WindowsLepik {
   }
 
 
-  //Mouse methods
-
+  //MOUSE METHODS
   /**
    * Gets the current position of the mouse cursor on the screen.
    * @returns {{ x: number, y: number }} A Promise that resolves with an object containing the X and Y coordinates of the mouse cursor.
@@ -63,7 +64,7 @@ class WindowsLepik {
    * Scrolls the mouse wheel up or down by the given amount.
    * @param {number} - The amount to scroll. A positive number scrolls up, a negative number scrolls down.
    */
-  mouseScroll(amount: number): void {
+  mouseScroll(amount: number = 0): void {
     let direction = amount > 0 ? "up" : "down"
     const command = `MouseScroll ${direction} ${Math.abs(amount)}`
     this.#executePowerShell(command)
@@ -81,6 +82,7 @@ class WindowsLepik {
     const command = `MouseDrag ${fromX} ${fromY} ${toX} ${toY}`
     this.#executePowerShell(command)
   }
+
   /**
       * Move the mouse to the specified coordinates
       * @param {number} - The X-coordinate to move to
@@ -141,7 +143,7 @@ class WindowsLepik {
         break;
     }
   }
-  //Keyboard methods
+  // KEYBOARD METHODS
 
   /**
    * Sends a key tap event for the given key.
@@ -199,10 +201,10 @@ class WindowsLepik {
     this.#executePowerShell("PasteFromClipboard");
   }
 
-
+  // SCREEN METHODS
   /**
    * Gets the screen size.
-   * @returns {{ width: number, height: number }} An object containing the width and height of the screen.
+   * @returns { Promise<{ width: number, height: number }>} An object containing the width and height of the screen.
    */
   getScreenSize(): Promise<{ width: number, height: number }> {
     return new Promise((resolve, reject) => {
@@ -219,7 +221,7 @@ class WindowsLepik {
 
   /**
   * Gets the ID of the active window.
-  * @returns {number} The ID of the active window.
+  * @returns {Promise<number>} The ID of the active window.
   */
   getActiveWindow(): Promise<number> {
     return new Promise((resolve, reject) => {
@@ -239,6 +241,7 @@ class WindowsLepik {
     this.#executePowerShell(`MinimizeWindow ${windowId}`);
   }
 
+  // CONTROL METHODS
   /**
    * Delays the execution for the specified number of milliseconds.
    * @param {number} ms - The number of milliseconds to delay.
@@ -252,12 +255,12 @@ class WindowsLepik {
     });
   }
 
-  #executePowerShell(command: string) {
-    this.ps.stdin.write(command + "\n");
-  }
-
   close() {
     this.ps.stdin.write("exit\n");
+  }
+
+  #executePowerShell(command: string) {
+    this.ps.stdin.write(command + "\n");
   }
 }
 

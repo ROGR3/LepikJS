@@ -26,7 +26,7 @@ declare class WindowsLepik {
      * Scrolls the mouse wheel up or down by the given amount.
      * @param {number} - The amount to scroll. A positive number scrolls up, a negative number scrolls down.
      */
-    mouseScroll(amount: number): void;
+    mouseScroll(amount?: number): void;
     /**
      * Drag the mouse from the first coordinates to the second coordinates
      * @param {number} - The X-coordinate to start dragging from
@@ -80,7 +80,7 @@ declare class WindowsLepik {
     paste(): void;
     /**
      * Gets the screen size.
-     * @returns {{ width: number, height: number }} An object containing the width and height of the screen.
+     * @returns { Promise<{ width: number, height: number }>} An object containing the width and height of the screen.
      */
     getScreenSize(): Promise<{
         width: number;
@@ -88,7 +88,7 @@ declare class WindowsLepik {
     }>;
     /**
     * Gets the ID of the active window.
-    * @returns {number} The ID of the active window.
+    * @returns {Promise<number>} The ID of the active window.
     */
     getActiveWindow(): Promise<number>;
     setActiveWindow(windowId: string): void;
