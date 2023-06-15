@@ -1,6 +1,6 @@
 {
   "name": "lepikjs",
-  "version": "3.0.17",
+  "version": "3.0.18",
   "description": "Global Keyboard and Mouse Desktop Automation",
   "main": "./index.js",
   "scripts": {

@@ -80,8 +80,11 @@ lepik.paste() // Pastes currently coppied object
 // Screen events
 await lepik.getScreenSize() // Async function on windows!
 //Returns object { width: 719, height: 461 }
-await lepik.getActiveWindowId() // Async function on windows!
-//Returns integer ID of the currently active window
+await lepik.getActiveWindow() // Async function on windows!
+//Returns window handle integer of the currently active window
+lepik.setActiveWindow(window) // Focus a window
+lepik.minimizeWindow(window) // minimize a window
+
 
 // Global Listeners
 lepik.on("mouseMove",(data)=>{

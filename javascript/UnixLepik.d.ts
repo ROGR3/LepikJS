@@ -41,6 +41,7 @@ declare class UnixLepik {
       * @param {boolean} [absolute=true] - Whether or not to use an acceleration curve when moving the mouse
       */
     mouseMove(toX: number, toY: number, absolute?: boolean): void;
+    on(ev: string, cb: Function): void;
     /**
      * Sends a key tap event for the given key.
      * @param {string} key - The key to tap. Must be a single character or a key name from the list returned by the `getSupportedKeys` method.
