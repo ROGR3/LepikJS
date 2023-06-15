@@ -105,8 +105,11 @@ lepik.on("mouseDoubleClick",(data)=>{
 lepik.on("keyPress",(data)=>{
   console.log(data) // Returns key pressed
 })
-lepik.on("keyRelease",(data)=>{
+lepik.on("keyUp",(data)=>{
   console.log(data) // Returns key released
+})
+lepik.on("keyDown",(data)=>{
+  console.log(data) // Returns key holt
 })
 
 // Controls

@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
+-  upgraded lepikevents to v2.0+ ([#d71a631](https://github.com/borecjeborec1/LepikJS/commit/d71a6313e270d96fa6b5153bf378a8bdf33c59b2))
 -  minimize window ([#9cb448c](https://github.com/borecjeborec1/LepikJS/commit/9cb448c4e651012ad71f13b9cc423e43b9693e10))
 -  setActiveWindow method ([#7cd3529](https://github.com/borecjeborec1/LepikJS/commit/7cd3529fb8f79dbcc6c8435bbfa38b1e06e3301d))
 -  delay functionality ([#c576ed3](https://github.com/borecjeborec1/LepikJS/commit/c576ed3e53bb839e3e2a85a7eb270178ce36f313)) 
