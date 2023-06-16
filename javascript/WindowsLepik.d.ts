@@ -1,5 +1,6 @@
+import { LepikEvents } from "./LepikEvents";
 declare type MouseButtons = "left" | "right" | "middle";
-declare class WindowsLepik {
+declare class WindowsLepik extends LepikEvents {
     #private;
     ps: any;
     constructor(psPath: string);
@@ -43,7 +44,6 @@ declare class WindowsLepik {
         * @param {boolean} [absolute=false] - Whether or not to use an absolute positioning of the mouse
         */
     mouseMove(toX: number, toY: number, absolute?: boolean): void;
-    on(ev: string, cb: Function): void;
     /**
      * Sends a key tap event for the given key.
      * @param {string} key - The key to tap. Must be a single character or a key name from the list returned by the `getSupportedKeys` method.

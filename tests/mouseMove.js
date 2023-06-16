@@ -9,3 +9,6 @@ main()
 lepik.on("keyPress", e => {
   console.log(e)
 })
+lepik.on("mouseClick", e => {
+  console.log(e)
+})
