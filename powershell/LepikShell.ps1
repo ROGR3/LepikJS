@@ -22,6 +22,14 @@ public static class User32 {
 
     [DllImport("user32.dll")]
     public static extern void SwitchToThisWindow(IntPtr hWnd, bool fAltTab);
+
+    [DllImport("user32.dll")]
+    public static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+    [DllImport("user32.dll")]
+    public static extern bool IsWindow(IntPtr hWnd);
+
+    public const uint WM_CLOSE = 0x0010;
 }
 "@
 
@@ -89,28 +97,9 @@ function CloseWindow {
         [IntPtr]$WindowHandle
     )
 
-    $pinvokeCode = @"
-using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-
-public class WindowHelper
-{
-    [DllImport("user32.dll")]
-    public static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-
-    [DllImport("user32.dll")]
-    public static extern bool IsWindow(IntPtr hWnd);
-
-    public const uint WM_CLOSE = 0x0010;
-}
-"@
-
-    Add-Type -TypeDefinition $pinvokeCode
-
     if ($WindowHandle -ne [IntPtr]::Zero) {
-        if ([WindowHelper]::IsWindow($WindowHandle)) {
-            [WindowHelper]::PostMessage($WindowHandle, [WindowHelper]::WM_CLOSE, [IntPtr]::Zero, [IntPtr]::Zero)
+        if ([User32]::IsWindow($WindowHandle)) {
+            [User32]::PostMessage($WindowHandle, [User32]::WM_CLOSE, [IntPtr]::Zero, [IntPtr]::Zero)
         }
     } else {
         Write-Host "No active window found."
