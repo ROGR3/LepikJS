@@ -195,6 +195,11 @@ class WindowsLepik extends LepikEvents {
   maximizeWindow(windowHandle: string): void {
     this.#executePowerShell(`MaximizeWindow ${windowHandle}`);
   }
+
+  closeWindow(windowHandle: string): void {
+    this.#executePowerShell(`CloseWindow ${windowHandle}`);
+  }
+
   // CONTROL METHODS
   /**
    * Delays the execution for the specified number of milliseconds.

@@ -177,6 +177,9 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
     maximizeWindow(windowHandle) {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `MaximizeWindow ${windowHandle}`);
     }
+    closeWindow(windowHandle) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `CloseWindow ${windowHandle}`);
+    }
     // CONTROL METHODS
     /**
      * Delays the execution for the specified number of milliseconds.

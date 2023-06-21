@@ -4,11 +4,24 @@ Add-Type -MemberDefinition '[DllImport("user32.dll")] public static extern void 
 
 Add-Type -TypeDefinition @"
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 public static class User32 {
     [DllImport("user32.dll")]
     public static extern IntPtr GetForegroundWindow();
+
+    [DllImport("user32.dll")]
+    public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
+    [DllImport("user32.dll")]
+    public static extern bool IsIconic(IntPtr hWnd);
+
+    [DllImport("user32.dll")]
+    public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+    [DllImport("user32.dll")]
+    public static extern void SwitchToThisWindow(IntPtr hWnd, bool fAltTab);
 }
 "@
 
@@ -31,19 +44,13 @@ function GetActiveWindow {
 
 function SetActiveWindow {
    param (
-        [string]$WindowId
+        [Parameter(Mandatory = $true)]
+        [IntPtr]$WindowHandle
     )
 
-    $signature = @"
-[DllImport("user32.dll")]
-public static extern bool SetForegroundWindow(IntPtr hWnd);
-"@
-
-    $type = Add-Type -MemberDefinition $signature -Name User32 -PassThru
-
-    $hwnd = [IntPtr]::op_Explicit($WindowId)
-
-    $type::SetForegroundWindow($hwnd)
+    [User32]::SetForegroundWindow($WindowHandle)
+    [User32]::SwitchToThisWindow($WindowHandle, $true)
+  
 }
 
 function MinimizeWindow {
@@ -51,31 +58,12 @@ function MinimizeWindow {
         [Parameter(Mandatory = $true)]
         [IntPtr]$WindowHandle
     )
-    $pinvokeCode = @"
-    using System;
-    using System.Diagnostics;
-    using System.Runtime.InteropServices;
-
-    public class WindowHelper
-    {
-        [DllImport("user32.dll")]
-        public static extern IntPtr GetForegroundWindow();
-
-        [DllImport("user32.dll")]
-        public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
-
-        [DllImport("user32.dll")]
-        public static extern bool IsIconic(IntPtr hWnd);
-    }
-"@
-
-    Add-Type -TypeDefinition $pinvokeCode
 
     if ($WindowHandle -ne [IntPtr]::Zero) {
-        if ([WindowHelper]::IsIconic($WindowHandle)) {
-            [WindowHelper]::ShowWindowAsync($WindowHandle, 9)  # Restore if minimized
+        if ([User32]::IsIconic($WindowHandle)) {
+            [User32]::ShowWindowAsync($WindowHandle, 9)  # Restore if minimized
         } else {
-            [WindowHelper]::ShowWindowAsync($WindowHandle, 6)  # Minimize if not already minimized
+            [User32]::ShowWindowAsync($WindowHandle, 6)  # Minimize if not already minimized
         }
     } else {
         Write-Host "No active window found."
@@ -88,28 +76,42 @@ function MaximizeWindow {
         [IntPtr]$WindowHandle
     )
 
-    $pinvokeCode = @"
-    using System;
-    using System.Diagnostics;
-    using System.Runtime.InteropServices;
-
-    public class WindowHelper
-    {
-        [DllImport("user32.dll")]
-        public static extern IntPtr GetForegroundWindow();
-
-        [DllImport("user32.dll")]
-        public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
-
-        [DllImport("user32.dll")]
-        public static extern bool IsIconic(IntPtr hWnd);
+    if ($WindowHandle -ne [IntPtr]::Zero) {
+        [User32]::ShowWindowAsync($WindowHandle, 3)  # Maximize window
+    } else {
+        Write-Host "No active window found."
     }
+}
+
+function CloseWindow {
+    param (
+        [Parameter(Mandatory = $true)]
+        [IntPtr]$WindowHandle
+    )
+
+    $pinvokeCode = @"
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
+public class WindowHelper
+{
+    [DllImport("user32.dll")]
+    public static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+    [DllImport("user32.dll")]
+    public static extern bool IsWindow(IntPtr hWnd);
+
+    public const uint WM_CLOSE = 0x0010;
+}
 "@
 
     Add-Type -TypeDefinition $pinvokeCode
 
     if ($WindowHandle -ne [IntPtr]::Zero) {
-        [WindowHelper]::ShowWindowAsync($WindowHandle, 3)  # Maximize window
+        if ([WindowHelper]::IsWindow($WindowHandle)) {
+            [WindowHelper]::PostMessage($WindowHandle, [WindowHelper]::WM_CLOSE, [IntPtr]::Zero, [IntPtr]::Zero)
+        }
     } else {
         Write-Host "No active window found."
     }
@@ -234,7 +236,7 @@ while ($true) {
             break
         }
         'MouseMove' {
-            MouseMove -x $js_args[1] -y $js_args[2] # Explicitly cast to int
+            MouseMove -x $js_args[1] -y $js_args[2] 
             break
         }
         'KeyTap' {
@@ -270,7 +272,7 @@ while ($true) {
             break
         }
         'SetActiveWindow'{
-            SetActiveWindow -WindowId $js_args[1]
+            SetActiveWindow -WindowHandle ($js_args[1]/1)
             break
         }
         'MinimizeWindow'{
@@ -280,6 +282,9 @@ while ($true) {
         'MaximizeWindow'{
             MaximizeWindow -WindowHandle ($js_args[1]/1)
             break
+        }
+        'CloseWindow'{
+            CloseWindow  -WindowHandle ($js_args[1]/1)
         }
         default {
             Write-Error "Unknown command: $cmd"

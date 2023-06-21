@@ -94,6 +94,7 @@ declare class UnixLepik extends LepikEvents {
     setActiveWindow(windowId: string): void;
     minimizeWindow(windowId: string): void;
     maximizeWindow(windowId: string): void;
+    closeWindow(windowId: string): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

@@ -1,4 +1,13 @@
 # Changelog
+## [3.1] - 2023-06-21
+
+[Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
+
+##### Implemented enhancements:
+-  close window ([#3e5803c](https://github.com/borecjeborec1/LepikJS/commit/3e5803c100cb76afe4a2066396e5ac28be002535)) 
+
+##### Fixed bugs:
+
 ## [3.0] - 2023-06-10
 
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)

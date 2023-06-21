@@ -194,6 +194,12 @@ class UnixLepik extends LepikEvents {
     this.#executeShellCommand(command);
   }
 
+  closeWindow(windowId: string): void {
+    const command = `xdotool windowactivate ${windowId} && xdotool key --clearmodifiers Alt+F4`;
+    this.#executeShellCommand(command);
+  }
+
+
   /**
    * Delays the execution for the specified number of milliseconds.
    * @param {number} ms - The number of milliseconds to delay.
