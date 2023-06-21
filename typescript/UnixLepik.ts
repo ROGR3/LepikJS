@@ -189,6 +189,10 @@ class UnixLepik extends LepikEvents {
     this.#executeShellCommand(command);
   }
 
+  maximizeWindow(windowId: string): void {
+    const command = `xdotool windowmaximize ${windowId}`;
+    this.#executeShellCommand(command);
+  }
 
   /**
    * Delays the execution for the specified number of milliseconds.

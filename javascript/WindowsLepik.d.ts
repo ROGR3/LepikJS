@@ -91,8 +91,9 @@ declare class WindowsLepik extends LepikEvents {
     * @returns {Promise<number>} The ID of the active window.
     */
     getActiveWindow(): Promise<number>;
-    setActiveWindow(windowId: string): void;
-    minimizeWindow(windowId: string): void;
+    setActiveWindow(windowHandle: string): void;
+    minimizeWindow(windowHandle: string): void;
+    maximizeWindow(windowHandle: string): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

@@ -168,11 +168,14 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
             });
         });
     }
-    setActiveWindow(windowId) {
-        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `SetActiveWindow ${windowId}`);
+    setActiveWindow(windowHandle) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `SetActiveWindow ${windowHandle}`);
     }
-    minimizeWindow(windowId) {
-        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `MinimizeWindow ${windowId}`);
+    minimizeWindow(windowHandle) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `MinimizeWindow ${windowHandle}`);
+    }
+    maximizeWindow(windowHandle) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `MaximizeWindow ${windowHandle}`);
     }
     // CONTROL METHODS
     /**

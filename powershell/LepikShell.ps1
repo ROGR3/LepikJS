@@ -82,6 +82,40 @@ function MinimizeWindow {
     }
 }
 
+function MaximizeWindow {
+    param (
+        [Parameter(Mandatory = $true)]
+        [IntPtr]$WindowHandle
+    )
+
+    $pinvokeCode = @"
+    using System;
+    using System.Diagnostics;
+    using System.Runtime.InteropServices;
+
+    public class WindowHelper
+    {
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
+        [DllImport("user32.dll")]
+        public static extern bool IsIconic(IntPtr hWnd);
+    }
+"@
+
+    Add-Type -TypeDefinition $pinvokeCode
+
+    if ($WindowHandle -ne [IntPtr]::Zero) {
+        [WindowHelper]::ShowWindowAsync($WindowHandle, 3)  # Maximize window
+    } else {
+        Write-Host "No active window found."
+    }
+}
+
+
 function MouseClick {
     param(
         [ValidateSet('left', 'right', 'middle')]
@@ -241,6 +275,10 @@ while ($true) {
         }
         'MinimizeWindow'{
             MinimizeWindow -WindowHandle ($js_args[1]/1)
+            break
+        }
+        'MaximizeWindow'{
+            MaximizeWindow -WindowHandle ($js_args[1]/1)
             break
         }
         default {

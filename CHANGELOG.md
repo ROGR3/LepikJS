@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
+-  maximizeWindow implementation ([#29179b4](https://github.com/borecjeborec1/LepikJS/commit/29179b469aeb51cb327adfdfa13b26da1ec945df))
 -  upgraded lepikevents to v2.0+ ([#d71a631](https://github.com/borecjeborec1/LepikJS/commit/d71a6313e270d96fa6b5153bf378a8bdf33c59b2))
 -  minimize window ([#9cb448c](https://github.com/borecjeborec1/LepikJS/commit/9cb448c4e651012ad71f13b9cc423e43b9693e10))
 -  setActiveWindow method ([#7cd3529](https://github.com/borecjeborec1/LepikJS/commit/7cd3529fb8f79dbcc6c8435bbfa38b1e06e3301d))

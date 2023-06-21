@@ -185,14 +185,16 @@ class WindowsLepik extends LepikEvents {
     });
   }
 
-  setActiveWindow(windowId: string): void {
-    this.#executePowerShell(`SetActiveWindow ${windowId}`);
+  setActiveWindow(windowHandle: string): void {
+    this.#executePowerShell(`SetActiveWindow ${windowHandle}`);
   }
 
-  minimizeWindow(windowId: string): void {
-    this.#executePowerShell(`MinimizeWindow ${windowId}`);
+  minimizeWindow(windowHandle: string): void {
+    this.#executePowerShell(`MinimizeWindow ${windowHandle}`);
   }
-
+  maximizeWindow(windowHandle: string): void {
+    this.#executePowerShell(`MaximizeWindow ${windowHandle}`);
+  }
   // CONTROL METHODS
   /**
    * Delays the execution for the specified number of milliseconds.
