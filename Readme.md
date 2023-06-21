@@ -80,10 +80,12 @@ lepik.paste() // Pastes currently coppied object
 // Screen events
 await lepik.getScreenSize() // Async function on windows!
 //Returns object { width: 719, height: 461 }
-await lepik.getActiveWindow() // Async function on windows!
+let windowHandle = await lepik.getActiveWindow() // Async function on windows!
 //Returns window handle integer of the currently active window
-lepik.setActiveWindow(window) // Focus a window
-lepik.minimizeWindow(window) // minimize a window
+lepik.setActiveWindow(windowHandle) // Focus a window
+lepik.minimizeWindow(windowHandle) // minimize a window
+lepik.maximizeWindow(windowHandle) // maximize a window
+lepik.closeWindow(windowHandle) // close a window
 
 
 // Global Listeners
@@ -117,8 +119,6 @@ lepik.on("keyDown",(data)=>{
 // Number of miliseconds to delay the code execution
 lepik.delay(ms) 
 // Uses promises to wait until promise is resolved
-// Number of miliseconds to delay the code execution
-lepik.delaySync(ms) 
 // When reached this line, the process can exit.
 lepik.close() 
 ```
