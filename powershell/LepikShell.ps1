@@ -257,8 +257,8 @@ while ($true) {
             GetScreenSize 
             break
         }
-        'GetActiveWindowId'{
-            GetActiveWindowId 
+        'GetActiveWindow'{
+            GetActiveWindow 
             break
         }
         'CopyToClipboard'{

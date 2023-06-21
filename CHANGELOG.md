@@ -16,6 +16,7 @@
 -  v3.0.0 Uses powershell scripts on windows and xdotool on linux machines ([#3d5dc97](https://github.com/Borecjeborec1/LepikJS/commit/3d5dc97f1f5fb773054864fb02e586c8a30793b5)) 
 
 ##### Fixed bugs:
+-  fixed GetActiveWindow for windows ([#5d98423](https://github.com/borecjeborec1/LepikJS/commit/5d984239cc54cdad9113eba52858487bb5beae18))
 -  fixed default values for unix ([#ab5c021](https://github.com/borecjeborec1/LepikJS/commit/ab5c021cb7dcfdf579a07dabeb22fad5937e515b))
 -  fixed the "on" listeners ([#a23e236](https://github.com/borecjeborec1/LepikJS/commit/a23e2369fdd173929512e957e52f17b30f87d44f))
 -  removed misconception of windowId and windowHandle ([#aaa3922](https://github.com/borecjeborec1/LepikJS/commit/aaa39226e56ea53a3ac5db9d1111e6cbd748042f))
