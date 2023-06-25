@@ -210,6 +210,7 @@ function GetMousePosition {
 
 
 # Loop forever, reading commands from stdin
+# This logic will be changed in future
 while ($true) {
     $line = [Console]::In.ReadLine()
     if ($line -eq "exit") {

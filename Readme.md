@@ -3,8 +3,8 @@ LepikJS is a global keyboard and mouse event emitter. It allows you to listen to
 
 You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more information.
 
-LepikJS is available on NPM [LepikJS  ](https://www.npmjs.com/package/lepikjs).
-LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Definitely try that out!
+LepikJS is available on NPM [LepikJS](https://www.npmjs.com/package/lepikjs).
+LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Don't forget to try that out!
 
 > ㅤ
 > #### New Info for v3.0.0+
@@ -43,6 +43,9 @@ lepik.on("mouseClick", (data) => {
 ```
 
 ## All Methods
+You can see all methods inside: 
+1. [Unix](./docs/UnixLepik.md) docs
+2. [Windows](./docs/WindowsLepik.md) docs
 
 ```javascript
 const lepik = require('lepikjs');
