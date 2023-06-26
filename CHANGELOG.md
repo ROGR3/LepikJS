@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
+-  folder structure ([#71fa22f](https://github.com/borecjeborec1/LepikJS/commit/71fa22f41d33c0ede62d3d8493da414727881811))
 -  markdown docs ([#550f0ca](https://github.com/borecjeborec1/LepikJS/commit/550f0caeacffdb86ee93e7aea1d910ae4faf64db))
 -  close window ([#3e5803c](https://github.com/borecjeborec1/LepikJS/commit/3e5803c100cb76afe4a2066396e5ac28be002535)) 
 
