@@ -1,6 +1,6 @@
 {
   "name": "lepikjs",
-  "version": "3.1.6",
+  "version": "3.1.7",
   "description": "Global Keyboard and Mouse Desktop Automation",
   "main": "./index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "dev": "cd ./src && tsc -w",
     "build:ts": "cd ./src && tsc",
     "build:py": "pyinstaller --onefile ./python/windows/main.py --distpath ./build --workpath ./tmp -y",
-    "build:docs": "jsdoc -c jsdoc.json"
+    "build:docs": "jsdoc -c jsdoc.json",
+    "build:md": "npx jsdoc-to-markdown javascript/WindowsLepik.js > docs/WindowsLepik.md && npx jsdoc-to-markdown javascript/UnixLepik.js > docs/UnixLepik.md "
   },
   "keywords": [
     "mouse",
@@ -43,7 +44,6 @@
   },
   "homepage": "https://github.com/borecjeborec1/LepikJS#readme",
   "devDependencies": {
-    "clean-jsdoc-theme": "^4.2.9",
     "jsdoc-to-markdown": "^8.0.0"
   }
 }

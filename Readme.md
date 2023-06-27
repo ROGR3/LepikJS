@@ -125,9 +125,9 @@ lepik.delay(ms)
 // When reached this line, the process can exit.
 lepik.close() 
 ```
-You can find more information about each method in the [source code](https://github.com/Borecjeborec1/LepikJS/tree/main/typescript).
-1. [Windows](https://github.com/Borecjeborec1/LepikJS/blob/main/typescript/WindowsLepik.ts) code
-2. [Unix/Linux](https://github.com/Borecjeborec1/LepikJS/blob/main/typescript/UnixLepik.ts) code
+You can find more information about each method in the [source code](https://github.com/Borecjeborec1/LepikJS/tree/main/src).
+1. [Windows](https://github.com/Borecjeborec1/LepikJS/blob/main/src/WindowsLepik.ts) code
+2. [Unix/Linux](https://github.com/Borecjeborec1/LepikJS/blob/main/src/UnixLepik.ts) code
 
 
 #### User performance

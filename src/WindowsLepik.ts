@@ -16,9 +16,6 @@ class WindowsLepik extends LepikEvents {
       stdio: ['pipe', 'pipe', 'inherit']
     });
 
-    this.ps.stdout.on("data", (data: string) => {
-      console.log("Data:" + data.toString())
-    });
     process.on('exit', () => {
       this.ps.kill();
     });

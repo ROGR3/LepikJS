@@ -1,39 +1,63 @@
-const lepik = require("../index.js")
+const { spawn } = require('child_process');
 
-async function main() {
-  lepik.getScreenSize().then(e => console.log(`Should print screenSize: width:${e.width} height:${e.height}`))
-  await lepik.delay(1000)
-  lepik.getMousePosition().then(e => console.log(`Should print mousePosition: x:${e.x} y:${e.y}`))
-  await lepik.delay(1000)
-  console.log("Should click the left mouse")
-  lepik.mouseClick("left")
-  await lepik.delay(100)
-  console.log("Should click the right mouse")
-  lepik.mouseClick("right")
-  await lepik.delay(100)
-  console.log("Should click the middle mouse")
-  lepik.mouseClick("middle")
-  await lepik.delay(1000)
-  console.log("Should do mouseScroll up")
-  lepik.mouseScroll(10)
-  await lepik.delay(100)
-  console.log("Should do mouseScroll down")
-  lepik.mouseScroll(-10)
-  await lepik.delay(1000)
-  console.log("Should drag mouse")
-  lepik.mouseDrag(0, 0, 100, 100)
-  await lepik.delay(1000)
-  console.log("Should move mouse")
-  lepik.mouseMove(1000, 1000)
-  await lepik.delay(1000)
-  console.log("Should press a")
-  lepik.keyTap("a")
-  await lepik.delay(1000)
-  console.log("Should write abcdefg")
-  lepik.write("abcdefg")
-  await lepik.delay(1000)
-  lepik.close()
+function runTest(filePath) {
+  return new Promise((resolve, reject) => {
+    const testProcess = spawn('node', [filePath], { stdio: 'pipe' });
+
+    testProcess.stdout.on('data', (data) => {
+      process.stdout.write(data); // Stream stdout to parent process
+    });
+
+    testProcess.stderr.on('data', (data) => {
+      process.stderr.write(data); // Stream stderr to parent process
+    });
+
+    testProcess.on('close', (code) => {
+      if (code === 0) {
+        resolve(); // Test passed
+      } else {
+        reject(new Error(`Test failed with exit code: ${code}`));
+      }
+    });
+
+    testProcess.on('error', (err) => {
+      reject(err);
+    });
+  });
 }
 
-main()
+async function runTests(fileNames) {
+  try {
+    for (const fileName of fileNames) {
+      const filePath = `tests/singletons/${fileName}.js`
+      await runTest(filePath);
+    }
+    console.log('All tests passed!');
+  } catch (err) {
+    console.error('Test failed:', err);
+  }
+}
 
+const testFiles = [
+  "getMousePosition",
+  "getActiveWindow",
+  "getScreenSize",
+  "mouseClick",
+  "mouseDoubleClick",
+  "mouseScroll",
+  "keyTap",
+  "write",
+  "keyDown",
+  "keyUp",
+  "copy",
+  "paste",
+  "mouseDrag",
+  "mouseMove",
+  "setActiveWindow",
+  "minimizeWindow",
+  "maximizeWindow",
+  "closeWindow",
+  "delay"
+];
+
+runTests(testFiles);

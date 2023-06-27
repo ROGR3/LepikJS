@@ -6,9 +6,6 @@
     "includePattern": ".js$"
   },
   "opts": {
-    "destination": "docs/",
-    "plugins": [
-      "plugins/markdown"
-    ]
+    "destination": "docs/web/"
   }
 }
