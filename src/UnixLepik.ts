@@ -136,6 +136,8 @@ class UnixLepik extends LepikEvents {
   }
 
 
+
+
   /**
   * Sends a string of text to the active window by simulating individual key presses for each character.
   * @param {string} text - The text to write.

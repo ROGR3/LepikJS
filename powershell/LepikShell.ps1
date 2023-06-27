@@ -142,6 +142,26 @@ function KeyTap {
 
     [System.Windows.Forms.SendKeys]::SendWait($text)
 }
+
+function KeyDown {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Key
+    )
+
+    [System.Windows.Forms.SendKeys]::SendWait("{{$Key} down}")
+}
+
+function KeyUp {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Key
+    )
+
+    [System.Windows.Forms.SendKeys]::SendWait("{{$Key} up}")
+}
+
+
 function CopyToClipboard {
     [System.Windows.Forms.SendKeys]::SendWait("^c")
 }
@@ -232,6 +252,12 @@ while ($true) {
         'KeyTap' {
             KeyTap -text $js_args[1]
             break
+        }
+        'KeyDown'{
+            KeyDown -Key $js_args[1]
+        }
+        'KeyUp'{
+            KeyUp -Key $js_args[1]
         }
         'MouseDrag'{
             MouseDrag -fromX $js_args[1] -fromY $js_args[2] -toX $js_args[3] -toY $js_args[4]

@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
+-  keyUp and keyDown implementations ([#81ef233](https://github.com/borecjeborec1/LepikJS/commit/81ef2338e04cb6f771f1b117ef30333896709b8c))
 -  added tests for all methods ([#0a485af](https://github.com/borecjeborec1/LepikJS/commit/0a485af9164bceccda7eef1bdc6d094dabb4ad52))
 -  folder structure ([#71fa22f](https://github.com/borecjeborec1/LepikJS/commit/71fa22f41d33c0ede62d3d8493da414727881811))
 -  markdown docs ([#550f0ca](https://github.com/borecjeborec1/LepikJS/commit/550f0caeacffdb86ee93e7aea1d910ae4faf64db))
