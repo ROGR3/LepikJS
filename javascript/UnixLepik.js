@@ -262,6 +262,19 @@ class UnixLepik extends LepikEvents_1.LepikEvents {
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
     /**
+    * Returns window title of given window.
+    * @param {string} windowHandle - The handle of the window to close.
+    * @returns {string}
+    * @example
+    * const lepik = require("lepikjs");
+    * let title = lepik.getWindowTitle("window123");
+    */
+    getWindowTitle(windowId) {
+        const command = `xdotool getwindowname ${windowId}`;
+        const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
+        return output;
+    }
+    /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.
      * @returns {Promise<void>} A Promise that resolves after the delay.

@@ -180,6 +180,15 @@ declare class WindowsLepik extends LepikEvents {
      */
     closeWindow(windowHandle: string): void;
     /**
+      * Returns window title of given window handle.
+      * @param {string} windowHandle - The handle of the window to close.
+      * @returns {string}
+      * @example
+      * const lepik = require("lepikjs");
+      * let title = await lepik.getWindowTitle("window123");
+      */
+    getWindowTitle(windowId: string): Promise<string>;
+    /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.
      * @returns {Promise<void>} A Promise that resolves after the delay.

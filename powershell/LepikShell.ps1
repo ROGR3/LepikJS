@@ -6,6 +6,7 @@ Add-Type -TypeDefinition @"
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Text;
 
 public static class User32 {
     [DllImport("user32.dll")]
@@ -29,10 +30,14 @@ public static class User32 {
     [DllImport("user32.dll")]
     public static extern bool IsWindow(IntPtr hWnd);
 
+    [DllImport("user32.dll")]
+    public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
     public const uint WM_CLOSE = 0x0010;
 }
 "@
 
+# Screen events
 function GetScreenSize {
     $screen = [System.Windows.Forms.Screen]::PrimaryScreen
     $width = $screen.Bounds.Width
@@ -42,8 +47,6 @@ function GetScreenSize {
         Height = $height
     } | ConvertTo-Json
 }
-
-
 
 function GetActiveWindow {
     $windowHandle = [User32]::GetForegroundWindow()
@@ -106,7 +109,60 @@ function CloseWindow {
     }
 }
 
+function GetWindowTitle {
+    param (
+        [Parameter(Mandatory = $true)]
+        [IntPtr]$WindowHandle
+    )
 
+    $maxTitleLength = 260
+    $titleBuilder = New-Object System.Text.StringBuilder -ArgumentList $maxTitleLength
+    $length = [User32]::GetWindowText($windowHandle, $titleBuilder, $maxTitleLength)
+
+    if ($length -gt 0) {
+        $title = $titleBuilder.ToString().TrimEnd("`0")
+        return $title
+    } else {
+        return ""
+    }
+}
+
+# Keyboard events
+function KeyTap {
+    param(
+        [string]$text
+    )
+
+    [System.Windows.Forms.SendKeys]::SendWait($text)
+}
+
+function KeyDown {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Key
+    )
+
+    [System.Windows.Forms.SendKeys]::SendWait("{{$Key} down}")
+}
+
+function KeyUp {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Key
+    )
+
+    [System.Windows.Forms.SendKeys]::SendWait("{{$Key} up}")
+}
+
+function CopyToClipboard {
+    [System.Windows.Forms.SendKeys]::SendWait("^c")
+}
+function PasteFromClipboard {
+    [System.Windows.Forms.SendKeys]::SendWait("^v")
+}
+
+
+# Mouse events
 function MouseClick {
     param(
         [ValidateSet('left', 'right', 'middle')]
@@ -134,41 +190,6 @@ function MouseClick {
         }
     }
 }
-
-function KeyTap {
-    param(
-        [string]$text
-    )
-
-    [System.Windows.Forms.SendKeys]::SendWait($text)
-}
-
-function KeyDown {
-    param (
-        [Parameter(Mandatory = $true)]
-        [string]$Key
-    )
-
-    [System.Windows.Forms.SendKeys]::SendWait("{{$Key} down}")
-}
-
-function KeyUp {
-    param (
-        [Parameter(Mandatory = $true)]
-        [string]$Key
-    )
-
-    [System.Windows.Forms.SendKeys]::SendWait("{{$Key} up}")
-}
-
-
-function CopyToClipboard {
-    [System.Windows.Forms.SendKeys]::SendWait("^c")
-}
-function PasteFromClipboard {
-    [System.Windows.Forms.SendKeys]::SendWait("^v")
-}
-
 
 function MouseMove {
     param(
@@ -301,6 +322,9 @@ while ($true) {
         }
         'CloseWindow'{
             CloseWindow  -WindowHandle ($js_args[1]/1)
+        }
+        'GetWindowTitle'{
+            GetWindowTitle -WindowHandle ($js_args[1]/1)
         }
         default {
             Write-Error "Unknown command: $cmd"

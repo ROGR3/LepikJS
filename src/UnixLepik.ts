@@ -286,6 +286,20 @@ class UnixLepik extends LepikEvents {
     this.#executeShellCommand(command);
   }
 
+  /**
+  * Returns window title of given window.
+  * @param {string} windowHandle - The handle of the window to close.
+  * @returns {string}
+  * @example
+  * const lepik = require("lepikjs");
+  * let title = lepik.getWindowTitle("window123");
+  */
+  getWindowTitle(windowId: string): string {
+    const command = `xdotool getwindowname ${windowId}`;
+    const output = this.#executeShellCommand(command).trim();
+    return output;
+  }
+
 
   /**
    * Delays the execution for the specified number of milliseconds.

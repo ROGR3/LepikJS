@@ -261,6 +261,22 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
     closeWindow(windowHandle) {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `CloseWindow ${windowHandle}`);
     }
+    /**
+      * Returns window title of given window handle.
+      * @param {string} windowHandle - The handle of the window to close.
+      * @returns {string}
+      * @example
+      * const lepik = require("lepikjs");
+      * let title = await lepik.getWindowTitle("window123");
+      */
+    getWindowTitle(windowId) {
+        return new Promise((resolve, reject) => {
+            __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `GetWindowTitle ${windowId}`);
+            this.ps.stdout.once("data", (data) => {
+                resolve(data.toString().trim());
+            });
+        });
+    }
     // CONTROL METHODS
     /**
      * Delays the execution for the specified number of milliseconds.
