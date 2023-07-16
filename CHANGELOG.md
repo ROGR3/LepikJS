@@ -15,6 +15,7 @@
 -  close window ([#3e5803c](https://github.com/borecjeborec1/LepikJS/commit/3e5803c100cb76afe4a2066396e5ac28be002535)) 
 
 ##### Fixed bugs:
+-  fixed bug where window moved to 0,0 when resized ([#05d2d51](https://github.com/borecjeborec1/LepikJS/commit/05d2d510cd0522cafb533cd65dffa32bb3bb67cf))
 
 ## [3.0] - 2023-06-10
 

@@ -5,7 +5,7 @@ async function main() {
 
   // Method implementation
   let handle = await lepik.getActiveWindow()
-  lepik.setWindowSize(handle, 200, 200)
+  lepik.setWindowSize(handle, 1000, 1000)
 
   lepik.close()
   console.log(`Closing SetWindowSize at ${Date.now()}`)

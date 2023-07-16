@@ -169,7 +169,15 @@ function SetWindowSize {
         [int]$Height
     )
 
-    $res = [User32]::SetWindowPos($WindowHandle, [IntPtr]::Zero, 0, 0, $Width, $Height, 0)
+    $rect = New-Object RECT
+    $res = [User32]::GetWindowRect($WindowHandle, [ref]$rect)
+
+    if ($res) {
+        $x = $rect.Left
+        $y = $rect.Top
+
+        $res = [User32]::SetWindowPos($WindowHandle, [IntPtr]::Zero, $x, $y, $Width, $Height, 0x0004)
+    }
 }
 
 
