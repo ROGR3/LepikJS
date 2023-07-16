@@ -1,7 +1,7 @@
 const lepik = require("../../index.js")
 
 async function main() {
-  console.log(`Staring mouseDoubleClick at ${Date.now()}`)
+  console.log(`Starting mouseDoubleClick at ${Date.now()}`)
 
 
   // Method implementation

@@ -8,6 +8,14 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 
+public struct RECT
+{
+    public int Left;
+    public int Top;
+    public int Right;
+    public int Bottom;
+}
+
 public static class User32 {
     [DllImport("user32.dll")]
     public static extern IntPtr GetForegroundWindow();
@@ -32,6 +40,9 @@ public static class User32 {
 
     [DllImport("user32.dll")]
     public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
 
     public const uint WM_CLOSE = 0x0010;
 }
@@ -126,6 +137,47 @@ function GetWindowTitle {
         return ""
     }
 }
+
+function GetWindowSize {
+    param (
+        [Parameter(Mandatory = $true)]
+        [IntPtr]$WindowHandle
+    )
+
+    $rect = New-Object RECT
+    $res = [User32]::GetWindowRect($WindowHandle, [ref]$rect)
+
+    $width = $rect.Right - $rect.Left
+    $height = $rect.Bottom - $rect.Top
+
+    [PSCustomObject]@{
+        Width = $width
+        Height = $height
+    } | ConvertTo-Json
+}
+
+
+function SetWindowSize {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$WindowId,
+        [Parameter(Mandatory = $true)]
+        [int]$Width,
+        [Parameter(Mandatory = $true)]
+        [int]$Height
+    )
+
+    $windowHandle = [IntPtr]::Parse($WindowId, 'AllowHexSpecifier')
+    $rect = New-Object System.Drawing.Rectangle
+    [User32]::GetWindowRect($windowHandle, [ref]$rect)
+
+    $window = [System.Windows.Forms.Form]::FromHandle($windowHandle)
+    $window.Location = New-Object System.Drawing.Point($rect.Left, $rect.Top)
+    $window.Size = New-Object System.Drawing.Size($Width, $Height)
+}
+
+
+
 
 # Keyboard events
 function KeyTap {
@@ -325,6 +377,12 @@ while ($true) {
         }
         'GetWindowTitle'{
             GetWindowTitle -WindowHandle ($js_args[1]/1)
+        }
+        'GetWindowSize'{
+            GetWindowSize -WindowHandle ($js_args[1]/1)
+        }
+        'SetWindowSize'{
+            SetWindowSize -WindowHandle $js_args[1] -Width $js_args[2] -Height $js_args[3]
         }
         default {
             Write-Error "Unknown command: $cmd"

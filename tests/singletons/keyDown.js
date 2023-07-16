@@ -1,7 +1,7 @@
 const lepik = require("../../index.js")
 
 async function main() {
-  console.log(`Staring keyDown at ${Date.now()}`)
+  console.log(`Starting keyDown at ${Date.now()}`)
 
   // Method implementation
   console.log("Pressing shift down")

@@ -300,6 +300,31 @@ class UnixLepik extends LepikEvents {
     return output;
   }
 
+  getWindowSize(windowId: string): { width: number, height: number } {
+    const command = `xdotool getwindowgeometry --shell ${windowId}`;
+    const output = this.#executeShellCommand(command).trim();
+
+    let width = 0;
+    let height = 0;
+    const lines = output.split("\n");
+    for (const line of lines) {
+      const [key, value] = line.split("=");
+      if (key === "WIDTH") {
+        width = parseInt(value);
+      } else if (key === "HEIGHT") {
+        height = parseInt(value);
+      }
+    }
+
+    return { width, height };
+  }
+
+  setWindowSize(windowId: string, width: number, height: number): void {
+    const command = `xdotool windowsize ${windowId} ${width} ${height}`;
+    this.#executeShellCommand(command);
+  }
+
+
 
   /**
    * Delays the execution for the specified number of milliseconds.

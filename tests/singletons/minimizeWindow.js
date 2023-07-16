@@ -1,7 +1,7 @@
 const lepik = require("../../index.js")
 
 async function main() {
-  console.log(`Staring minimizeWindow at ${Date.now()}`)
+  console.log(`Starting minimizeWindow at ${Date.now()}`)
 
   // Method implementation
   console.log("Getting id of current window")

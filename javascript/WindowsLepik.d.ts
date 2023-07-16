@@ -187,7 +187,12 @@ declare class WindowsLepik extends LepikEvents {
       * const lepik = require("lepikjs");
       * let title = await lepik.getWindowTitle("window123");
       */
-    getWindowTitle(windowId: string): Promise<string>;
+    getWindowTitle(windowHandle: string): Promise<string>;
+    getWindowSize(windowHandle: string): Promise<{
+        width: number;
+        height: number;
+    }>;
+    setWindowSize(windowHandle: string, width: number, height: number): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

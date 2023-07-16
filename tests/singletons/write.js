@@ -1,7 +1,7 @@
 const lepik = require("../../index.js")
 
 async function main() {
-  console.log(`Staring write at ${Date.now()}`)
+  console.log(`Starting write at ${Date.now()}`)
 
   // Method implementation
   // Method implementation

@@ -1,7 +1,7 @@
 const lepik = require("../../index.js")
 
 async function main() {
-  console.log(`Staring setActiveWindow at ${Date.now()}`)
+  console.log(`Starting setActiveWindow at ${Date.now()}`)
 
   // Method implementation
   console.log("Getting id of current window")

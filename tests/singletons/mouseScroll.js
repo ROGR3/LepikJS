@@ -1,7 +1,7 @@
 const lepik = require("../../index.js")
 
 async function main() {
-  console.log(`Staring mouseScroll at ${Date.now()}`)
+  console.log(`Starting mouseScroll at ${Date.now()}`)
 
   // Method implementation
   console.log("Scrolling down")

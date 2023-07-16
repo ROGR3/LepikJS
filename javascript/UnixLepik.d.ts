@@ -188,6 +188,11 @@ declare class UnixLepik extends LepikEvents {
     * let title = lepik.getWindowTitle("window123");
     */
     getWindowTitle(windowId: string): string;
+    getWindowSize(windowId: string): {
+        width: number;
+        height: number;
+    };
+    setWindowSize(windowId: string, width: number, height: number): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

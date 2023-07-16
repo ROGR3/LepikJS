@@ -269,13 +269,25 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
       * const lepik = require("lepikjs");
       * let title = await lepik.getWindowTitle("window123");
       */
-    getWindowTitle(windowId) {
+    getWindowTitle(windowHandle) {
         return new Promise((resolve, reject) => {
-            __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `GetWindowTitle ${windowId}`);
+            __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `GetWindowTitle ${windowHandle}`);
             this.ps.stdout.once("data", (data) => {
                 resolve(data.toString().trim());
             });
         });
+    }
+    getWindowSize(windowHandle) {
+        return new Promise((resolve, reject) => {
+            __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `GetWindowSize ${windowHandle}`);
+            this.ps.stdout.once("data", (data) => {
+                const { Width, Height } = JSON.parse(data.toString().trim());
+                resolve({ width: Width, height: Height });
+            });
+        });
+    }
+    setWindowSize(windowHandle, width, height) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `SetWindowSize ${windowHandle} ${width} ${height}`);
     }
     // CONTROL METHODS
     /**

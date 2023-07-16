@@ -274,6 +274,27 @@ class UnixLepik extends LepikEvents_1.LepikEvents {
         const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
         return output;
     }
+    getWindowSize(windowId) {
+        const command = `xdotool getwindowgeometry --shell ${windowId}`;
+        const output = __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command).trim();
+        let width = 0;
+        let height = 0;
+        const lines = output.split("\n");
+        for (const line of lines) {
+            const [key, value] = line.split("=");
+            if (key === "WIDTH") {
+                width = parseInt(value);
+            }
+            else if (key === "HEIGHT") {
+                height = parseInt(value);
+            }
+        }
+        return { width, height };
+    }
+    setWindowSize(windowId, width, height) {
+        const command = `xdotool windowsize ${windowId} ${width} ${height}`;
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
+    }
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

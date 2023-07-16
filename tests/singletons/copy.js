@@ -1,7 +1,7 @@
 const lepik = require("../../index.js")
 
 async function main() {
-  console.log(`Staring copy at ${Date.now()}`)
+  console.log(`Starting copy at ${Date.now()}`)
 
   // Method implementation
   console.log("Copying the selected text")

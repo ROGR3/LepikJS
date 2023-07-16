@@ -1,7 +1,7 @@
 const lepik = require("../../index.js")
 
 async function main() {
-  console.log(`Staring mouseMove at ${Date.now()}`)
+  console.log(`Starting mouseMove at ${Date.now()}`)
 
   // Method implementation
   console.log("Moving the mouse to 500;500")
