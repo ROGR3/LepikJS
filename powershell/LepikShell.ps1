@@ -40,12 +40,12 @@ public static class User32 {
 
     [DllImport("user32.dll")]
     public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
-    
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
     [DllImport("user32.dll", SetLastError = true)]
     public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
+
+    [DllImport("user32.dll")]
+    public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
     public const uint WM_CLOSE = 0x0010;
 }
@@ -169,15 +169,10 @@ function SetWindowSize {
         [int]$Height
     )
 
-    $window = [System.Windows.Forms.Form]::FromHandle($WindowHandle)
-    if ($window) {
-        $window.Invoke([Action]{
-            $window.ClientSize = New-Object System.Drawing.Size($Width, $Height)
-        })
-    } else {
-        Write-Host "Failed to retrieve window."
-    }
+    $res = [User32]::SetWindowPos($WindowHandle, [IntPtr]::Zero, 0, 0, $Width, $Height, 0)
 }
+
+
 
 
 
