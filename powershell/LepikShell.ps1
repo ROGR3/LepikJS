@@ -156,24 +156,24 @@ function GetWindowSize {
     } | ConvertTo-Json
 }
 
-
 function SetWindowSize {
     param (
         [Parameter(Mandatory = $true)]
-        [string]$WindowId,
+        [IntPtr]$WindowHandle,
         [Parameter(Mandatory = $true)]
         [int]$Width,
         [Parameter(Mandatory = $true)]
         [int]$Height
     )
 
-    $windowHandle = [IntPtr]::Parse($WindowId, 'AllowHexSpecifier')
-    $rect = New-Object System.Drawing.Rectangle
-    [User32]::GetWindowRect($windowHandle, [ref]$rect)
-
-    $window = [System.Windows.Forms.Form]::FromHandle($windowHandle)
-    $window.Location = New-Object System.Drawing.Point($rect.Left, $rect.Top)
-    $window.Size = New-Object System.Drawing.Size($Width, $Height)
+    $window = [System.Windows.Forms.Form]::FromHandle($WindowHandle)
+    if ($window) {
+        $window.Invoke([Action]{
+            $window.ClientSize = New-Object System.Drawing.Size($Width, $Height)
+        })
+    } else {
+        Write-Host "Failed to retrieve window."
+    }
 }
 
 
@@ -382,7 +382,7 @@ while ($true) {
             GetWindowSize -WindowHandle ($js_args[1]/1)
         }
         'SetWindowSize'{
-            SetWindowSize -WindowHandle $js_args[1] -Width $js_args[2] -Height $js_args[3]
+            SetWindowSize -WindowHandle ($js_args[1]/1) -Width ($js_args[2]/1) -Height ($js_args[3]/1)
         }
         default {
             Write-Error "Unknown command: $cmd"

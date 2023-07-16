@@ -18,6 +18,9 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
         this.ps = child_process_1.spawn('powershell.exe', ['-ExecutionPolicy', 'Bypass', '-File', psPath], {
             stdio: ['pipe', 'pipe', 'inherit']
         });
+        this.ps.stdout.on("data", (e) => {
+            console.log(e.toString());
+        });
         process.on('exit', () => {
             this.ps.kill();
         });
