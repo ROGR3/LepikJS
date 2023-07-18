@@ -5,7 +5,6 @@
 
 ##### Implemented enhancements:
 -  setWindowSize implemented ([#9df6d17](https://github.com/borecjeborec1/LepikJS/commit/9df6d17e5ef5bdc8c25271a35dd30cd258ef1340))
--  getWindowSize ([#a6fc88e](https://github.com/borecjeborec1/LepikJS/commit/a6fc88e896a5fc33fb74cb0b50c0349278513eb1))
 -  getWindowSize method implemented ([#f63374e](https://github.com/borecjeborec1/LepikJS/commit/f63374e7fb43c1bce9313776bcf1c9d76de1d8d3))
 -  getWindowTitle method ([#dbb20bc](https://github.com/borecjeborec1/LepikJS/commit/dbb20bc7fb60d195c8766555effcbfebccfb52d3))
 -  keyUp and keyDown implementations ([#81ef233](https://github.com/borecjeborec1/LepikJS/commit/81ef2338e04cb6f771f1b117ef30333896709b8c))
