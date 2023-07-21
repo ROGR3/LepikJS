@@ -1,4 +1,5 @@
 const { spawn } = require('child_process');
+const fs = require("fs")
 
 function runTest(filePath) {
   return new Promise((resolve, reject) => {
@@ -38,26 +39,6 @@ async function runTests(fileNames) {
   }
 }
 
-const testFiles = [
-  "getMousePosition",
-  "getActiveWindow",
-  "getScreenSize",
-  "mouseClick",
-  "mouseDoubleClick",
-  "mouseScroll",
-  "keyTap",
-  "write",
-  "keyDown",
-  "keyUp",
-  "copy",
-  "paste",
-  "mouseDrag",
-  "mouseMove",
-  "setActiveWindow",
-  "minimizeWindow",
-  "maximizeWindow",
-  "closeWindow",
-  "delay"
-];
+const testFiles = fs.readdirSync("tests/singletons").map(e => e.replace(".js", ""))
 
 runTests(testFiles);
