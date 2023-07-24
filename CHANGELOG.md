@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
+-  markdown docs ([#bf46590](https://github.com/borecjeborec1/LepikJS/commit/bf46590a11ac679b9d2ade0ac83932ffa4d52317))
 -  setWindowSize implemented ([#9df6d17](https://github.com/borecjeborec1/LepikJS/commit/9df6d17e5ef5bdc8c25271a35dd30cd258ef1340))
 -  getWindowSize method implemented ([#f63374e](https://github.com/borecjeborec1/LepikJS/commit/f63374e7fb43c1bce9313776bcf1c9d76de1d8d3))
 -  getWindowTitle method ([#dbb20bc](https://github.com/borecjeborec1/LepikJS/commit/dbb20bc7fb60d195c8766555effcbfebccfb52d3))

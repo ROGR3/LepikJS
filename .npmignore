@@ -2,7 +2,6 @@ node_modules/
 examples/
 src/
 googled.md
-web/
 tests/
 tempCodeRunnerFile.*
-docs/
+docs/web/
