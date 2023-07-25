@@ -320,7 +320,9 @@ class WindowsLepik extends LepikEvents {
     this.#executePowerShell(`SetWindowSize ${windowHandle} ${width} ${height}`);
   }
 
-
+  setWindowPosition(windowHandle: string, x: number, y: number): void {
+    this.#executePowerShell(`SetWindowPosition ${windowHandle} ${x} ${y}`);
+  }
 
   // CONTROL METHODS
   /**

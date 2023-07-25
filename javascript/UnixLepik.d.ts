@@ -193,6 +193,7 @@ declare class UnixLepik extends LepikEvents {
         height: number;
     };
     setWindowSize(windowId: string, width: number, height: number): void;
+    setWindowPosition(windowId: string, x: number, y: number): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

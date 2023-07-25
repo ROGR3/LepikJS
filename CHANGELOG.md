@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
+-  setWindowPositon method ([#34ed57c](https://github.com/borecjeborec1/LepikJS/commit/34ed57c32f0d325308b3fd2f9d8d11cd0e30f5c9))
 -  markdown docs ([#bf46590](https://github.com/borecjeborec1/LepikJS/commit/bf46590a11ac679b9d2ade0ac83932ffa4d52317))
 -  setWindowSize implemented ([#9df6d17](https://github.com/borecjeborec1/LepikJS/commit/9df6d17e5ef5bdc8c25271a35dd30cd258ef1340))
 -  getWindowSize method implemented ([#f63374e](https://github.com/borecjeborec1/LepikJS/commit/f63374e7fb43c1bce9313776bcf1c9d76de1d8d3))

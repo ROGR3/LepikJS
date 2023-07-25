@@ -292,6 +292,9 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
     setWindowSize(windowHandle, width, height) {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `SetWindowSize ${windowHandle} ${width} ${height}`);
     }
+    setWindowPosition(windowHandle, x, y) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `SetWindowPosition ${windowHandle} ${x} ${y}`);
+    }
     // CONTROL METHODS
     /**
      * Delays the execution for the specified number of milliseconds.

@@ -324,6 +324,11 @@ class UnixLepik extends LepikEvents {
     this.#executeShellCommand(command);
   }
 
+  setWindowPosition(windowId: string, x: number, y: number): void {
+    const command = `xdotool windowmove ${windowId} ${x} ${y}`;
+    this.#executeShellCommand(command);
+  }
+
 
 
   /**

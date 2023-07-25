@@ -180,6 +180,28 @@ function SetWindowSize {
     }
 }
 
+function SetWindowPosition {
+    param (
+        [Parameter(Mandatory = $true)]
+        [IntPtr]$WindowHandle,
+        [Parameter(Mandatory = $true)]
+        [int]$X,
+        [Parameter(Mandatory = $true)]
+        [int]$Y
+    )
+
+    $rect = New-Object RECT
+    $res = [User32]::GetWindowRect($WindowHandle, [ref]$rect)
+
+    if ($res) {
+        $width = $rect.Right - $rect.Left
+        $height = $rect.Bottom - $rect.Top
+
+        [User32]::SetWindowPos($WindowHandle, [IntPtr]::Zero, $X, $Y, $width, $height, 0x0004)
+    }
+}
+
+
 
 
 
@@ -308,6 +330,9 @@ function GetMousePosition {
 }
 
 
+
+
+
 # Loop forever, reading commands from stdin
 # This logic will be changed in future
 while ($true) {
@@ -389,6 +414,9 @@ while ($true) {
         }
         'SetWindowSize'{
             SetWindowSize -WindowHandle ($js_args[1]/1) -Width ($js_args[2]/1) -Height ($js_args[3]/1)
+        }
+        'SetWindowPosition'{
+            SetWindowPosition -WindowHandle ($js_args[1]/1) -X ($js_args[2]/1) -Y ($js_args[3]/1)
         }
         default {
             Write-Error "Unknown command: $cmd"
