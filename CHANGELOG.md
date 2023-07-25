@@ -4,7 +4,6 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
--  readme latest info ([#5e11372](https://github.com/borecjeborec1/LepikJS/commit/5e113721a980869cda6248402f9ab4a339d3320d))
 -  setWindowPositon method ([#34ed57c](https://github.com/borecjeborec1/LepikJS/commit/34ed57c32f0d325308b3fd2f9d8d11cd0e30f5c9))
 -  markdown docs ([#bf46590](https://github.com/borecjeborec1/LepikJS/commit/bf46590a11ac679b9d2ade0ac83932ffa4d52317))
 -  setWindowSize implemented ([#9df6d17](https://github.com/borecjeborec1/LepikJS/commit/9df6d17e5ef5bdc8c25271a35dd30cd258ef1340))
@@ -17,6 +16,7 @@
 -  close window ([#3e5803c](https://github.com/borecjeborec1/LepikJS/commit/3e5803c100cb76afe4a2066396e5ac28be002535)) 
 
 ##### Fixed bugs:
+-  readme methods upgraded ([#5e11372](https://github.com/borecjeborec1/LepikJS/commit/5e113721a980869cda6248402f9ab4a339d3320d))
 -  fixed bug where window moved to 0,0 when resized ([#05d2d51](https://github.com/borecjeborec1/LepikJS/commit/05d2d510cd0522cafb533cd65dffa32bb3bb67cf))
 
 ## [3.0] - 2023-06-10
