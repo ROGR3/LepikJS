@@ -15,7 +15,6 @@ function handleUnixPackageManager() {
   if (!isWin) {
     const packageManagers = ['apt-get', 'dnf', 'yum', 'zypper', 'pacman'];
 
-    // Check if xdotool is installed
     let foundPM = false;
     try {
       execSync('which xdotool');

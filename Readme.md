@@ -91,7 +91,8 @@ lepik.maximizeWindow(windowHandle) // maximize a window
 lepik.closeWindow(windowHandle) // close a window
 lepik.getWindowTitle(windowHandle) // Return title of the window
 lepik.getWindowSize(windowHandle) // Return width and height of given window
-lepik.setWindowSize(windowHandle,width,height) // Set the width and height of given window. On windows, the window cannot be maximized.
+lepik.setWindowSize(windowHandle, width, height) // Set the width and height of given window. On windows, the window cannot be maximized.
+lepik.setWindowPosition(windowHandle, x, y) // Set the width and height of given window. On windows, the window cannot be maximized.
 
 
 // Global Listeners
