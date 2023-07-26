@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
+-  upgraded lepikevents to cc solution ([#8ca3683](https://github.com/borecjeborec1/LepikJS/commit/8ca3683b4086ec070b20f15109cd814ac04b9a8a))
 -  setWindowPositon method ([#34ed57c](https://github.com/borecjeborec1/LepikJS/commit/34ed57c32f0d325308b3fd2f9d8d11cd0e30f5c9))
 -  markdown docs ([#bf46590](https://github.com/borecjeborec1/LepikJS/commit/bf46590a11ac679b9d2ade0ac83932ffa4d52317))
 -  setWindowSize implemented ([#9df6d17](https://github.com/borecjeborec1/LepikJS/commit/9df6d17e5ef5bdc8c25271a35dd30cd258ef1340))
