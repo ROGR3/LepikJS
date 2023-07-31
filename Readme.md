@@ -93,6 +93,7 @@ lepik.getWindowTitle(windowHandle) // Return title of the window
 lepik.getWindowSize(windowHandle) // Return width and height of given window
 lepik.setWindowSize(windowHandle, width, height) // Set the width and height of given window. On windows, the window cannot be maximized.
 lepik.setWindowPosition(windowHandle, x, y) // Set the width and height of given window. On windows, the window cannot be maximized.
+lepik.focusNextWindow() // Focuses next window (Alt-Tab functionality)
 
 
 // Global Listeners
