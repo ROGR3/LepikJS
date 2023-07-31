@@ -329,6 +329,12 @@ class UnixLepik extends LepikEvents {
     this.#executeShellCommand(command);
   }
 
+  focusNextWindow(): void {
+    const command = `xdotool key --clearmodifiers Alt+Tab`;
+    this.#executeShellCommand(command);
+  }
+
+
 
 
   /**

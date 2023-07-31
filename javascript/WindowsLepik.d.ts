@@ -194,6 +194,7 @@ declare class WindowsLepik extends LepikEvents {
     }>;
     setWindowSize(windowHandle: string, width: number, height: number): void;
     setWindowPosition(windowHandle: string, x: number, y: number): void;
+    focusNextWindow(): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

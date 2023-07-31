@@ -324,6 +324,10 @@ class WindowsLepik extends LepikEvents {
     this.#executePowerShell(`SetWindowPosition ${windowHandle} ${x} ${y}`);
   }
 
+  focusNextWindow(): void {
+    this.#executePowerShell("FocusNextWindow");
+  }
+
   // CONTROL METHODS
   /**
    * Delays the execution for the specified number of milliseconds.

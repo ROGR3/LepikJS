@@ -295,6 +295,9 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
     setWindowPosition(windowHandle, x, y) {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `SetWindowPosition ${windowHandle} ${x} ${y}`);
     }
+    focusNextWindow() {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "FocusNextWindow");
+    }
     // CONTROL METHODS
     /**
      * Delays the execution for the specified number of milliseconds.

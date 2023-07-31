@@ -201,7 +201,11 @@ function SetWindowPosition {
     }
 }
 
+function FocusNextWindow {
+    Add-Type -AssemblyName System.Windows.Forms
 
+    [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")
+}
 
 
 
@@ -417,6 +421,9 @@ while ($true) {
         }
         'SetWindowPosition'{
             SetWindowPosition -WindowHandle ($js_args[1]/1) -X ($js_args[2]/1) -Y ($js_args[3]/1)
+        }
+        'FocusNextWindow'{
+            FocusNextWindow
         }
         default {
             Write-Error "Unknown command: $cmd"
