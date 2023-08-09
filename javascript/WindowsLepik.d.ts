@@ -142,7 +142,7 @@ declare class WindowsLepik extends LepikEvents {
      *   console.log(`Active window ID: ${windowId}`);
      * });
      */
-    getActiveWindow(): Promise<number>;
+    getActiveWindow(): Promise<string>;
     /**
       * Sets the specified window as the active window.
       * @param {string} windowHandle - The handle of the window to set as active.
@@ -195,6 +195,7 @@ declare class WindowsLepik extends LepikEvents {
     setWindowSize(windowHandle: string, width: number, height: number): void;
     setWindowPosition(windowHandle: string, x: number, y: number): void;
     focusNextWindow(): void;
+    openApplication(command: string): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

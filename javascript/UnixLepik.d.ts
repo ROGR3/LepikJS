@@ -195,6 +195,7 @@ declare class UnixLepik extends LepikEvents {
     setWindowSize(windowId: string, width: number, height: number): void;
     setWindowPosition(windowId: string, x: number, y: number): void;
     focusNextWindow(): void;
+    openApplication(command: string): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

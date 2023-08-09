@@ -18,9 +18,6 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
         this.ps = child_process_1.spawn('powershell.exe', ['-ExecutionPolicy', 'Bypass', '-File', psPath], {
             stdio: ['pipe', 'pipe', 'inherit']
         });
-        this.ps.stdout.on("data", (e) => {
-            console.log(e.toString());
-        });
         process.on('exit', () => {
             this.ps.kill();
         });
@@ -196,9 +193,7 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
         return new Promise((resolve, reject) => {
             __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "GetScreenSize");
             this.ps.stdout.once("data", (data) => {
-                console.log(data.toString());
                 const dataArr = JSON.parse(data.toString());
-                console.log(dataArr.Width);
                 resolve({ width: dataArr.Width, height: dataArr.Height });
             });
         });
@@ -216,7 +211,7 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
         return new Promise((resolve, reject) => {
             __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "GetActiveWindow");
             this.ps.stdout.once("data", (data) => {
-                resolve(+data.toString().trim());
+                resolve(data.toString().trim());
             });
         });
     }
@@ -284,8 +279,9 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
         return new Promise((resolve, reject) => {
             __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `GetWindowSize ${windowHandle}`);
             this.ps.stdout.once("data", (data) => {
-                const { Width, Height } = JSON.parse(data.toString().trim());
-                resolve({ width: Width, height: Height });
+                const { width, height } = JSON.parse(data.toString().trim());
+                console.log("HERE:::::::" + width, height);
+                resolve({ width, height });
             });
         });
     }
@@ -297,6 +293,9 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
     }
     focusNextWindow() {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "FocusNextWindow");
+    }
+    openApplication(command) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `OpenApplication ${command}`);
     }
     // CONTROL METHODS
     /**

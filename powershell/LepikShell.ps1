@@ -207,6 +207,14 @@ function FocusNextWindow {
     [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")
 }
 
+function OpenApplication {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Command
+    )
+
+    Start-Process $Command
+}
 
 
 
@@ -226,7 +234,7 @@ function KeyDown {
         [string]$Key
     )
 
-    [System.Windows.Forms.SendKeys]::SendWait("{{$Key} down}")
+    [System.Windows.Forms.SendKeys]::SendWait("{$Key down}")
 }
 
 function KeyUp {
@@ -235,7 +243,7 @@ function KeyUp {
         [string]$Key
     )
 
-    [System.Windows.Forms.SendKeys]::SendWait("{{$Key} up}")
+    [System.Windows.Forms.SendKeys]::SendWait("{$Key up}")
 }
 
 function CopyToClipboard {
@@ -252,7 +260,6 @@ function MouseClick {
         [ValidateSet('left', 'right', 'middle')]
         [string]$button
     )
-    Write-host "Hey"
     switch ($button) {
         'left' {
             [W.U32]::mouse_event(2, 0, 0, 0, 0); # Left mouse button down
@@ -363,9 +370,11 @@ while ($true) {
         }
         'KeyDown'{
             KeyDown -Key $js_args[1]
+            break
         }
         'KeyUp'{
             KeyUp -Key $js_args[1]
+            break
         }
         'MouseDrag'{
             MouseDrag -fromX $js_args[1] -fromY $js_args[2] -toX $js_args[3] -toY $js_args[4]
@@ -409,21 +418,31 @@ while ($true) {
         }
         'CloseWindow'{
             CloseWindow  -WindowHandle ($js_args[1]/1)
+            break
         }
         'GetWindowTitle'{
             GetWindowTitle -WindowHandle ($js_args[1]/1)
+            break
         }
         'GetWindowSize'{
             GetWindowSize -WindowHandle ($js_args[1]/1)
+            break
         }
         'SetWindowSize'{
             SetWindowSize -WindowHandle ($js_args[1]/1) -Width ($js_args[2]/1) -Height ($js_args[3]/1)
+            break
         }
         'SetWindowPosition'{
             SetWindowPosition -WindowHandle ($js_args[1]/1) -X ($js_args[2]/1) -Y ($js_args[3]/1)
+            break
         }
         'FocusNextWindow'{
             FocusNextWindow
+            break
+        }
+        'OpenApplication'{
+            OpenApplication -Command $js_args[1]
+            break
         }
         default {
             Write-Error "Unknown command: $cmd"

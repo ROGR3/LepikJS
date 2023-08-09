@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
+-  openApplication method implemented ([#43b1af1](https://github.com/borecjeborec1/LepikJS/commit/43b1af1e40ef852df76b8b34a18ebbd260003148))
 -  focusNextWindow implementation ([#14d7bd2](https://github.com/borecjeborec1/LepikJS/commit/14d7bd2b6419505e8a057e69cd612dfe55768e42))
 -  upgraded lepikevents to cc solution ([#8ca3683](https://github.com/borecjeborec1/LepikJS/commit/8ca3683b4086ec070b20f15109cd814ac04b9a8a))
 -  setWindowPositon method ([#34ed57c](https://github.com/borecjeborec1/LepikJS/commit/34ed57c32f0d325308b3fd2f9d8d11cd0e30f5c9))

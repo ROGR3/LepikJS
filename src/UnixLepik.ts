@@ -334,7 +334,9 @@ class UnixLepik extends LepikEvents {
     this.#executeShellCommand(command);
   }
 
-
+  openApplication(command: string): void {
+    this.#executeShellCommand(`xdotool exec ${command}`);
+  }
 
 
   /**

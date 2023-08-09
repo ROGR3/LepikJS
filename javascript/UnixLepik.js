@@ -303,6 +303,9 @@ class UnixLepik extends LepikEvents_1.LepikEvents {
         const command = `xdotool key --clearmodifiers Alt+Tab`;
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
     }
+    openApplication(command) {
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, `xdotool exec ${command}`);
+    }
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

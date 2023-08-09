@@ -15,9 +15,6 @@ class WindowsLepik extends LepikEvents {
     this.ps = spawn('powershell.exe', ['-ExecutionPolicy', 'Bypass', '-File', psPath], {
       stdio: ['pipe', 'pipe', 'inherit']
     });
-    this.ps.stdout.on("data", (e: any) => {
-      console.log(e.toString())
-    })
     process.on('exit', () => {
       this.ps.kill();
     });
@@ -210,9 +207,7 @@ class WindowsLepik extends LepikEvents {
       this.#executePowerShell("GetScreenSize");
 
       this.ps.stdout.once("data", (data: string) => {
-        console.log(data.toString())
         const dataArr = JSON.parse(data.toString());
-        console.log(dataArr.Width)
         resolve({ width: dataArr.Width, height: dataArr.Height });
       });
     });
@@ -227,12 +222,12 @@ class WindowsLepik extends LepikEvents {
    *   console.log(`Active window ID: ${windowId}`);
    * });
    */
-  getActiveWindow(): Promise<number> {
+  getActiveWindow(): Promise<string> {
     return new Promise((resolve, reject) => {
       this.#executePowerShell("GetActiveWindow");
 
       this.ps.stdout.once("data", (data: string) => {
-        resolve(+data.toString().trim());
+        resolve(data.toString().trim());
       });
     });
   }
@@ -310,8 +305,9 @@ class WindowsLepik extends LepikEvents {
       this.#executePowerShell(`GetWindowSize ${windowHandle}`);
 
       this.ps.stdout.once("data", (data: string) => {
-        const { Width, Height } = JSON.parse(data.toString().trim());
-        resolve({ width: Width, height: Height });
+        const { width, height } = JSON.parse(data.toString().trim());
+        console.log("HERE:::::::" + width, height)
+        resolve({ width, height });
       });
     });
   }
@@ -327,6 +323,11 @@ class WindowsLepik extends LepikEvents {
   focusNextWindow(): void {
     this.#executePowerShell("FocusNextWindow");
   }
+
+  openApplication(command: string): void {
+    this.#executePowerShell(`OpenApplication ${command}`);
+  }
+
 
   // CONTROL METHODS
   /**
