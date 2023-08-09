@@ -294,8 +294,11 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
     focusNextWindow() {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, "FocusNextWindow");
     }
-    openApplication(command) {
-        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `OpenApplication ${command}`);
+    openApplication(processName) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `OpenApplication ${processName}`);
+    }
+    closeApplication(processName) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `CloseApplication ${processName}`);
     }
     // CONTROL METHODS
     /**

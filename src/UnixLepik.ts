@@ -338,6 +338,9 @@ class UnixLepik extends LepikEvents {
     this.#executeShellCommand(`xdotool exec ${command}`);
   }
 
+  closeApplication(className: string): void {
+    this.#executeShellCommand(`xdotool search --class "${className}" windowkill`);
+  }
 
   /**
    * Delays the execution for the specified number of milliseconds.

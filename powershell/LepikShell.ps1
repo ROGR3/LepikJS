@@ -210,12 +210,20 @@ function FocusNextWindow {
 function OpenApplication {
     param (
         [Parameter(Mandatory = $true)]
-        [string]$Command
+        [string]$ProcessName
     )
 
-    Start-Process $Command
+    Start-Process $ProcessName
 }
 
+function CloseApplication {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$ProcessName
+    )
+
+    Stop-Process -Name $ProcessName
+}
 
 
 
@@ -441,7 +449,11 @@ while ($true) {
             break
         }
         'OpenApplication'{
-            OpenApplication -Command $js_args[1]
+            OpenApplication -ProcessName $js_args[1]
+            break
+        }
+        'CloseApplication'{
+            CloseApplication -ProcessName $js_args[1]
             break
         }
         default {

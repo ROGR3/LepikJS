@@ -324,10 +324,13 @@ class WindowsLepik extends LepikEvents {
     this.#executePowerShell("FocusNextWindow");
   }
 
-  openApplication(command: string): void {
-    this.#executePowerShell(`OpenApplication ${command}`);
+  openApplication(processName: string): void {
+    this.#executePowerShell(`OpenApplication ${processName}`);
   }
 
+  closeApplication(processName: string): void {
+    this.#executePowerShell(`CloseApplication ${processName}`);
+  }
 
   // CONTROL METHODS
   /**
