@@ -197,6 +197,7 @@ declare class WindowsLepik extends LepikEvents {
     focusNextWindow(): void;
     openApplication(processName: string): void;
     closeApplication(processName: string): void;
+    focusWindowByTitle(title: string): void;
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

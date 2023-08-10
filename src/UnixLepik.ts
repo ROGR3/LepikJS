@@ -342,6 +342,11 @@ class UnixLepik extends LepikEvents {
     this.#executeShellCommand(`xdotool search --class "${className}" windowkill`);
   }
 
+  focusWindowByTitle(title: string): void {
+    const command = `xdotool search --name "${title}" windowactivate`;
+    this.#executeShellCommand(command);
+  }
+  
   /**
    * Delays the execution for the specified number of milliseconds.
    * @param {number} ms - The number of milliseconds to delay.

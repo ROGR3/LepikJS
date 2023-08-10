@@ -225,6 +225,19 @@ function CloseApplication {
     Stop-Process -Name $ProcessName
 }
 
+function FocusWindowByTitle {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$Title
+    )
+
+    $window = Get-Process | Where-Object { $_.MainWindowTitle -eq $Title }
+    if ($window) {
+        $hwnd = $window.MainWindowHandle
+        [User32]::SetForegroundWindow($hwnd)
+    }
+}
+
 
 
 # Keyboard events
@@ -456,6 +469,11 @@ while ($true) {
             CloseApplication -ProcessName $js_args[1]
             break
         }
+        'FocusWindowByTitle'{
+            FocusWindowByTitle -Title $js_args[1]
+            break
+        }
+        
         default {
             Write-Error "Unknown command: $cmd"
             break

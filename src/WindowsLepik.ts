@@ -331,6 +331,10 @@ class WindowsLepik extends LepikEvents {
   closeApplication(processName: string): void {
     this.#executePowerShell(`CloseApplication ${processName}`);
   }
+  
+  focusWindowByTitle(title: string): void {
+    this.#executePowerShell(`FocusWindowByTitle -Title "${title}"`);
+  }
 
   // CONTROL METHODS
   /**

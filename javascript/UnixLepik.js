@@ -309,6 +309,10 @@ class UnixLepik extends LepikEvents_1.LepikEvents {
     closeApplication(className) {
         __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, `xdotool search --class "${className}" windowkill`);
     }
+    focusWindowByTitle(title) {
+        const command = `xdotool search --name "${title}" windowactivate`;
+        __classPrivateFieldGet(this, _UnixLepik_instances, "m", _UnixLepik_executeShellCommand).call(this, command);
+    }
     /**
      * Delays the execution for the specified number of milliseconds.
      * @param {number} ms - The number of milliseconds to delay.

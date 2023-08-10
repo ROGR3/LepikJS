@@ -4,6 +4,7 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
+-  focusWindowByTitle method implemented ([#d2afc5c](https://github.com/borecjeborec1/LepikJS/commit/d2afc5ce69d4f663f44ac1a1e7ba7299641a2281))
 -  closeApplication method implementation ([#074568d](https://github.com/borecjeborec1/LepikJS/commit/074568d9c4301df2bbc595881d0ad9a2c838e459))
 -  openApplication method implemented ([#43b1af1](https://github.com/borecjeborec1/LepikJS/commit/43b1af1e40ef852df76b8b34a18ebbd260003148))
 -  focusNextWindow implementation ([#14d7bd2](https://github.com/borecjeborec1/LepikJS/commit/14d7bd2b6419505e8a057e69cd612dfe55768e42))

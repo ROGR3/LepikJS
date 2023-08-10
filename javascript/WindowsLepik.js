@@ -300,6 +300,9 @@ class WindowsLepik extends LepikEvents_1.LepikEvents {
     closeApplication(processName) {
         __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `CloseApplication ${processName}`);
     }
+    focusWindowByTitle(title) {
+        __classPrivateFieldGet(this, _WindowsLepik_instances, "m", _WindowsLepik_executePowerShell).call(this, `FocusWindowByTitle -Title "${title}"`);
+    }
     // CONTROL METHODS
     /**
      * Delays the execution for the specified number of milliseconds.
