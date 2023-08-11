@@ -4,9 +4,9 @@
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
 
 ##### Implemented enhancements:
--  readme cleanup ([#c8667bd](https://github.com/borecjeborec1/LepikJS/commit/c8667bdfa0f4c83345479777643a7221b23cdca3)) 
 
 ##### Fixed bugs:
+-  readme cleanup ([#c8667bd](https://github.com/borecjeborec1/LepikJS/commit/c8667bdfa0f4c83345479777643a7221b23cdca3)) 
 
 ## [3.1] - 2023-06-21
 
@@ -17,7 +17,7 @@
 -  closeApplication method implementation ([#074568d](https://github.com/borecjeborec1/LepikJS/commit/074568d9c4301df2bbc595881d0ad9a2c838e459))
 -  openApplication method implemented ([#43b1af1](https://github.com/borecjeborec1/LepikJS/commit/43b1af1e40ef852df76b8b34a18ebbd260003148))
 -  focusNextWindow implementation ([#14d7bd2](https://github.com/borecjeborec1/LepikJS/commit/14d7bd2b6419505e8a057e69cd612dfe55768e42))
--  upgraded lepikevents to cc solution ([#8ca3683](https://github.com/borecjeborec1/LepikJS/commit/8ca3683b4086ec070b20f15109cd814ac04b9a8a))
+-  upgraded lepikevents to c++ solution ([#8ca3683](https://github.com/borecjeborec1/LepikJS/commit/8ca3683b4086ec070b20f15109cd814ac04b9a8a))
 -  setWindowPositon method ([#34ed57c](https://github.com/borecjeborec1/LepikJS/commit/34ed57c32f0d325308b3fd2f9d8d11cd0e30f5c9))
 -  markdown docs ([#bf46590](https://github.com/borecjeborec1/LepikJS/commit/bf46590a11ac679b9d2ade0ac83932ffa4d52317))
 -  setWindowSize implemented ([#9df6d17](https://github.com/borecjeborec1/LepikJS/commit/9df6d17e5ef5bdc8c25271a35dd30cd258ef1340))
