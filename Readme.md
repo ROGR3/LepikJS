@@ -1,5 +1,5 @@
 # LepikJS
-LepikJS is a global keyboard and mouse event emitter. It allows you to listen to and emit events related to keyboard and mouse actions. You can use it for automation, testing, or any other application that requires control over user input.
+LepikJS is a global keyboard and mouse event emitter. It allows you to listen to and emit events related to keyboard and mouse actions as well as managing windows and screens. You can use it for automation, testing, or any other application that requires control over dekstop and user input.
 
 You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more information.
 
@@ -7,16 +7,24 @@ LepikJS is available on NPM [LepikJS](https://www.npmjs.com/package/lepikjs).
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Don't forget to try that out!
 
 > ㅤ
-> #### New Info for v3.0.0+
+> #### New Info for v3.1.0+
 >
-> LepikJS now uses [xdotool](https://manpages.ubuntu.com/manpages/trusty/man1/xdotool.1.html) on Linux machines instead of the mouse and keyboard Python modules.
-> *This change was made to address compatibility issues with certain  Linux distributions and to improve the overall performance and stability of the package on Linux machines.*
->
->
-> On windows machines instead of the mouse and keyboard Python modules LepikJS uses native powershell scripts.
-> *This change was made to reduce the package size drasticaly. From 8.3MB to **8.6kB**.*
->
-> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv3.0.0
+> LepikJS now supports a lot of screen events. 
+>```javascript
+>  lepik.setActiveWindow(windowHandle) // Focus a window
+>  lepik.minimizeWindow(windowHandle) // minimize a window
+>  lepik.maximizeWindow(windowHandle) // maximize a window
+>  lepik.closeWindow(windowHandle) // close a window
+>  lepik.getWindowTitle(windowHandle) // Return title of the window
+>  lepik.getWindowSize(windowHandle) // Return width and height of given window
+>  lepik.setWindowSize(windowHandle, width, height) // Set the width and height of given window.
+>  lepik.setWindowPosition(windowHandle, x, y) // Set the positon of given window.
+>  lepik.focusNextWindow() // Focuses next window (Alt-Tab functionality)
+>  lepik.focusWindowByTitle(windowTitle) // Focuses window by the window title
+>  lepik.closeApplication(windowTitle) // Closes window by the window title
+>  lepik.openApplication(windowTitle) // Opens window by the window title
+>```
+>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLepikJSv3.1.0
 
 ## Installing
 You can install LepikJS using npm:
@@ -46,6 +54,7 @@ lepik.on("mouseClick", (data) => {
 You can see all methods inside: 
 1. [Unix](./docs/UnixLepik.md) docs
 2. [Windows](./docs/WindowsLepik.md) docs
+3. [Website](https://lepikjs.netlify.app/)
 
 ```javascript
 const lepik = require('lepikjs');
@@ -92,7 +101,7 @@ lepik.closeWindow(windowHandle) // close a window
 lepik.getWindowTitle(windowHandle) // Return title of the window
 lepik.getWindowSize(windowHandle) // Return width and height of given window
 lepik.setWindowSize(windowHandle, width, height) // Set the width and height of given window. On windows, the window cannot be maximized.
-lepik.setWindowPosition(windowHandle, x, y) // Set the width and height of given window. On windows, the window cannot be maximized.
+lepik.setWindowPosition(windowHandle, x, y) // Set the position of given window.
 lepik.focusNextWindow() // Focuses next window (Alt-Tab functionality)
 lepik.focusWindowByTitle(windowTitle) // Focuses window by the window title
 lepik.closeApplication(windowTitle) // Closes window by the window title
@@ -140,14 +149,14 @@ You can find more information about each method in the [source code](https://git
 
 #### User performance
 From v2.0.0+ you do not have to care about user perfomance!
-All code execution is almost instant and you have nothing to worry about! 
+All code execution is 'almost' instant and you have nothing to worry about! 
 
 ## Requirements
 From v3.0.0+ LepikJS uses native powershell scripting which should not require any aditional setup on windows.
 
-On Unix machines LepikJS uses xdotool, which will get automaticly installed with the first application run. *Note: 1st run must be run with sudo permissions and all other runs should be run with it too.*
+On Unix machines LepikJS uses xdotool, which will get automaticly installed with the first application run. *Note: 1st run must be run with sudo permissions and all other runs should be run with it too to ensure right functionality.*
 
-For older versions of LepikJS python was needed on non-windows machines. Now it's not the case
+For older versions of LepikJS python was needed on non-windows machines. Now it's not the case :D
 
 
 ## License

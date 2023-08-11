@@ -1,4 +1,13 @@
 # Changelog
+## [3.2] - 2023-08-11
+
+[Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
+
+##### Implemented enhancements:
+-  readme cleanup ([#c8667bd](https://github.com/borecjeborec1/LepikJS/commit/c8667bdfa0f4c83345479777643a7221b23cdca3)) 
+
+##### Fixed bugs:
+
 ## [3.1] - 2023-06-21
 
 [Full Changelog](https://github.com/borecjeborec1/LepikJS/commits/main)
