@@ -22,10 +22,10 @@
     <h1>
       Welcome to <br> <span>LepikJS</span>
     </h1>
-    <h3>
-      A simple NodeJS library for handling mouse and keyboard events.
-    </h3>
-    <div class="logo"></div>
+      <h3>
+        A versatile NodeJS library for managing a wide range of events including mouse and keyboard interactions, screen actions like print screen, as well as various Windows events
+      </h3>
+      <div class="logo"></div>
     <div class="aButton"></div>
     <a href="#pageone" class="down">
       <i class="fas fa-arrow-down"></i>
@@ -38,14 +38,14 @@
         <h2>
           First words
         </h2>
-        <p>
-          LepikJS is NodeJS package for handling mouse and keyboard events.
-        </p>
-        <p>
-          The huge advantage of this library is that it can listen to events as well as emit them.
-          This makes it possible to create a simple event-driven application.
-        </p>
-
+          <p>
+            LepikJS is a Node.js package designed for managing an array of events, encompassing mouse and keyboard interactions,
+            screen actions like print screen, and a spectrum of Windows events including application openings and closures.
+          </p>
+          <p>
+            One of the standout advantages of this library is its dual capability: not only can it actively listen to events,
+            but it can also emit them. This unique trait empowers the creation of straightforward event-driven applications.
+          </p>
       </div>
       <div>
         <h2>
@@ -71,40 +71,30 @@
           Enviroment (Windows users can skip)
         </h2>
         <p>
-          If you are on windows, you can use the precompiled binaries.
-          So no extra installations.
+          If you are on windows, no extra installations. You are ready to go!
         </p>
         <p>
-          If you are on Linux, Mac, etc... You need to have Python 3.6 or higher installed. <br>
+          If you are on Linux, Mac, etc... You need to have Python 3.6 or higher installed for the event listening. <br>
           You can install it here <a href="https://www.python.org/downloads/">Python.org</a>
         </p>
         <p>
           Having NodeJS ^16.x (or higher) installed is also required.
         </p>
       </div>
-      <div id="usage">
-        <h2>
-          Usage
-        </h2>
-        <p>
-          To use the library, you need to import it.
-        </p>
-        <p>
-        <pre><code class="language-javascript">const lepik = require("lepikjs")</code></pre>
-        </p>
-        <p>
-          Then you can use it.</p>
-        <!-- <p>It is important to know, that from v2.0.0+ the LepikJS code runs until you exit the app
-          or use lepik.close() method.
-        </p>
-        <pre><code class="language-javascript">lepik.close()</code></pre>
-        <p>
-          Lepik apps are running indefinitely, just like they would if you had some event listeners hooked inside them.
-          If you are not using any <a href="#listeningevents">LepikJS listening event</a> I recommend using lepik.close
-          in the end of the file.
-        </p> -->
-      </div>
-      <div id="listeningevents">
+        <div id="usage">
+          <h2>
+            Usage
+          </h2>
+          <p>
+            To use the library, you need to import it.
+          </p>
+          <p>
+          <pre><code class="language-javascript">const lepik = require("lepikjs")</code></pre>
+          </p>
+          <p>
+            Then you can use it.</p>
+        </div>
+       <div id="listeningevents">
         <h2>
           Listening Events
         </h2>
@@ -144,23 +134,45 @@
         The <b>key</b> parameter is the key that was released.
         </p>
       </div>
+
+
+
+
       <div id="emittingevents">
         <h2>
-          Emitting Events
+          Getting Events
         </h2>
+          <p>
+            <b>Get current mouse position: </b>
+          <pre><code class="language-javascript">let pos = await lepik.getMousePosition()
+            console.log("Position x: " + pos.x );
+            console.log("Position y: " + pos.y);</code></pre>
+          Returns the current mouse position as object with x and y attributes.
+          </p>
+          <p>
+            <b>Get current screen size: </b>
+          <pre><code class="language-javascript">let size = await lepik.getScreenSize()
+            console.log("Position x: " + size.width );
+            console.log("Position y: " + size.height );</code></pre>
+          Returns the current  screen site as object with width and height attributes.
+          </p> <p>
+            <b>Get get Active Window: </b>
+          <pre><code class="language-javascript">let window = await lepik.getActiveWindow()
+            console.log("Current window: " + window);</code></pre>
+          Returns the current window handle (or id on unix systems).
+          </p> <p>
+            <b>Get window title: </b>
+          <pre><code class="language-javascript">let windowTitle = await lepik.getWindowTitle(window)
+            console.log("Window Title: " + windowTitle );</code></pre>
+          Returns the window title string.
+          </p>
 
-        <p>
-          LepikJS has 9 listening events for now. <br>
-          6 for mouse, 2 for keyboard and 1 for testing.
-          Don't worry more are comming soon!
-        </p>
-        <p>
-          <b> Current mouse position: </b>
-        <pre><code class="language-javascript">let pos = await lepik.getMousePosition()
-console.log("Position x: " + pos.x );
-console.log("Position y: " + pos.y);</code></pre>
-        Returns the current mouse position as object with x and y attributes.
-        </p>
+
+          <h2>
+            Emitting Events
+          </h2>
+
+
         <p>
           <b> Emiting mouse click:</b>
         <pre><code class="language-javascript">lepik.mouseClick(key,amount)</code></pre>
