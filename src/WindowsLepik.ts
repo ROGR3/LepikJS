@@ -299,39 +299,92 @@ class WindowsLepik extends LepikEvents {
     });
   }
 
-
+  /**
+   * Retrieves the size of the specified window.
+   * @param {string} windowHandle - The handle of the window.
+   * @returns {Promise<{ width: number, height: number }>} The window size object.
+   * @example
+   * const lepik = require("lepikjs");
+   * const size = await lepik.getWindowSize("window123");
+   * console.log(size.width, size.height);
+   */
   getWindowSize(windowHandle: string): Promise<{ width: number, height: number }> {
     return new Promise((resolve, reject) => {
       this.#executePowerShell(`GetWindowSize ${windowHandle}`);
 
       this.ps.stdout.once("data", (data: string) => {
         const { width, height } = JSON.parse(data.toString().trim());
-        console.log("HERE:::::::" + width, height)
         resolve({ width, height });
       });
     });
   }
 
+    /**
+   * Sets the size of the specified window.
+   * @param {string} windowHandle - The handle of the window.
+   * @param {number} width - The new width of the window.
+   * @param {number} height - The new height of the window.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.setWindowSize("window123", 800, 600);
+   */
   setWindowSize(windowHandle: string, width: number, height: number): void {
     this.#executePowerShell(`SetWindowSize ${windowHandle} ${width} ${height}`);
   }
 
+   /**
+   * Sets the position of the specified window.
+   * @param {string} windowHandle - The handle of the window.
+   * @param {number} x - The new x-coordinate of the window.
+   * @param {number} y - The new y-coordinate of the window.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.setWindowPosition("window123", 100, 100);
+   */
   setWindowPosition(windowHandle: string, x: number, y: number): void {
     this.#executePowerShell(`SetWindowPosition ${windowHandle} ${x} ${y}`);
   }
 
+   /**
+   * Focuses on the next window in the window stack.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.focusNextWindow();
+   */
   focusNextWindow(): void {
     this.#executePowerShell("FocusNextWindow");
   }
 
+  
+  /**
+   * Opens an application using the specified process name.
+   * @param {string} processName - The name of the process to execute.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.openApplication("firefox");
+   */
   openApplication(processName: string): void {
     this.#executePowerShell(`OpenApplication ${processName}`);
   }
 
+   /**
+   * Closes an application by its process name.
+   * @param {string} processName - The name of the process to close.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.closeApplication("Firefox");
+   */
   closeApplication(processName: string): void {
     this.#executePowerShell(`CloseApplication ${processName}`);
   }
   
+    /**
+   * Focuses on a window with the specified title.
+   * @param {string} title - The title of the window to focus on.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.focusWindowByTitle("My Document");
+   */
   focusWindowByTitle(title: string): void {
     this.#executePowerShell(`FocusWindowByTitle -Title "${title}"`);
   }
