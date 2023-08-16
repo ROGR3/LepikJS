@@ -100,9 +100,8 @@
         </h2>
 
         <p>
-          LepikJS has exactly 3 listening events. <br>
-          1 for mouse click, 1 for key press and 1 for key release.
-          To listen to these events, you can use the <b>on</b> method.
+          LepikJS has many events. <br>
+          To listen to them, you can use the <b>on</b> method.
         </p>
         <p>
           <b> Listening to mouse click:</b>
@@ -116,6 +115,46 @@
         The <b>event.button</b> parameter is a number that represents the button that was clicked. <br>
         The number is 0 for left, 1 for right and 2 for middle.
         </p>
+          <p>
+            <b> Listening to mouse move:</b>
+          <pre><code class="language-javascript">lepik.on("mouseMove", (event) => {
+            console.log("Position x: " + event.x );
+            console.log("Position y: " + event.y); 
+            console.log("Timestamp: " + event.time); 
+            })</code>
+          </pre>
+          </p>
+          <p>
+            <b> Listening to mouse down:</b>
+          <pre><code class="language-javascript">lepik.on("mouseDown", (event) => {
+            console.log("Position x: " + event.x );
+            console.log("Position y: " + event.y); 
+            })</code>
+          </pre>
+          The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouse down. <br>
+            </p>
+          <p>
+            <b> Listening to mouse up:</b>
+          <pre><code class="language-javascript">lepik.on("mouseUp", (event) => {
+            console.log("Position x: " + event.x );
+            console.log("Position y: " + event.y); 
+            })</code>
+          </pre>
+          The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouse up. <br>
+            </p>
+          <p>
+            <b> Listening to mouse Double Click:</b>
+          <pre><code class="language-javascript">lepik.on("mouseDoubleClick", (event) => {
+            console.log("Position x: " + event.x );
+            console.log("Position y: " + event.y); 
+            console.log("Button: " + event.button); 
+            })</code>
+          </pre>
+          The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouseDoubleClick. <br>   
+            The <b>event.button</b> parameter is a number that represents the button that was clicked. <br>
+            The number is 0 for left, 1 for right and 2 for middle.
+            </p>
+
         <p>
           <b> Listening to key press:</b>
         <pre>
@@ -123,19 +162,28 @@
   console.log(key + " pressed")
 })</code>
 </pre>
-        The <b>key</b> parameter is the key that was released.
+        The <b>key</b> parameter is the key that was pressed.
         </p>
         <p>
-          <b> Listening to key release:</b>
-        <pre><code class="language-javascript">lepik.on("keyRelease", (key) => {
+          <b> Listening to key up:</b>
+        <pre><code class="language-javascript">lepik.on("keyUp", (key) => {
   console.log(key + " released")
 })</code>
 </pre>
         The <b>key</b> parameter is the key that was released.
         </p>
+ <p>
+          <b> Listening to key down:</b>
+        <pre><code class="language-javascript">lepik.on("keyDown", (key) => {
+  console.log(key + " released")
+})</code>
+</pre>
+        The <b>key</b> parameter is the key that was pushed.
+        </p>
+
+
+
       </div>
-
-
 
 
       <div id="emittingevents">
