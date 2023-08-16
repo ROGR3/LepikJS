@@ -300,6 +300,15 @@ class UnixLepik extends LepikEvents {
     return output;
   }
 
+   /**
+   * Retrieves the size of the specified window.
+   * @param {string} windowId - The ID of the window.
+   * @returns {{ width: number, height: number }} The window size object.
+   * @example
+   * const lepik = require("lepikjs");
+   * const size = lepik.getWindowSize("window123");
+   * console.log(size.width, size.height);
+   */
   getWindowSize(windowId: string): { width: number, height: number } {
     const command = `xdotool getwindowgeometry --shell ${windowId}`;
     const output = this.#executeShellCommand(command).trim();
@@ -319,29 +328,75 @@ class UnixLepik extends LepikEvents {
     return { width, height };
   }
 
+   /**
+   * Sets the size of the specified window.
+   * @param {string} windowId - The ID of the window.
+   * @param {number} width - The new width of the window.
+   * @param {number} height - The new height of the window.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.setWindowSize("window123", 800, 600);
+   */
   setWindowSize(windowId: string, width: number, height: number): void {
     const command = `xdotool windowsize ${windowId} ${width} ${height}`;
     this.#executeShellCommand(command);
   }
 
+   /**
+   * Sets the position of the specified window.
+   * @param {string} windowId - The ID of the window.
+   * @param {number} x - The new x-coordinate of the window.
+   * @param {number} y - The new y-coordinate of the window.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.setWindowPosition("window123", 100, 100);
+   */
   setWindowPosition(windowId: string, x: number, y: number): void {
     const command = `xdotool windowmove ${windowId} ${x} ${y}`;
     this.#executeShellCommand(command);
   }
 
+   /**
+   * Focuses on the next window in the window stack.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.focusNextWindow();
+   */
   focusNextWindow(): void {
     const command = `xdotool key --clearmodifiers Alt+Tab`;
     this.#executeShellCommand(command);
   }
 
+   /**
+   * Opens an application using the specified command.
+   * @param {string} command - The command to execute the application.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.openApplication("firefox");
+   */
   openApplication(command: string): void {
     this.#executeShellCommand(`xdotool exec ${command}`);
   }
 
+  
+  /**
+   * Closes an application by its class name.
+   * @param {string} className - The class name of the application.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.closeApplication("Firefox");
+   */
   closeApplication(className: string): void {
     this.#executeShellCommand(`xdotool search --class "${className}" windowkill`);
   }
 
+    /**
+   * Focuses on a window with the specified title.
+   * @param {string} title - The title of the window to focus on.
+   * @example
+   * const lepik = require("lepikjs");
+   * lepik.focusWindowByTitle("My Document");
+   */
   focusWindowByTitle(title: string): void {
     const command = `xdotool search --name "${title}" windowactivate`;
     this.#executeShellCommand(command);
