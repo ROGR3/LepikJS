@@ -22,10 +22,11 @@
     <h1>
       Welcome to <br> <span>LepikJS</span>
     </h1>
-      <h3>
-        A versatile NodeJS library for managing a wide range of events including mouse and keyboard interactions, screen actions like print screen, as well as various Windows events
-      </h3>
-      <div class="logo"></div>
+    <h3>
+      A versatile NodeJS library for managing a wide range of events including mouse and keyboard interactions, screen
+      actions like print screen, as well as various Windows events
+    </h3>
+    <div class="logo"></div>
     <div class="aButton"></div>
     <a href="#pageone" class="down">
       <i class="fas fa-arrow-down"></i>
@@ -38,14 +39,18 @@
         <h2>
           First words
         </h2>
-          <p>
-            LepikJS is a Node.js package designed for managing an array of events, encompassing mouse and keyboard interactions,
-            screen actions like print screen, and a spectrum of Windows events including application openings and closures.
-          </p>
-          <p>
-            One of the standout advantages of this library is its dual capability: not only can it actively listen to events,
-            but it can also emit them. This unique trait empowers the creation of straightforward event-driven applications.
-          </p>
+        <p>
+          LepikJS is a Node.js package designed for managing an array of events, encompassing mouse and keyboard
+          interactions,
+          screen actions like print screen, and a spectrum of Windows events including application openings and
+          closures.
+        </p>
+        <p>
+          One of the standout advantages of this library is its dual capability: not only can it actively listen to
+          events,
+          but it can also emit them. This unique trait empowers the creation of straightforward event-driven
+          applications.
+        </p>
       </div>
       <div>
         <h2>
@@ -81,20 +86,20 @@
           Having NodeJS ^16.x (or higher) installed is also required.
         </p>
       </div>
-        <div id="usage">
-          <h2>
-            Usage
-          </h2>
-          <p>
-            To use the library, you need to import it.
-          </p>
-          <p>
-          <pre><code class="language-javascript">const lepik = require("lepikjs")</code></pre>
-          </p>
-          <p>
-            Then you can use it.</p>
-        </div>
-       <div id="listeningevents">
+      <div id="usage">
+        <h2>
+          Usage
+        </h2>
+        <p>
+          To use the library, you need to import it.
+        </p>
+        <p>
+        <pre><code class="language-javascript">const lepik = require("lepikjs")</code></pre>
+        </p>
+        <p>
+          Then you can use it.</p>
+      </div>
+      <div id="listeningevents">
         <h2>
           Listening Events
         </h2>
@@ -115,45 +120,45 @@
         The <b>event.button</b> parameter is a number that represents the button that was clicked. <br>
         The number is 0 for left, 1 for right and 2 for middle.
         </p>
-          <p>
-            <b> Listening to mouse move:</b>
-          <pre><code class="language-javascript">lepik.on("mouseMove", (event) => {
+        <p>
+          <b> Listening to mouse move:</b>
+        <pre><code class="language-javascript">lepik.on("mouseMove", (event) => {
             console.log("Position x: " + event.x );
             console.log("Position y: " + event.y); 
             console.log("Timestamp: " + event.time); 
             })</code>
           </pre>
-          </p>
-          <p>
-            <b> Listening to mouse down:</b>
-          <pre><code class="language-javascript">lepik.on("mouseDown", (event) => {
+        </p>
+        <p>
+          <b> Listening to mouse down:</b>
+        <pre><code class="language-javascript">lepik.on("mouseDown", (event) => {
             console.log("Position x: " + event.x );
             console.log("Position y: " + event.y); 
             })</code>
           </pre>
-          The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouse down. <br>
-            </p>
-          <p>
-            <b> Listening to mouse up:</b>
-          <pre><code class="language-javascript">lepik.on("mouseUp", (event) => {
+        The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouse down. <br>
+        </p>
+        <p>
+          <b> Listening to mouse up:</b>
+        <pre><code class="language-javascript">lepik.on("mouseUp", (event) => {
             console.log("Position x: " + event.x );
             console.log("Position y: " + event.y); 
             })</code>
           </pre>
-          The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouse up. <br>
-            </p>
-          <p>
-            <b> Listening to mouse Double Click:</b>
-          <pre><code class="language-javascript">lepik.on("mouseDoubleClick", (event) => {
+        The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouse up. <br>
+        </p>
+        <p>
+          <b> Listening to mouse Double Click:</b>
+        <pre><code class="language-javascript">lepik.on("mouseDoubleClick", (event) => {
             console.log("Position x: " + event.x );
             console.log("Position y: " + event.y); 
             console.log("Button: " + event.button); 
             })</code>
           </pre>
-          The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouseDoubleClick. <br>   
-            The <b>event.button</b> parameter is a number that represents the button that was clicked. <br>
-            The number is 0 for left, 1 for right and 2 for middle.
-            </p>
+        The <b>event.x</b> & <b>event.y</b> parameter are x and y position of the mouseDoubleClick. <br>
+        The <b>event.button</b> parameter is a number that represents the button that was clicked. <br>
+        The number is 0 for left, 1 for right and 2 for middle.
+        </p>
 
         <p>
           <b> Listening to key press:</b>
@@ -172,7 +177,7 @@
 </pre>
         The <b>key</b> parameter is the key that was released.
         </p>
- <p>
+        <p>
           <b> Listening to key down:</b>
         <pre><code class="language-javascript">lepik.on("keyDown", (key) => {
   console.log(key + " released")
@@ -190,35 +195,44 @@
         <h2>
           Getting Events
         </h2>
-          <p>
-            <b>Get current mouse position: </b>
-          <pre><code class="language-javascript">let pos = await lepik.getMousePosition()
+        <p>
+          <b>Get current mouse position: </b>
+        <pre><code class="language-javascript">let pos = await lepik.getMousePosition()
             console.log("Position x: " + pos.x );
             console.log("Position y: " + pos.y);</code></pre>
-          Returns the current mouse position as object with x and y attributes.
-          </p>
-          <p>
-            <b>Get current screen size: </b>
-          <pre><code class="language-javascript">let size = await lepik.getScreenSize()
+        Returns the current mouse position as object with x and y attributes.
+        </p>
+        <p>
+          <b>Get current screen size: </b>
+        <pre><code class="language-javascript">let size = await lepik.getScreenSize()
             console.log("Position x: " + size.width );
             console.log("Position y: " + size.height );</code></pre>
-          Returns the current  screen site as object with width and height attributes.
-          </p> <p>
-            <b>Get get Active Window: </b>
-          <pre><code class="language-javascript">let window = await lepik.getActiveWindow()
+        Returns the current screen site as object with width and height attributes.
+        </p>
+        <p>
+          <b>Get get Active Window: </b>
+        <pre><code class="language-javascript">let window = await lepik.getActiveWindow()
             console.log("Current window: " + window);</code></pre>
-          Returns the current window handle (or id on unix systems).
-          </p> <p>
-            <b>Get window title: </b>
-          <pre><code class="language-javascript">let windowTitle = await lepik.getWindowTitle(window)
+        Returns the current window handle (or id on unix systems).
+        </p>
+        <p>
+          <b>Get window title: </b>
+        <pre><code class="language-javascript">let windowTitle = await lepik.getWindowTitle(window)
             console.log("Window Title: " + windowTitle );</code></pre>
-          Returns the window title string.
-          </p>
+        Returns the window title string.
+        </p>
+        <p>
+          <b>Get window size: </b>
+        <pre><code class="language-javascript">let win = await lepik.getWindowSize(window)
+            console.log("Window width: " + win.width );
+            console.log("Window height: " + win.height );</code></pre>
+        Returns the window title string.
+        </p>
 
 
-          <h2>
-            Emitting Events
-          </h2>
+        <h2>
+          Emitting Events
+        </h2>
 
 
         <p>

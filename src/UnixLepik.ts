@@ -123,7 +123,7 @@ class UnixLepik extends LepikEvents {
 
   /**
      * Sends a key tap event for the given key.
-     * @param {string} key - The key to tap. Must be a single character or a key name from the list returned by the `getSupportedKeys` method.
+     * @param {string} key - The key to tap. Must be a single character.
      * @returns {void}
      * @example
      * const lepik = require("lepikjs");
