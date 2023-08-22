@@ -39,11 +39,11 @@ function isPackageManagerAvailable(pm) {
 function installXdotool(pm) {
   const installCommands = {
     'apt': ['sudo apt install xdotool -y'],
-    'apt-get': ['sudo apt-get install xdotool'],
-    'dnf': ['sudo dnf install xdotool'],
-    'yum': ['sudo yum install xdotool'],
-    'zypper': ['sudo zypper install xdotool'],
-    'pacman': ['sudo pacman -S xdotool']
+    'apt-get': ['sudo apt-get install -y xdotool'],
+    'dnf': ['sudo dnf install -y xdotool'],
+    'yum': ['sudo yum install -y xdotool'],
+    'zypper': ['sudo zypper install -y xdotool'],
+    'pacman': ['sudo pacman -S --noconfirm xdotool']
   };
 
   installCommands[pm].forEach(cmd => execSync(cmd));
