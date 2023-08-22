@@ -6,7 +6,8 @@
 ##### Implemented enhancements:
 
 ##### Fixed bugs:
--  fixed package managers ([#33a7aaf](https://github.com/borecjeborec1/LepikJS/commit/33a7aaf2fe3c53cd10161229714acb900b84564c))
+-  fixed package managers auto accept ([#33a7aaf](https://github.com/borecjeborec1/LepikJS/commit/33a7aaf2fe3c53cd10161229714acb900b84564c))
+-  fixed apt package manager support ([#33a7aaf](https://github.com/borecjeborec1/LepikJS/commit/33a7aaf2fe3c53cd10161229714acb900b84564c))
 -  readme cleanup ([#c8667bd](https://github.com/borecjeborec1/LepikJS/commit/c8667bdfa0f4c83345479777643a7221b23cdca3)) 
 
 ## [3.1] - 2023-06-21

@@ -32,6 +32,11 @@ You can install LepikJS using npm:
 npm install lepikjs
 ```
 
+> LepikJS automaticly downloads xdotool on \*nix (non-windows) machines.
+> If the first run fails, install it manually to make it work
+> `(sudo apt/apt-get/dnf/... install xdotool)`
+
+
 ## Usage
 
 To use LepikJS, you need to require it in your code:
