@@ -6,7 +6,7 @@ const WindowsLepik = require("./javascript/WindowsLepik.js");
 
 const isWin = process.platform === "win32";
 const psPath = __dirname + "/powershell/LepikShell.ps1";
-const packageManagers = ['apt-get', 'dnf', 'yum', 'zypper', 'pacman'];
+const packageManagers = ['apt', 'apt-get', 'dnf', 'yum', 'zypper', 'pacman'];
 
 if (!isWin) {
   handleUnixPackageManager()
@@ -38,7 +38,8 @@ function isPackageManagerAvailable(pm) {
 
 function installXdotool(pm) {
   const installCommands = {
-    'apt-get': ['sudo apt-get update', 'sudo apt-get install xdotool'],
+    'apt': ['sudo apt install xdotool -y'],
+    'apt-get': ['sudo apt-get install xdotool'],
     'dnf': ['sudo dnf install xdotool'],
     'yum': ['sudo yum install xdotool'],
     'zypper': ['sudo zypper install xdotool'],
