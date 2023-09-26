@@ -1,6 +1,6 @@
 {
   "name": "lepikjs",
-  "version": "3.2.18",
+  "version": "3.3.0",
   "description": "Global Keyboard and Mouse Desktop Automation",
   "main": "./index.js",
   "scripts": {
@@ -34,7 +34,7 @@
   "dependencies": {
     "eventemitter2": "^6.4.5",
     "github-publisher": "^1.4.2",
-    "lepikevents": "^2.0.3"
+    "lepikevents": "^2.0.5"
   },
   "repository": {
     "type": "git",
