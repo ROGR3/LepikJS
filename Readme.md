@@ -1,7 +1,7 @@
 # LepikJS
 LepikJS is a global keyboard and mouse event emitter. It allows you to listen to and emit events related to keyboard and mouse actions as well as managing windows and screens. You can use it for automation, testing, or any other application that requires control over dekstop and user input.
 
-You can visit LepikJS's [website](https://lepikjs.netlify.app/) for more information.
+You can visit LepikJS's [website](https://lepikjs.pages.dev/) for more information.
 
 LepikJS is available on NPM [LepikJS](https://www.npmjs.com/package/lepikjs).
 LepikJS uses [LepikEvents](https://www.npmjs.com/package/lepikevents). Don't forget to try that out!
@@ -59,7 +59,7 @@ lepik.on("mouseClick", (data) => {
 You can see all methods inside: 
 1. [Unix](./docs/UnixLepik.md) docs
 2. [Windows](./docs/WindowsLepik.md) docs
-3. [Website](https://lepikjs.netlify.app/)
+3. [Website](https://lepikjs.pages.dev/)
 
 ```javascript
 const lepik = require('lepikjs');
@@ -147,9 +147,9 @@ lepik.delay(ms)
 // When reached this line, the process can exit.
 lepik.close() 
 ```
-You can find more information about each method in the [source code](https://github.com/Borecjeborec1/LepikJS/tree/main/src).
-1. [Windows](https://github.com/Borecjeborec1/LepikJS/blob/main/src/WindowsLepik.ts) code
-2. [Unix/Linux](https://github.com/Borecjeborec1/LepikJS/blob/main/src/UnixLepik.ts) code
+You can find more information about each method in the [source code](https://github.com/ROGR3/LepikJS/tree/main/src).
+1. [Windows](https://github.com/ROGR3/LepikJS/blob/main/src/WindowsLepik.ts) code
+2. [Unix/Linux](https://github.com/ROGR3/LepikJS/blob/main/src/UnixLepik.ts) code
 
 
 #### User performance

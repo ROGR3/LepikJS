@@ -29,7 +29,7 @@
     "linux",
     "macos"
   ],
-  "author": "borecjeborec1",
+  "author": "ROGR",
   "license": "MIT",
   "dependencies": {
     "eventemitter2": "^6.4.5",
@@ -38,12 +38,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/borecjeborec1/LepikJS.git"
+    "url": "git+https://github.com/ROGR3/LepikJS.git"
   },
   "bugs": {
-    "url": "https://github.com/borecjeborec1/LepikJS/issues"
+    "url": "https://github.com/ROGR3/LepikJS/issues"
   },
-  "homepage": "https://github.com/borecjeborec1/LepikJS#readme",
+  "homepage": "https://github.com/ROGR3/LepikJS#readme",
   "devDependencies": {
     "jsdoc-to-markdown": "^8.0.0"
   }

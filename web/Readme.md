@@ -1,3 +1,3 @@
 # Website for LepikJS
 
-Visit [website](https://lepikjs.netlify.app/)
+Visit [website](https://lepikjs.pages.dev/)
